@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Nav from './Nav';
 
 export default class Header extends Component {
   render() {
@@ -8,7 +9,11 @@ export default class Header extends Component {
           className='logo'
           src='https://leanfrontiers.com/wp-content/uploads/2018/12/logo-placeholder-png.png'
         ></img>
-        <h2> Strong At Every Size </h2>
+        <Nav />
+        <div className='login-signup'>
+          <button> Login </button>
+          <button> Sign Up </button>
+        </div>
       </div>
     );
   }

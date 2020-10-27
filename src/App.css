@@ -1,6 +1,10 @@
+/* All */
+
 .App {
   text-align: center;
 }
+
+/* Header/Footer */
 
 .header {
   width: 100%;
@@ -19,6 +23,65 @@
   width: 100%;
   background-color: gray;
   height: 100px;
-  position: fixed;
+  position: sticky;
   bottom: 0;
+}
+
+.login-signup {
+  padding: 5px;
+  margin-left: 42%;
+  padding: 5px;
+  display: flex;
+}
+
+.login-signup button {
+  border: none;
+  margin: 5px;
+  padding: 5px;
+  height: 25px;
+  width: 80px;
+  cursor: pointer;
+}
+
+.nav {
+  margin-top: 3%;
+  display: flex;
+}
+
+.nav a {
+  padding: 5px;
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
+  width: 100px;
+}
+
+/* Home Page */
+
+.home div{
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+.slideshow {
+  border: 1px solid red;
+  height: 45vh;
+}
+
+.group-2 {
+  display: flex;
+  justify-content: space-around;
+}
+
+.group-2 div {
+  height: 50vh;
+  width: 45vw;
+}
+
+.promos {
+  border: 1px solid green;
+}
+
+.updates {
+  border: 1px solid blue;
 }
