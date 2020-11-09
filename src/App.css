@@ -4,84 +4,168 @@
   text-align: center;
 }
 
-/* Header/Footer */
+html, body {
+  height: 100%;
+}
+
+/* Header */
 
 .header {
   width: 100%;
   height: 100px;
   top: 0;
+  position: sticky;
   background-color: gray;
   display: flex;
+  justify-content: space-between;
 }
 
 .logo {
-  height: 100px;
-  width: 100px;
+  height: 90px;
+  width: 90px;
 }
+
+.login-signup {
+  display: flex;
+  height: 30px;
+}
+
+.login-signup button {
+  font-size: 10px;
+  border: none;
+  margin: 3px;
+}
+
+/* Nav */
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.nav a {
+  font-size: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+/* Footer */
 
 .footer {
   width: 100%;
   background-color: gray;
   height: 100px;
-  position: sticky;
   bottom: 0;
+  position: relative;
 }
 
-.login-signup {
-  padding: 5px;
-  margin-left: 42%;
-  padding: 5px;
+
+
+/* Main Content */
+
+.home {
+  min-height: 100%;
+}
+
+.home div {
+  margin-bottom: 5px;
+}
+
+.main-content {
   display: flex;
+  flex-flow: column;
+  overflow: auto;
 }
 
-.login-signup button {
-  border: none;
-  margin: 5px;
-  padding: 5px;
-  height: 25px;
-  width: 80px;
-  cursor: pointer;
-}
-
-.nav {
-  margin-top: 3%;
-  display: flex;
-}
-
-.nav a {
-  padding: 5px;
-  text-decoration: none;
-  color: black;
-  font-size: 15px;
-  width: 100px;
-}
-
-/* Home Page */
-
-.home div{
-  margin: 0;
-  margin-bottom: 15px;
+.main-content-home div {
+  padding: 10px;
 }
 
 .slideshow {
-  border: 1px solid red;
-  height: 45vh;
+  height: 25vh;
+  margin-top: 5px;
 }
 
-.group-2 {
-  display: flex;
-  justify-content: space-around;
-}
-
-.group-2 div {
-  height: 50vh;
-  width: 45vw;
+.slideshow-1 {
+  height: 100%;
+  width: 100%;
 }
 
 .promos {
-  border: 1px solid green;
+  flex: 1;
 }
 
 .updates {
-  border: 1px solid blue;
+  flex: 1;
 }
+
+
+/* About Page */
+
+.image-container {
+  height: 35vh;
+}
+
+.trainer-image {
+  height: 100%;
+  width: 100%;
+}
+
+.main-content-about {
+  display: flex;
+  flex-flow: column;
+  overflow: auto;
+}
+
+.main-content-about h3, p {
+  padding: 10px;
+}
+
+/* Contact Form */
+
+.contact {
+  height: 100vh;
+}
+
+.main-content-contact {
+  display: flex;
+  flex-flow: column;
+  overflow: auto;
+}
+
+form label, input, textarea {
+  padding: 10px;
+  margin: 8px;
+}
+
+form textarea {
+  resize: vertical;
+}
+
+button[type='submit'] {
+  margin: 10px;
+  padding: 10px;
+  width: 100px;
+  align-self: center;
+}
+
+/* Client Stories */ 
+
+.main-content-stories {
+  display: flex;
+  flex-flow: column;
+  overflow: auto;
+}
+
+.client-story {
+  padding: 10px;
+}
+
+.client-img {
+  height: 35vh;
+  margin: 10px;
+}
+
+
+

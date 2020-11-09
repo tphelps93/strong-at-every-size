@@ -6,7 +6,7 @@ export default class Header extends Component {
     return (
       <div className='header'>
         <img
-          className='logo'
+          className='logo' alt='strong at every size logo'
           src='https://leanfrontiers.com/wp-content/uploads/2018/12/logo-placeholder-png.png'
         ></img>
         <Nav />
