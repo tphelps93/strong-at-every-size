@@ -8,7 +8,7 @@ export default class AdminProf extends Component {
       <div className='admin-profile'>
         <div className='admin-container'>
           <div className='admin-main-info-box'>
-            <img src='https://i2.wp.com/airlinkflight.org/wp-content/uploads/2019/02/male-placeholder-image.jpeg?ssl=1'></img>
+            <img alt='admin' src='https://i2.wp.com/airlinkflight.org/wp-content/uploads/2019/02/male-placeholder-image.jpeg?ssl=1'></img>
 
             <h2> Sarah Phelps </h2>
             <h3> sd188@gmail.com </h3>
@@ -16,11 +16,6 @@ export default class AdminProf extends Component {
           </div>
           <div className='admin-control-box'>
             <div className='view-users-box'>
-              <ViewUsers />
-              <ViewUsers />
-              <ViewUsers />
-              <ViewUsers />
-              <ViewUsers />
               <ViewUsers />
             </div>
 

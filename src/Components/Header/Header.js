@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Nav from './Nav';
-import logo from '../../Images/saes-transparent.png'
 import smLogo from '../../Images/smLogo.png'
 
 export default class Header extends Component {

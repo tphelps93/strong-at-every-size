@@ -10,27 +10,33 @@ import Footer from './Components/Footer/Footer';
 // import Testimonies from './Components/Testimonies/Testimonies';
 // import Store from './Components/Store/Store';
 // import StoreDetails from './Components/StoreDetails/StoreDetails';
-import SignUp from './Components/SignUp/SignUp';
+// import SignUp from './Components/SignUp/SignUp';
 // import Login from './Components/Login/Login';
-// import AdminProf from './Components/AdminProf/AdminProf';
+import AdminProf from './Components/AdminProf/AdminProf';
 // import UserProf from './Components/UserProf/UserProf';
 
 class App extends Component {
+  static contextType = UsersContext;
   state = {
-    users: [],
+    users: this.context.users,
   };
+
+  componentDidMount() {
+    this.setState = {
+      users: UsersContext.users,
+    };
+  }
 
   render() {
     const contextValue = {
       users: this.state.users,
     };
 
-    console.log(contextValue);
     return (
       <div className='App'>
         <UsersContext.Provider value={contextValue}>
           <Header />
-          <SignUp />
+          <AdminProf />
           <Footer />
         </UsersContext.Provider>
       </div>

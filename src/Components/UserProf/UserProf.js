@@ -8,7 +8,7 @@ export default class UserProf extends Component {
       <div className='user-profile'>
         <div className='user-profile-container'>
           <div className='main-info-box'>
-            <img src='https://i2.wp.com/airlinkflight.org/wp-content/uploads/2019/02/male-placeholder-image.jpeg?ssl=1'></img>
+            <img alt='user' src='https://i2.wp.com/airlinkflight.org/wp-content/uploads/2019/02/male-placeholder-image.jpeg?ssl=1'></img>
             <h2> Debby Smith </h2>
             <h3> debbysmith@gmail.com </h3>
 

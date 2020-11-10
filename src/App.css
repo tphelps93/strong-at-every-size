@@ -294,8 +294,8 @@ p, select {
 .admin-profile {
   display: flex;
   flex-flow: column;
-  overflow: auto;
   height: 100vh;
+  overflow: auto;
 }
 
 .admin-container {
@@ -314,18 +314,33 @@ p, select {
   height: 150px;
 }
 
-.admin-control-box div {
-  margin-bottom: 15px;
-  background-color: white;
+.admin-control-box {
   display: flex;
-  flex-wrap: wrap;
-  height: 150px;
-  overflow: auto;
-  justify-content: center;
+  flex-flow: column;
 }
 
-.admin-control-box div h2 {
-  padding: 10px;
+.view-users-box, .store-stats-box {
+  background-color: white;
+}
+
+.view-users-box {
+  overflow: auto;
+  height: 20vh;
+  margin: 10px;
+}
+
+.view-users {
+  display: flex;
+  flex-flow: column;
+}
+
+.user-listing {
+  padding: 15px;
+}
+
+.store-stats-box {
+  overflow: auto;
+  margin: 10px;
 }
 
 /* User Prof */

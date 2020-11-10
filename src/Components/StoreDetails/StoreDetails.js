@@ -11,7 +11,7 @@ export default class StoreDetails extends Component {
         </button>
         <div className='item-details'>
           <h1> SAES Tee </h1>
-          <img
+          <img alt='item'
             className='store-item-image-detailed'
             src='https://www.rollingstone.com/wp-content/uploads/2020/05/Screen-Shot-2020-05-21-at-13.02.55.png'
           ></img>
