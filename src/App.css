@@ -4,7 +4,8 @@
   text-align: center;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -21,8 +22,8 @@ html, body {
 }
 
 .logo {
-  height: 90px;
-  width: 90px;
+  height: 70px;
+  margin-top: 15px;
 }
 
 .login-signup {
@@ -60,8 +61,6 @@ html, body {
   position: relative;
 }
 
-
-
 /* Main Content */
 
 .home {
@@ -94,12 +93,13 @@ html, body {
 
 .promos {
   flex: 1;
+  border-top: 1px solid gray;
 }
 
 .updates {
   flex: 1;
+  border-top: 1px solid gray;
 }
-
 
 /* About Page */
 
@@ -118,7 +118,8 @@ html, body {
   overflow: auto;
 }
 
-.main-content-about h3, p {
+.main-content-about h3,
+p {
   padding: 10px;
 }
 
@@ -134,7 +135,9 @@ html, body {
   overflow: auto;
 }
 
-form label, input, textarea {
+form label,
+input,
+textarea {
   padding: 10px;
   margin: 8px;
 }
@@ -150,7 +153,7 @@ button[type='submit'] {
   align-self: center;
 }
 
-/* Client Stories */ 
+/* Client Stories */
 
 .main-content-stories {
   display: flex;
@@ -167,5 +170,248 @@ button[type='submit'] {
   margin: 10px;
 }
 
+/* Store Page */
+.main-content-store {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
+  justify-content: center;
+  height: 100vh;
+}
+
+.searchBar {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+
+.searchInputs {
+  display: flex;
+}
+
+.searchInputs input {
+  width: 50%;
+}
+
+.searchBar button {
+  height: 35%;
+}
+
+/* Store Item */
+.store-item {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.store-item-image {
+  height: 90px;
+}
+
+.store-item h4 {
+  font-size: 15px;
+  margin-bottom: -5px;
+}
+
+.store-item p {
+  font-size: 15px;
+  margin-top: -5px;
+}
+
+/* Store Details */
+.item-details {
+  padding-bottom: 20px;
+}
+
+.item-details .price {
+  margin-bottom: -5px;
+  margin-top: -5px;
+}
+
+.store-item-image-detailed {
+  height: 200px;
+}
+
+.desc {
+  border-top: 2px solid black;
+}
+
+.review-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-field textarea {
+  resize: vertical;
+} 
+
+.userReviews {
+  border-top: 2px solid black;
+}
+
+/* Sign Up Page */
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  justify-content: center;
+  height: 100vh;
+}
+
+.signup-form input,
+h1,
+p, select {
+  align-self: center;
+}
+
+/* Login Page */
+
+.login-page {
+  display: flex;
+  flex-flow: column;
+  overflow: auto;
+  height: 100vh;
+}
+
+.login-container {
+  background-color: gray;
+  margin: 10px;
+  padding: 5px;
+  height: 100vh;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-form input, h2, label, button {
+  margin-bottom: 50px;
+}
+
+/* Admin Profile */
+
+.admin-profile {
+  display: flex;
+  flex-flow: column;
+  overflow: auto;
+  height: 100vh;
+}
+
+.admin-container {
+  background-color: gray;
+  margin: 10px;
+  padding: 5px;
+  height: 100vh;
+}
+
+.admin-main-info-box h2, img {
+  margin-bottom: -10px;
+
+}
+
+.admin-container img { 
+  height: 150px;
+}
+
+.admin-control-box div {
+  margin-bottom: 15px;
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  height: 150px;
+  overflow: auto;
+  justify-content: center;
+}
+
+.admin-control-box div h2 {
+  padding: 10px;
+}
+
+/* User Prof */
+
+.user-profile {
+  display: flex;
+  flex-flow: column;
+  overflow: auto;
+  height: 100vh;
+}
+
+.main-info-box * {
+  margin-bottom: -5px;
+}
+
+.user-profile-container {
+  background-color: gray;
+  height: 100vh;
+  margin: 10px;
+  padding: 5px;
+}
+
+.main-info-box img {
+  height: 150px;
+}
+
+.about-me-box * {
+  margin-bottom: -5px;
+}
+
+.edit-card-btn {
+  margin-bottom: -20px;
+}
 
 
+
+.purchase-stats-box, .programs-box {
+  background-color: whitesmoke;
+  height: 15vh;
+  margin: 10px;
+  font-size: 15px;
+  overflow: auto;
+}
+
+.view-users-box * {
+  margin-bottom: -20px;
+}
+
+/* View Store Stats */
+.view-store-stats {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.view-store-stats h4 {
+  margin: 10px;
+  margin-top: 25px;
+}
+
+/* View Users */
+
+.view-users {
+  display: flex;
+  align-content: center;
+}
+
+.view-users h4 {
+  margin-top: 27px;
+}
+
+/* User Reviews */
+
+.user-reviews {
+  border-bottom: 1px solid gray;
+}
+
+/* User Programs */
+
+.user-programs * {
+  margin-bottom: -20px;
+}
+
+
+/* Purchase History */
+
+.purchase-history * {
+  margin-bottom: -25px;
+}

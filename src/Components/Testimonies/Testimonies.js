@@ -6,7 +6,7 @@ export default class Testimonies extends Component {
       <div className='testimonies'>
         <h2> Client Stories </h2>
         <div className='main-content-stories'>
-          <img className='client-img' src='https://i2.wp.com/airlinkflight.org/wp-content/uploads/2019/02/male-placeholder-image.jpeg?ssl=1' alt='client image'></img>
+          <img className='client-img' src='https://i2.wp.com/airlinkflight.org/wp-content/uploads/2019/02/male-placeholder-image.jpeg?ssl=1' alt='client'></img>
           <div className='client-story'>
             <p>
               {' '}
@@ -27,7 +27,7 @@ export default class Testimonies extends Component {
             </p>
           </div>
 
-          <img className='client-img' src='https://i2.wp.com/airlinkflight.org/wp-content/uploads/2019/02/male-placeholder-image.jpeg?ssl=1' alt='client image'></img>
+          <img className='client-img' src='https://i2.wp.com/airlinkflight.org/wp-content/uploads/2019/02/male-placeholder-image.jpeg?ssl=1' alt='client'></img>
           <div className='client-story'>
             <p>
               {' '}

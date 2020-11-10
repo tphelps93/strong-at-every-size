@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 
 
 export default class EditCard extends Component {
-    
-
     render() {
         return (
-            <h1> Edit Card Page </h1>
+            <div className='edit-card-page'></div>
         )
     }
 
