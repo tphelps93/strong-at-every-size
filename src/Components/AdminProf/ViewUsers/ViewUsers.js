@@ -6,7 +6,9 @@ export default class ViewUsers extends Component {
   render() {
     const { users } = this.context;
 
-    const userList = users.map(user => {
+    const userList = users.filter(user => {
+      return user.isAdmin === false;
+    }).map(user => {
       return (
         <div className='user-listing'>
           <h4>{user.name}</h4>

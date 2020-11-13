@@ -45,9 +45,9 @@ body {
   justify-content: space-evenly;
 }
 
-.nav a {
-  font-size: 10px;
-  text-decoration: none;
+.nav li {
+  font-size: 15px;
+  list-style-type: none;
   color: black;
 }
 
@@ -171,12 +171,19 @@ button[type='submit'] {
 }
 
 /* Store Page */
+
 .main-content-store {
+  height: 100vh;
+}
+.store-item {
   display: flex;
   flex-wrap: wrap;
   overflow: auto;
-  justify-content: center;
-  height: 100vh;
+  padding: 10px;
+}
+
+.item-listing {
+  padding: 10px;
 }
 
 .searchBar {
@@ -198,11 +205,6 @@ button[type='submit'] {
 }
 
 /* Store Item */
-.store-item {
-  padding-right: 20px;
-  padding-left: 20px;
-}
-
 .store-item-image {
   height: 90px;
 }
@@ -414,7 +416,7 @@ p, select {
 
 /* User Reviews */
 
-.user-reviews {
+.review-listing {
   border-bottom: 1px solid gray;
 }
 

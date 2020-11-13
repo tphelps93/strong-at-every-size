@@ -1,29 +1,38 @@
 import React, { Component } from 'react';
 import PurchaseHistory from './PurchaseHistory/PurchaseHistory';
 import UserPrograms from './UserPrograms/UserPrograms';
+import UserContext from '../../UsersContext';
 
 export default class UserProf extends Component {
+  static contextType = UserContext;
   render() {
-    return (
-      <div className='user-profile'>
-        <div className='user-profile-container'>
+    const { users } = this.context;
+
+    const userProfile = users.filter(users => {
+      return users.isAdmin === false;
+    }).map(user => {
+      return (
+        <div key={user.id} className='user-profile-container'>
           <div className='main-info-box'>
-            <img alt='user' src='https://i2.wp.com/airlinkflight.org/wp-content/uploads/2019/02/male-placeholder-image.jpeg?ssl=1'></img>
-            <h2> Debby Smith </h2>
-            <h3> debbysmith@gmail.com </h3>
+            <img
+              alt='user'
+              src={`${user.photo}`}
+            ></img>
+            <h2> {user.name} </h2>
+            <h3> {user.email} </h3>
 
             <button type='submit'> Edit Profile </button>
-        </div>
-            <div className='about-me-box'>
-              <h5> About Me </h5>
-              <p>
-                {' '}
-                Lorem ipsum dolor sit amet, usu at dicam dolore inimicus. Ad
-                voluptua definiebas vim, te vim omnes postulant. Oblique
-                facilisis id qui. Eros latine pertinax no pri, his ei lorem
-                nominati. Malis tractatos mnesarchum cum ut, at cibo sale pro.
-              </p>
-            </div>
+          </div>
+          <div className='about-me-box'>
+            <h5> About Me </h5>
+            <p>
+              {' '}
+              Lorem ipsum dolor sit amet, usu at dicam dolore inimicus. Ad
+              voluptua definiebas vim, te vim omnes postulant. Oblique facilisis
+              id qui. Eros latine pertinax no pri, his ei lorem nominati. Malis
+              tractatos mnesarchum cum ut, at cibo sale pro.
+            </p>
+          </div>
 
           <button className='edit-card-btn'> Edit Card Info </button>
 
@@ -35,7 +44,10 @@ export default class UserProf extends Component {
             <UserPrograms />
           </div>
         </div>
-      </div>
-    );
+      );
+    });
+    return <div className='user-profile'>
+      {userProfile}
+    </div>;
   }
 }

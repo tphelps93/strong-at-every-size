@@ -1,15 +1,27 @@
 import React, { Component } from 'react';
-
+import { Link } from 'react-router-dom';
+import UserContext from '../../../UsersContext';
 
 export default class StoreItem extends Component {
-    render() {
-        return (
-            <div className='store-item'>
-                <img alt='item' className='store-item-image' src='https://www.rollingstone.com/wp-content/uploads/2020/05/Screen-Shot-2020-05-21-at-13.02.55.png'/>
-                <h4> SAES Tee </h4>
-                <p> $50 </p>
-            </div>
-        )
-    }
+  static contextType = UserContext;
+  render() {
+    const { items } = this.context;
 
+    const itemsList = items.map(item => {
+      return (
+        <div key={item.id} className='item-listing'>
+          <Link to={`/store/${item.id}`}>
+            <img
+              className='store-item-image'
+              alt='item'
+              src={`${item.photo}`}
+            ></img>
+          </Link>
+          <h4>{item.title}</h4>
+          <p>{item.price}</p>
+        </div>
+      );
+    });
+    return <div className='store-item'>{itemsList}</div>;
+  }
 }

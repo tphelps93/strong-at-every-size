@@ -1,9 +1,12 @@
 import React from 'react';
-import users from './dummy-data';
+import store from './dummy-data';
 
 const UsersContext = React.createContext({
-    users: users,
+  users: store.users,
+  items: store.items,
+  programs: store.programs,
+  user_reviews: store.user_reviews,
+  user_purchases: store.user_purchases,
 });
-
 
 export default UsersContext;

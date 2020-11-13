@@ -10,7 +10,7 @@ export default class Login extends Component {
 
             <input placeholder='Email'></input>
             <input type='password'></input>
-            <label for='remember'> Remember Me </label>
+            <label htmlFor='remember'> Remember Me </label>
             <button type='submit'> Login </button>
           </form>
         </div>

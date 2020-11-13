@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
+import UsersContext from '../../../UsersContext';
 
 export default class UserReviews extends Component {
+  static contextType = UsersContext;
   render() {
-    return (
-      <div className='user-reviews'>
-        <h4> Debby Smith </h4>
-        <p> Rating: 5 </p>
-        <p>
-          {' '}
-          In id aliqua qui eu sint ea voluptate nulla irure id anim fugiat duis
-          id. Laboris ut consequat do nostrud aute sit quis elit incididunt
-          veniam. Reprehenderit non irure esse qui dolore minim amet enim Lorem.
-          Aute aute voluptate amet est fugiat eu aliquip. Adipisicing aute
-          ullamco irure exercitation aute ullamco deserunt. Dolor sint nisi
-          ipsum et non magna duis enim nisi laboris incididunt.{' '}
-        </p>
-      </div>
-    );
+    const { user_reviews } = this.context;
+
+    const userReviewList = user_reviews.map(review => {
+      return (
+        <div key={review.id} className='review-listing'>
+          <h4> Reviews </h4>
+          <p> Rating: {review.rating} </p>
+          <p>
+            {review.content}
+          </p>
+        </div>
+      );
+    });
+    return <div className='user-reviews'>
+      {userReviewList}
+    </div>;
   }
 }

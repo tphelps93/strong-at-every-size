@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
+import UsersContext from '../../../UsersContext';
 
 export default class PurchaseHistory extends Component {
+  static contextType = UsersContext;
   render() {
-    return (
-      <div className='purchase-history'>
-        <h4> SAES Tee </h4>
-        <p> $50 </p>
-        <p> Purchased On: 11/9/2020 </p>
-      </div>
-    );
+    const { user_purchases } = this.context;
+
+    const userPurchaseList = user_purchases.map(item => {
+      return (
+        <div key={item.id} className='purchase-listing'>
+          <h4> {item.title} </h4>
+          <p> Price: {item.price} </p>
+        </div>
+      );
+    });
+    return <div className='purchase-history'>
+      {userPurchaseList}
+    </div>;
   }
 }
