@@ -5,7 +5,9 @@ import TokenService from '../../services/token-service';
 import { Link } from 'react-router-dom';
 
 export default class Header extends Component {
-  handleLogoutClick = () => {};
+  handleLogoutClick = () => {
+    TokenService.clearAuthToken();
+  };
 
   renderLoginLink() {
     return (

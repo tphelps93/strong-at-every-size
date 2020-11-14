@@ -10,11 +10,12 @@ export default class ReviewForm extends Component {
     const { reviews } = this.context;
     const { content } = ev.target;
     const { rating } = ev.target;
+
     postReview(reviews.review_id, content.value, rating.value)
       .then(() => this.context.addReview)
       .then(() => {
-        content.value = '',
-        rating.value = ''
+        content.value = ''
+        rating.value = 0
       })
       .catch(this.context.setError);
   };

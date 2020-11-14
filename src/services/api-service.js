@@ -83,16 +83,17 @@ export const fetchItems = () => {
       })
   };
 
-  export const postReview = (reviewid, content) => {
+  export const postReview = (reviewid, content, rating) => {
     return fetch(`${config.API_BASE_URL}/reviews`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
-        'authorization': `basic ${TokenService.getAuthToken()}`,
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
         review_id: reviewid,
-        content
+        content,
+        rating
       }),
     })
       .then(res => {
