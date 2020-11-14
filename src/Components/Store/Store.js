@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import StoreItem from './StoreItem/StoreItem'; 
+import StoreItem from './StoreItem/StoreItem';
 
 export default class Store extends Component {
+
   render() {
     return (
       <div className='store'>

@@ -1,8 +1,17 @@
 import './App.css';
 import React, { Component } from 'react';
-import UsersContext from './UsersContext';
+import UsersContext from './DataContext';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { fetchUserProfile } from './api-service';
+import {
+  fetchUsers,
+  fetchItems,
+  fetchPrograms,
+  fetchReviews,
+  fetchPromos,
+  fetchPurchases,
+  fetchArticles,
+  fetchTestimonies,
+} from '../src/services/api-service';
 
 import Home from './Components/Home/Home';
 import Header from './Components/Header/Header';
@@ -19,25 +28,76 @@ import AdminProf from './Components/AdminProf/AdminProf';
 import UserProf from './Components/UserProf/UserProf';
 
 class App extends Component {
-  static contextType = UsersContext;
   state = {
-    users: this.context.users,
-    items: this.context.items,
-    user_purchases: this.context.user_purchases,
-    user_reviews: this.context.user_reviews,
+    users: [],
+    items: [],
+    programs: [],
+    purchases: [],
+    reviews: [],
+    promos: [],
+    articles: [],
+    testimonies: [],
+    error: null,
   };
 
-  componentDidMount() {
-    fetchUserProfile(1);
+  addUser = newUser => {
+    this.setState({
+      users: [...this.state.users, newUser],
+    });
+  };
+
+  addReview = newReview => {
+    this.setState([...this.state.reviews, newReview]);
+  };
+
+  setError = error => {
+    console.log(error)
+    this.setState({ error })
   }
-  
+
+  componentDidMount() {
+    Promise.all([
+      fetchUsers(),
+      fetchItems(),
+      fetchPrograms(),
+      fetchReviews(),
+      fetchPromos(),
+      fetchPurchases(),
+      fetchArticles(),
+      fetchTestimonies(),
+    ])
+      .then(values =>
+        this.setState({
+          users: values[0],
+          items: values[1],
+          programs: values[2],
+          reviews: values[3],
+          promos: values[4],
+          purchases: values[5],
+          articles: values[6],
+          testimonies: values[7],
+        })
+      )
+      .catch(error => {
+        this.setState({
+          error,
+        });
+      });
+  }
 
   render() {
     const contextValue = {
       users: this.state.users,
       items: this.state.items,
-      user_purchases: this.state.user_purchases,
-      user_reviews: this.state.user_reviews,
+      programs: this.state.programs,
+      purchases: this.state.purchases,
+      reviews: this.state.reviews,
+      promos: this.state.promos,
+      articles: this.state.articles,
+      testimonies: this.state.testimonies,
+      addUser: this.addUser,
+      addReview: this.addReview,
+      setError: this.setError,
     };
 
     return (
@@ -52,7 +112,7 @@ class App extends Component {
             <Route path='/signup' component={SignUp} />
             <Route path='/login' component={Login} />
             <Route exact path='/store' component={Store} />
-            <Route path='/store/:id' component={StoreDetails} />
+            <Route path='/store/:item_id' component={StoreDetails} />
 
             <Route path='/user-profile' component={UserProf} />
             <Route path='/admin-profile' component={AdminProf} />

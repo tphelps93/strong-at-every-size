@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import UsersContext from '../../../UsersContext';
+import UsersContext from '../../../DataContext';
 
 export default class PurchaseHistory extends Component {
   static contextType = UsersContext;

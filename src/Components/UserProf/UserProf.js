@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PurchaseHistory from './PurchaseHistory/PurchaseHistory';
 import UserPrograms from './UserPrograms/UserPrograms';
-import UserContext from '../../UsersContext';
+import UserContext from '../../DataContext';
 
 export default class UserProf extends Component {
   static contextType = UserContext;

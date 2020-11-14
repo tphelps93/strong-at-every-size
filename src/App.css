@@ -37,6 +37,17 @@ body {
   margin: 3px;
 }
 
+.logout {
+  display: flex;
+  height: 30px;
+}
+
+.logout button {
+  font-size: 10px;
+  border: none;
+  margin: 3px;
+}
+
 /* Nav */
 
 .nav {
@@ -105,11 +116,15 @@ body {
 
 .image-container {
   height: 35vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .trainer-image {
   height: 100%;
-  width: 100%;
+  width: 75vw;
+  align-self: center;
 }
 
 .main-content-about {
@@ -167,7 +182,7 @@ button[type='submit'] {
 
 .client-img {
   height: 35vh;
-  margin: 10px;
+  width: 80vw;
 }
 
 /* Store Page */

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ViewUsers from './ViewUsers/ViewUsers';
 import ViewStoreStats from './ViewStoreStats/ViewStoreStats';
-import UserContext from '../../UsersContext';
+import UserContext from '../../DataContext';
 
 export default class AdminProf extends Component {
   static contextType = UserContext;

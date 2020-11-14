@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import UserReviews from './UserReviews/UserReviews';
-import UserContext from '../../UsersContext';
+import DataContext from '../../DataContext';
+import ReviewForm from './ReviewForm/ReviewForm';
 
 export default class StoreDetails extends Component {
-  static contextType = UserContext;
+  static contextType = DataContext;
+
   render() {
     const { items } = this.context;
+
     const itemDetails = items.filter(item => {
-      return item.id == this.props.match.params.id
+      return item.item_id == this.props.match.params.item_id
     })
     .map(item => {
       return (
-        <div key={item.id} className='item-details'>
+        <div key={item.item_id} className='item-details'>
                   <button type='submit' className='cart'>
           {' '}
           Cart{' '}
@@ -35,20 +38,7 @@ export default class StoreDetails extends Component {
           {item.description}
         </p>
 
-        <h4> Reviews </h4>
-
-        <div className='review-field'>
-          <h6> Write A Review </h6>
-          <select>
-            <option> 5 </option>
-            <option> 4 </option>
-            <option> 3 </option>
-            <option> 2 </option>
-            <option> 1 </option>
-          </select>
-          <textarea className='review-field'></textarea>
-          <button type='submit'> Submit Review </button>
-        </div>
+        <ReviewForm />
 
         <div className='userReviews'>
           <UserReviews />

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import UserContext from '../../../UsersContext';
+import UserContext from '../../../DataContext';
 
 export default class ViewStoreStats extends Component {
   static contextType = UserContext;

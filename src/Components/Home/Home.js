@@ -1,59 +1,41 @@
 import React, { Component } from 'react';
+import DataContext from '../../DataContext';
 
 export default class Home extends Component {
+  static contextType = DataContext;
   render() {
+    const { promos, articles } = this.context;
+
+    const promosList = promos.map(promo => {
+      return (
+        <div key={promo.promo_id} className='promos'>
+          <h3> Promos </h3>
+          <p> {promo.content} </p>
+        </div>
+      );
+    });
+
+    const articlesList = articles.map(article => {
+      return (
+        <div key={article.news_id} className='updates'>
+          <h3> Updates </h3>
+          <p> {article.content} </p>
+        </div>
+      );
+    });
     return (
       <div className='home'>
         <div className='slideshow'>
-          <img className='slideshow-1' alt='man doing a deadlift' src='https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80'></img>
+          <img
+            className='slideshow-1'
+            alt='man doing a deadlift'
+            src='https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80'
+          ></img>
         </div>
-    <div className='main-content-home'>
-        <div className='promos'>
-          <h3> Promos </h3>
-          <p>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum." 
-            
-            "Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in
-            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-            officia deserunt mollit anim id est laborum."
-          </p>
+        <div className='main-content-home'>
+          {promosList}
+          {articlesList}
         </div>
-
-        <div className='updates'>
-          <h3> Updates </h3>
-          <p>
-          "Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in
-            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-            officia deserunt mollit anim id est laborum."
-
-            "Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in
-            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-            officia deserunt mollit anim id est laborum."
-          </p>
-        </div>
-        </div>
-
       </div>
     );
   }
