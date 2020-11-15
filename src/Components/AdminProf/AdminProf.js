@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import ViewUsers from './ViewUsers/ViewUsers';
 import ViewStoreStats from './ViewStoreStats/ViewStoreStats';
-import UserContext from '../../DataContext';
+import DataContext from '../../DataContext';
 
 export default class AdminProf extends Component {
-  static contextType = UserContext;
+  static contextType = DataContext;
   render() {
     const { users } = this.context;
 
     const adminProfile = users
       .filter(user => {
-        return user.isAdmin === true;
+        return user.isadmin === false;
       })
       .map(user => {
         return (
-          <div className='admin-container'>
+          <div key={user.user_id} className='admin-container'>
             <div className='admin-main-info-box'>
               <img
                 alt='admin'

@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
-import UsersContext from '../../../DataContext';
+import DataContext from '../../../DataContext';
 
 export default class UserPrograms extends Component {
-  static contextType = UsersContext;
+  static contextType = DataContext;
   render() {
-    const { user_purchases } = this.context;
-
-    const userProgramList = user_purchases.filter(item => {
-      return item.type === 'program';
-    }).map(program => {
+    const { purchases, programs } = this.context;
+    
+    const userProgramList = programs.map(program => {
       return (
-        <div key={program.id} className='user-program-listing'>
+        <div key={program.program_id} className='user-program-listing'>
           <h2> {program.title} </h2>
           <p> Price: {program.price} </p>
         </div>

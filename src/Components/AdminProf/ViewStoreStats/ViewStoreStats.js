@@ -8,7 +8,7 @@ export default class ViewStoreStats extends Component {
 
     const allUserPurchases = purchases.map(soldItem => {
       return (
-        <div key={soldItem.user_id} className='sold-items'>
+        <div key={soldItem.purchase_id} className='sold-items'>
           <h4> {soldItem.title} </h4>
           <p> {soldItem.price} </p>
         </div>

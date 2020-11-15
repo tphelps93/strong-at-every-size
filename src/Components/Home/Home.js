@@ -9,7 +9,6 @@ export default class Home extends Component {
     const promosList = promos.map(promo => {
       return (
         <div key={promo.promo_id} className='promos'>
-          <h3> Promos </h3>
           <p> {promo.content} </p>
         </div>
       );
@@ -18,7 +17,6 @@ export default class Home extends Component {
     const articlesList = articles.map(article => {
       return (
         <div key={article.news_id} className='updates'>
-          <h3> Updates </h3>
           <p> {article.content} </p>
         </div>
       );
@@ -33,7 +31,9 @@ export default class Home extends Component {
           ></img>
         </div>
         <div className='main-content-home'>
+          <h3> Promos </h3>
           {promosList}
+          <h3> Updates </h3>
           {articlesList}
         </div>
       </div>

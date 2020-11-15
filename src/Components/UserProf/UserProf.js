@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import PurchaseHistory from './PurchaseHistory/PurchaseHistory';
 import UserPrograms from './UserPrograms/UserPrograms';
-import UserContext from '../../DataContext';
+import DataContext from '../../DataContext';
 
 export default class UserProf extends Component {
-  static contextType = UserContext;
+  static contextType = DataContext;
   render() {
     const { users } = this.context;
 
     const userProfile = users.filter(users => {
-      return users.isAdmin === false;
+      return users.isadmin === false;
     }).map(user => {
       return (
-        <div key={user.id} className='user-profile-container'>
+        <div key={user.user_id} className='user-profile-container'>
           <div className='main-info-box'>
             <img
               alt='user'
