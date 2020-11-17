@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DataContext from '../../DataContext';
-import config from '../../config';
+import { postUser } from '../../services/api-service';
 
 export default class SignUp extends Component {
   static contextType = DataContext;
@@ -8,42 +8,39 @@ export default class SignUp extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    const userName = event.target.name.value;
-    const userEmail = event.target.email.value;
-    const userAddress = event.target.address.value;
-    const userState = event.target.state.value;
-    const userZip = event.target.zipCode.value;
-    const user_name = event.target.userName.value;
-    const userPass = event.target.password.value;
+    const { name } = event.target;
+    const { email } = event.target;
+    const { address } = event.target;
+    const { state } = event.target;
+    const { zip } = event.target;
+    const { user_name } = event.target;
+    const { password } = event.target;
 
-    const url = `${config.API_BASE_URL}/users`;
-    const options = {
-      method: 'POST',
-      body: JSON.stringify({
-        name: userName,
-        email: userEmail,
-        address: userAddress,
-        state: userState,
-        zip: userZip,
-        user_name: user_name,
-        password: userPass,
-      }),
-      headers: { 'Content-Type': 'application/json' },
-    };
-    fetch(url, options)
-      .then(res => {
-        if (!res.ok) {
-          throw new Error(
-            'Something went wrong posting "users", please try again later'
-          );
-        }
-        return res.json();
-      })
+    postUser(
+      name.value,
+      email.value,
+      address.value,
+      state.value,
+      zip.value,
+      user_name.value,
+      password.value
+    )
       .then(user => {
         this.context.addUser(user);
-        this.props.history.push(`/users/${user.user_id}`);
       })
-      .catch(err => console.log(err.message));
+      .then(() => {
+        name.value = '';
+        email.value = '';
+        address.value = '';
+        state.value = '';
+        zip.value = 0;
+        user_name.value = '';
+        password.value = '';
+      })
+      .then(() => {
+        this.props.history.push('/');
+      })
+      .catch(this.context.setError);
   };
   render() {
     return (
@@ -64,9 +61,9 @@ export default class SignUp extends Component {
             <option> VA </option>
           </select>
 
-          <input name='zipCode' placeholder='Zip Code'></input>
+          <input name='zip' placeholder='Zip Code'></input>
 
-          <input name='userName' placeholder='User Name'></input>
+          <input name='user_name' placeholder='User Name'></input>
 
           <input name='password' type='password'></input>
 

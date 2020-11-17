@@ -25,6 +25,9 @@ export default class Header extends Component {
   renderLogoutLink() {
     return (
       <div className='logout'>
+        <Link to='/profile-page'>
+          profile
+        </Link>
         <Link onClick={this.handleLogoutClick} to='/'>
           Logout
         </Link>

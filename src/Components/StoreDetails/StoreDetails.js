@@ -38,10 +38,10 @@ export default class StoreDetails extends Component {
           {item.description}
         </p>
 
-        <ReviewForm />
+        <ReviewForm itemId={this.props.match.params.item_id}/>
 
         <div className='userReviews'>
-          <UserReviews />
+          <UserReviews itemId={this.props.match.params.item_id}/>
         </div>
         </div>
       )

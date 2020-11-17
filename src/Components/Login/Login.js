@@ -7,6 +7,10 @@ export default class Login extends Component {
     onLoginSuccess: () => {},
   };
 
+
+  // Work on getting delete to automatically render on delete. Look at add item
+  // as reference
+
   state = { error: null }
 
   handleSubmitJwtAuth = ev => {
@@ -24,12 +28,14 @@ export default class Login extends Component {
         TokenService.saveAuthToken(res.authToken);
         this.props.onLoginSuccess();
       })
+      .then(() => {
+        this.props.history.push('/');
+      })
       .catch(res => {
         this.setState({ error: res.error });
       });
   };
   render() {
-    const { error } = this.state;
     return (
       <div className='login-page' onSubmit={this.handleSubmitJwtAuth}>
         <div className='login-container'>

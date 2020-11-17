@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UsersContext = React.createContext({
+const DataContext = React.createContext({
   users: [],
   items: [],
   programs: [],
@@ -9,9 +9,17 @@ const UsersContext = React.createContext({
   promos: [],
   articles: [],
   testimonies: [],
+  isadmin: null, 
   addUser: () => {},
   addReview: () => {},
+  addPromo: () => {},
+  addArticle: () => {},
+  addTestimony: () => {},
+  addItem: () => {},
+  deleteItem: () => {},
+  deletePromo: () => {},
+  deleteArticle: () => {},
   setError: () => {},
 });
 
-export default UsersContext;
+export default DataContext;

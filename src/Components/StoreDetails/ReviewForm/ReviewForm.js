@@ -7,20 +7,17 @@ export default class ReviewForm extends Component {
 
   handleSubmit = ev => {
     ev.preventDefault();
-    const { reviews } = this.context;
     const { content } = ev.target;
     const { rating } = ev.target;
-
-    postReview(reviews.review_id, content.value, rating.value)
-      .then(() => this.context.addReview)
+    const itemId = this.props.itemId;
+    postReview(content.value, rating.value, itemId)
+      .then((newReview) => this.context.addReview(newReview))
       .then(() => {
-        content.value = ''
-        rating.value = 0
+        content.value = '';
+        rating.value = 0;
       })
       .catch(this.context.setError);
   };
-
-  /* Trying to get the review form on the itemDetails page to work properly */
 
   render() {
     return (

@@ -11,6 +11,7 @@ import {
   fetchPurchases,
   fetchArticles,
   fetchTestimonies,
+  fetchIsAdminCheck,
 } from '../src/services/api-service';
 
 import Home from './Components/Home/Home';
@@ -24,8 +25,14 @@ import StoreDetails from './Components/StoreDetails/StoreDetails';
 import SignUp from './Components/SignUp/SignUp';
 import Login from './Components/Login/Login';
 
-import AdminProf from './Components/AdminProf/AdminProf';
-import UserProf from './Components/UserProf/UserProf';
+import ProfilePage from './Components/ProfilePage/ProfilePage';
+import EditProfileForm from './Components/ProfilePage/EditProfileForm/EditProfileForm';
+
+import PromoForm from './Components/AdminProf/PromoForm/PromoForm';
+import ArticleForm from './Components/AdminProf/ArticleForm/ArticleForm';
+import TestimonyForm from './Components/AdminProf/TestimonyForm/TestimonyForm';
+import ItemForm from './Components/AdminProf/ItemForm/ItemForm';
+import TokenService from './services/token-service';
 
 class App extends Component {
   state = {
@@ -37,6 +44,7 @@ class App extends Component {
     promos: [],
     articles: [],
     testimonies: [],
+    isadmin: null,
     error: null,
   };
 
@@ -47,16 +55,70 @@ class App extends Component {
   };
 
   addReview = newReview => {
-    this.setState([...this.state.reviews, newReview]);
+    this.setState({
+      reviews: [...this.state.reviews, newReview],
+    });
+  };
+
+  addPromo = newPromo => {
+    this.setState({
+      promos: [...this.state.promos, newPromo],
+    });
+  };
+
+  addArticle = newArticle => {
+    this.setState({
+      articles: [...this.state.articles, newArticle],
+    });
+  };
+
+  addTestimony = newTestimony => {
+    this.setState({
+      testimonies: [...this.state.testimonies, newTestimony],
+    });
+  };
+
+  addItem = newItem => {
+    this.setState({
+      items: [...this.state.items, newItem],
+    });
+  };
+
+  deleteItem = item_id => {
+    this.setState({
+      items: this.state.items.filter(item => item.item_id !== item_id),
+    });
+  };
+
+  deleteTestimony = testimony_id => {
+    this.setState({
+      testimonies: this.state.testimonies.filter(
+        testimony => testimony.testimony_id !== testimony_id
+      ),
+    });
+  };
+
+  deleteArticle = news_id => {
+    this.setState({
+      articles: this.state.articles.filter(
+        article => article.news_id !== news_id
+      ),
+    });
+  };
+
+  deletePromo = promo_id => {
+    this.setState({
+      promos: this.state.promos.filter(promo => promo.promo_id !== promo_id),
+    });
   };
 
   setError = error => {
-    console.log(error)
-    this.setState({ error })
-  }
+    console.error(error);
+    this.setState({ error });
+  };
 
   componentDidMount() {
-    Promise.all([
+    let promises = [
       fetchUsers(),
       fetchItems(),
       fetchPrograms(),
@@ -65,7 +127,11 @@ class App extends Component {
       fetchPurchases(),
       fetchArticles(),
       fetchTestimonies(),
-    ])
+    ];
+
+    let loggedIn = TokenService.hasAuthToken();
+    if (loggedIn) promises.push(fetchIsAdminCheck());
+    Promise.all(promises)
       .then(values =>
         this.setState({
           users: values[0],
@@ -76,6 +142,7 @@ class App extends Component {
           purchases: values[5],
           articles: values[6],
           testimonies: values[7],
+          isadmin: loggedIn ? values[8] : null,
         })
       )
       .catch(error => {
@@ -95,8 +162,17 @@ class App extends Component {
       promos: this.state.promos,
       articles: this.state.articles,
       testimonies: this.state.testimonies,
+      isadmin: this.state.isadmin,
       addUser: this.addUser,
       addReview: this.addReview,
+      addPromo: this.addPromo,
+      addArticle: this.addArticle,
+      addTestimony: this.addTestimony,
+      addItem: this.addItem,
+      deleteItem: this.deleteItem,
+      deleteTestimony: this.deleteTestimony,
+      deleteArticle: this.deleteArticle,
+      deletePromo: this.deletePromo,
       setError: this.setError,
     };
 
@@ -114,8 +190,14 @@ class App extends Component {
             <Route exact path='/store' component={Store} />
             <Route path='/store/:item_id' component={StoreDetails} />
 
-            <Route path='/user-profile' component={UserProf} />
-            <Route path='/admin-profile' component={AdminProf} />
+            <Route path='/profile-page' component={ProfilePage} />
+            <Route path='/edit-profile' component={EditProfileForm} />
+
+            <Route path='/add-promo' component={PromoForm} />
+            <Route path='/add-article' component={ArticleForm} />
+            <Route path='/add-testimony' component={TestimonyForm} />
+            <Route path='/add-item' component={ItemForm} />
+
             <Footer />
           </UsersContext.Provider>
         </div>

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PurchaseHistory from './PurchaseHistory/PurchaseHistory';
 import UserPrograms from './UserPrograms/UserPrograms';
 import DataContext from '../../DataContext';
+import { Link } from 'react-router-dom';
+
 
 export default class UserProf extends Component {
   static contextType = DataContext;
@@ -21,7 +23,9 @@ export default class UserProf extends Component {
             <h2> {user.name} </h2>
             <h3> {user.email} </h3>
 
-            <button type='submit'> Edit Profile </button>
+            <Link to='/edit-profile'>
+                <button type='submit'> Edit Profile </button>
+              </Link>
           </div>
           <div className='about-me-box'>
             <h5> About Me </h5>

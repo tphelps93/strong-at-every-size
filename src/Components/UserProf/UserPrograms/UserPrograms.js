@@ -4,7 +4,7 @@ import DataContext from '../../../DataContext';
 export default class UserPrograms extends Component {
   static contextType = DataContext;
   render() {
-    const { purchases, programs } = this.context;
+    const { programs } = this.context;
     
     const userProgramList = programs.map(program => {
       return (
