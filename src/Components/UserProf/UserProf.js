@@ -3,15 +3,15 @@ import PurchaseHistory from './PurchaseHistory/PurchaseHistory';
 import UserPrograms from './UserPrograms/UserPrograms';
 import DataContext from '../../DataContext';
 import { Link } from 'react-router-dom';
+import TokenService from '../../services/token-service';
 
 
 export default class UserProf extends Component {
   static contextType = DataContext;
   render() {
     const { users } = this.context;
-
-    const userProfile = users.filter(users => {
-      return users.isadmin === false;
+    const userProfile = users.filter(user => {
+      return user.user_id == TokenService.jwtDecode(TokenService.getAuthToken()).payload.user_id;
     }).map(user => {
       return (
         <div key={user.user_id} className='user-profile-container'>

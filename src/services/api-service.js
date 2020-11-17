@@ -287,6 +287,39 @@ export const deleteArticle = news_id => {
   });
 };
 
-
 /* PATCH */
 
+export const editUserDetails = (
+  user_id,
+  photo,
+  name,
+  user_name,
+  email,
+  address,
+  state,
+  zip
+) => {
+  return fetch(`${config.API_BASE_URL}/users/${user_id}`, {
+    method: 'PATCH',
+    headers: {
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify({
+      user_id,
+      photo,
+      name,
+      user_name,
+      email,
+      address,
+      state,
+      zip
+    }),
+  }).then(res => {
+    if (!res.ok) {
+      throw new Error(
+        `Something went wrong updating ${user_name}, please try again later.`
+      );
+    }
+    return res.json();
+  });
+};

@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import TokenService from '../../services/token-service';
 import AuthApiService from '../../services/auth-api-service';
+import DataContext from '../../DataContext';
 
 export default class Login extends Component {
+  static contextType = DataContext;
   static defaultProps = {
     onLoginSuccess: () => {},
   };
-
-
-  // Work on getting delete to automatically render on delete. Look at add item
-  // as reference
 
   state = { error: null }
 
@@ -26,6 +24,7 @@ export default class Login extends Component {
         user_name.value = '';
         password.value = '';
         TokenService.saveAuthToken(res.authToken);
+        this.context.setAuthToken(res.authToken);
         this.props.onLoginSuccess();
       })
       .then(() => {
@@ -36,6 +35,8 @@ export default class Login extends Component {
       });
   };
   render() {
+
+    console.log(this.context);
     return (
       <div className='login-page' onSubmit={this.handleSubmitJwtAuth}>
         <div className='login-container'>

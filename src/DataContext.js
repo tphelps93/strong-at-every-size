@@ -9,7 +9,8 @@ const DataContext = React.createContext({
   promos: [],
   articles: [],
   testimonies: [],
-  isadmin: null, 
+  authToken: null,
+  isadmin: null,
   addUser: () => {},
   addReview: () => {},
   addPromo: () => {},
@@ -19,7 +20,10 @@ const DataContext = React.createContext({
   deleteItem: () => {},
   deletePromo: () => {},
   deleteArticle: () => {},
+  editProfile: () => {},
   setError: () => {},
+  setAuthToken: () => {},
+  clearAuthToken: () => {},
 });
 
 export default DataContext;

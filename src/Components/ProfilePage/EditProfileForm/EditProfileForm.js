@@ -1,37 +1,85 @@
 import React, { Component } from 'react';
 import DataContext from '../../../DataContext';
+import TokenService from '../../../services/token-service';
+import { editUserDetails } from '../../../services/api-service';
 
 export default class EditProfileForm extends Component {
   static contextType = DataContext;
 
   handleSubmit = event => {
+    const user_id = TokenService.jwtDecode(TokenService.getAuthToken()).payload
+      .user_id;
     event.preventDefault();
+    const { photo } = event.target;
+    const { name } = event.target;
+    const { user_name } = event.target;
+    const { email } = event.target;
+    const { address } = event.target;
+    const { state } = event.target;
+    const { zip } = event.target;
+
+    editUserDetails(
+      user_id,
+      photo.value,
+      name.value,
+      user_name.value,
+      email.value,
+      address.value,
+      state.value,
+      zip.value,
+    )
+      .then(editedUser => {
+        this.context.editProfile(editedUser);
+      })
+      .then(() => {
+        this.props.history.push('/profile-page')
+      })
+      .catch(this.context.setError);
   };
 
   render() {
     const { users } = this.context;
 
-    const userProfileEditForm = users.map(user => {
-      return (
-        <form key={user.user_id} className='edit-admin-form' onSubmit={this.handleSubmit}>
-          <h2> Edit Admin Details </h2>
+    const userProfileEditForm = users
+      .filter(user => {
+        return (
+          user.user_id ==
+          TokenService.jwtDecode(TokenService.getAuthToken()).payload.user_id
+        );
+      })
+      .map(user => {
+        return (
+          <form
+            key={user.user_id}
+            className='edit-admin-form'
+            onSubmit={this.handleSubmit}
+          >
+            <h2> Edit Details </h2>
 
-          <img src='#'></img>
-          <input name='photo' type='text' placeholder='Photo URL'></input>
-          <input name='name' type='text' placeholder='Name'></input>
-          <input name='user_name' type='text' placeholder='UserName'></input>
-          <input name='email' type='text' placeholder='Email'></input>
-          <input name='address' type='text' placeholder='Address'></input>
+            <img className='edit-form-photo' src={user.photo}></img>
+            <input name='photo' type='text' defaultValue={user.photo}></input>
+            <input name='name' type='text' defaultValue={user.name}></input>
+            <input
+              name='user_name'
+              type='text'
+              defaultValue={user.user_name}
+            ></input>
+            <input name='email' type='text' defaultValue={user.email}></input>
+            <input
+              name='address'
+              type='text'
+              defaultValue={user.address}
+            ></input>
 
-          <select name='state'>
-            <option> VA </option>
-          </select>
+            <select name='state' defaultValue={user.state}>
+              <option> VA </option>
+            </select>
 
-          <input name='zip' placeholder='Zip Code'></input>
-          <button type='submit'> Submit </button>
-        </form>
-      );
-    });
+            <input name='zip' defaultValue={user.zip}></input>
+            <button type='submit'> Submit </button>
+          </form>
+        );
+      });
     return <div className='edit-admin'>{userProfileEditForm}</div>;
   }
 }

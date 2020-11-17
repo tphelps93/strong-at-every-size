@@ -3,10 +3,14 @@ import Nav from './Nav';
 import smLogo from '../../Images/smLogo.png';
 import TokenService from '../../services/token-service';
 import { Link } from 'react-router-dom';
+import DataContext from '../../DataContext';
 
 export default class Header extends Component {
+  static contextType = DataContext;
+
   handleLogoutClick = () => {
     TokenService.clearAuthToken();
+    this.context.clearAuthToken();
   };
 
   renderLoginLink() {
@@ -26,7 +30,7 @@ export default class Header extends Component {
     return (
       <div className='logout'>
         <Link to='/profile-page'>
-          profile
+          Profile
         </Link>
         <Link onClick={this.handleLogoutClick} to='/'>
           Logout

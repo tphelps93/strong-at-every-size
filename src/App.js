@@ -44,6 +44,7 @@ class App extends Component {
     promos: [],
     articles: [],
     testimonies: [],
+    authToken: null,
     isadmin: null,
     error: null,
   };
@@ -112,6 +113,24 @@ class App extends Component {
     });
   };
 
+  editProfile = user_id => {
+    this.setState({
+      users: this.state.users.find(user => user.user_id === user_id),
+    });
+  };
+
+  setAuthToken = authToken => {
+    this.setState({
+      authToken: authToken,
+    });
+  };
+
+  clearAuthToken = () => {
+    this.setState({
+      authToken: null,
+    });
+  };
+
   setError = error => {
     console.error(error);
     this.setState({ error });
@@ -162,6 +181,7 @@ class App extends Component {
       promos: this.state.promos,
       articles: this.state.articles,
       testimonies: this.state.testimonies,
+      authToken: this.state.authToken,
       isadmin: this.state.isadmin,
       addUser: this.addUser,
       addReview: this.addReview,
@@ -173,7 +193,10 @@ class App extends Component {
       deleteTestimony: this.deleteTestimony,
       deleteArticle: this.deleteArticle,
       deletePromo: this.deletePromo,
+      editProfile: this.editProfile,
       setError: this.setError,
+      setAuthToken: this.setAuthToken,
+      clearAuthToken: this.clearAuthToken,
     };
 
     return (

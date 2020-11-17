@@ -259,7 +259,7 @@ button[type='submit'] {
 
 .review-field textarea {
   resize: vertical;
-} 
+}
 
 .userReviews {
   border-top: 2px solid black;
@@ -276,7 +276,8 @@ button[type='submit'] {
 
 .signup-form input,
 h1,
-p, select {
+p,
+select {
   align-self: center;
 }
 
@@ -302,7 +303,10 @@ p, select {
   justify-content: center;
 }
 
-.login-form input, h2, label, button {
+.login-form input,
+h2,
+label,
+button {
   margin-bottom: 50px;
 }
 
@@ -322,12 +326,12 @@ p, select {
   height: 100vh;
 }
 
-.admin-main-info-box h2, img {
+.admin-main-info-box h2,
+img {
   margin-bottom: -10px;
-
 }
 
-.admin-container img { 
+.admin-container img {
   height: 150px;
 }
 
@@ -336,7 +340,8 @@ p, select {
   flex-flow: column;
 }
 
-.view-users-box, .store-stats-box {
+.view-users-box,
+.store-stats-box {
   background-color: white;
 }
 
@@ -392,9 +397,8 @@ p, select {
   margin-bottom: -20px;
 }
 
-
-
-.purchase-stats-box, .programs-box {
+.purchase-stats-box,
+.programs-box {
   background-color: whitesmoke;
   height: 15vh;
   margin: 10px;
@@ -441,9 +445,14 @@ p, select {
   margin-bottom: -20px;
 }
 
-
 /* Purchase History */
 
 .purchase-history * {
   margin-bottom: -25px;
+}
+
+/* Edit Profile Form */
+
+.edit-form-photo {
+  height: 150px;
 }
