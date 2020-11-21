@@ -5,53 +5,49 @@ import DataContext from '../../DataContext';
 import { Link } from 'react-router-dom';
 import TokenService from '../../services/token-service';
 
-
 export default class UserProf extends Component {
   static contextType = DataContext;
   render() {
     const { users } = this.context;
-    const userProfile = users.filter(user => {
-      return user.user_id == TokenService.jwtDecode(TokenService.getAuthToken()).payload.user_id;
-    }).map(user => {
-      return (
-        <div key={user.user_id} className='user-profile-container'>
-          <div className='main-info-box'>
-            <img
-              alt='user'
-              src={`${user.photo}`}
-            ></img>
-            <h2> {user.name} </h2>
-            <h3> {user.email} </h3>
+    const userProfile = users
+      .filter(user => {
+        return (
+          user.user_id ==
+          TokenService.jwtDecode(TokenService.getAuthToken()).payload.user_id
+        );
+      })
+      .map(user => {
+        return (
+          <div key={user.user_id} className='user-profile-container'>
+            <div className='main-info-box'>
+              <img
+                alt='user'
+                className='profile-image'
+                src={`${user.photo}`}
+              ></img>
+              <h2> {user.name} </h2>
+              <h3> {user.email} </h3>
+              <div className='user-btns'>
+                <Link to='/edit-profile'>
+                  <button> Edit Profile </button>
+                </Link>
+                <button className='edit-card-btn'> Edit Card Info </button>
+              </div>
+            </div>
 
-            <Link to='/edit-profile'>
-                <button type='submit'> Edit Profile </button>
-              </Link>
+            <div className='user-controls-box'>
+              <h2> Purchases </h2>
+              <div className='purchase-stats-box'>
+                <PurchaseHistory />
+              </div>
+              <h2> Programs </h2>
+              <div className='programs-box'>
+                <UserPrograms />
+              </div>
+            </div>
           </div>
-          <div className='about-me-box'>
-            <h5> About Me </h5>
-            <p>
-              {' '}
-              Lorem ipsum dolor sit amet, usu at dicam dolore inimicus. Ad
-              voluptua definiebas vim, te vim omnes postulant. Oblique facilisis
-              id qui. Eros latine pertinax no pri, his ei lorem nominati. Malis
-              tractatos mnesarchum cum ut, at cibo sale pro.
-            </p>
-          </div>
-
-          <button className='edit-card-btn'> Edit Card Info </button>
-
-          <div className='purchase-stats-box'>
-            <PurchaseHistory />
-          </div>
-
-          <div className='programs-box'>
-            <UserPrograms />
-          </div>
-        </div>
-      );
-    });
-    return <div className='user-profile'>
-      {userProfile}
-    </div>;
+        );
+      });
+    return <div className='user-profile'>{userProfile}</div>;
   }
 }

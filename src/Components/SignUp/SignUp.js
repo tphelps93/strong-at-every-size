@@ -38,7 +38,7 @@ export default class SignUp extends Component {
         password.value = '';
       })
       .then(() => {
-        this.props.history.push('/');
+        this.props.history.push('/home');
       })
       .catch(this.context.setError);
   };
@@ -46,10 +46,10 @@ export default class SignUp extends Component {
     return (
       <div className='sign-up-page'>
         <form
-          className='signup-form'
+          className='sign-up-form'
           onSubmit={event => this.handleSubmit(event)}
         >
-          <h1> Sign Up </h1>
+          <h2> Sign Up </h2>
 
           <input name='name' placeholder='Name'></input>
 
@@ -57,7 +57,7 @@ export default class SignUp extends Component {
 
           <input name='address' placeholder='Address'></input>
 
-          <select name='state'>
+          <select name='state' className='select'>
             <option> VA </option>
           </select>
 
@@ -66,12 +66,6 @@ export default class SignUp extends Component {
           <input name='user_name' placeholder='User Name'></input>
 
           <input name='password' type='password'></input>
-
-          <p> What features are you most interested in?</p>
-          <select>
-            <option> Feature 1 </option>
-            <option> Feature 2</option>
-          </select>
 
           <button type='submit'> Submit </button>
         </form>

@@ -9,11 +9,11 @@ export default class Login extends Component {
     onLoginSuccess: () => {},
   };
 
-  state = { error: null }
+  state = { error: null };
 
   handleSubmitJwtAuth = ev => {
     ev.preventDefault();
-    this.setState({ error: null })
+    this.setState({ error: null });
     const { user_name, password } = ev.target;
 
     AuthApiService.postLogin({
@@ -28,27 +28,23 @@ export default class Login extends Component {
         this.props.onLoginSuccess();
       })
       .then(() => {
-        this.props.history.push('/');
+        this.props.history.push('/home');
       })
       .catch(res => {
         this.setState({ error: res.error });
       });
   };
   render() {
-
-    console.log(this.context);
     return (
       <div className='login-page' onSubmit={this.handleSubmitJwtAuth}>
-        <div className='login-container'>
-          <form className='login-form'>
-            <h2> Login </h2>
+        <form className='login-form'>
+          <h2> Login </h2>
 
-            <input name='user_name' placeholder='username'></input>
-            <input name='password' type='password'></input>
-            <label htmlFor='remember'> Remember Me </label>
-            <button type='submit'> Login </button>
-          </form>
-        </div>
+          <input name='user_name' placeholder='username'></input>
+          <input name='password' type='password'></input>
+          <label htmlFor='remember'> Remember Me </label>
+          <button type='submit'> Login </button>
+        </form>
       </div>
     );
   }

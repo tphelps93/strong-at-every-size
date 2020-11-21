@@ -14,6 +14,8 @@ import {
   fetchIsAdminCheck,
 } from '../src/services/api-service';
 
+import LandingPage from './Components/LandingPage/LangingPage';
+
 import Home from './Components/Home/Home';
 import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
@@ -28,10 +30,10 @@ import Login from './Components/Login/Login';
 import ProfilePage from './Components/ProfilePage/ProfilePage';
 import EditProfileForm from './Components/ProfilePage/EditProfileForm/EditProfileForm';
 
-import PromoForm from './Components/AdminProf/PromoForm/PromoForm';
-import ArticleForm from './Components/AdminProf/ArticleForm/ArticleForm';
-import TestimonyForm from './Components/AdminProf/TestimonyForm/TestimonyForm';
-import ItemForm from './Components/AdminProf/ItemForm/ItemForm';
+import PromoForm from './Components/Home/PromoForm/PromoForm';
+import ArticleForm from './Components/Home/ArticleForm/ArticleForm';
+import TestimonyForm from './Components/Testimonies/TestimonyForm/TestimonyForm';
+import ItemForm from './Components/Store/ItemForm/ItemForm';
 import TokenService from './services/token-service';
 
 class App extends Component {
@@ -99,10 +101,10 @@ class App extends Component {
     });
   };
 
-  deleteArticle = news_id => {
+  deleteArticle = article_id => {
     this.setState({
       articles: this.state.articles.filter(
-        article => article.news_id !== news_id
+        article => article.article_id !== article_id
       ),
     });
   };
@@ -113,9 +115,10 @@ class App extends Component {
     });
   };
 
-  editProfile = user_id => {
+  editProfile = (updatedUser) => {
+    let userId = this.state.users.findIndex(user => user.user_id === updatedUser.user_id);
     this.setState({
-      users: this.state.users.find(user => user.user_id === user_id),
+      users: this.state.users.splice(userId, 1, updatedUser)
     });
   };
 
@@ -204,7 +207,8 @@ class App extends Component {
         <div className='App'>
           <UsersContext.Provider value={contextValue}>
             <Header />
-            <Route exact path='/' component={Home} />
+            <Route exact path='/' component={LandingPage} />
+            <Route path='/home' component={Home} />
             <Route path='/about' component={About} />
             <Route path='/testimonies' component={Testimonies} />
             <Route path='/contact' component={Contact} />

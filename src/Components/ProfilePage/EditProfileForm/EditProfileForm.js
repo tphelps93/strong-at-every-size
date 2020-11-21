@@ -26,20 +26,28 @@ export default class EditProfileForm extends Component {
       email.value,
       address.value,
       state.value,
-      zip.value,
+      zip.value
     )
-      .then(editedUser => {
-        this.context.editProfile(editedUser);
+      .then(updatedUser => {
+        this.context.editProfile(updatedUser);
       })
       .then(() => {
-        this.props.history.push('/profile-page')
+        photo.value = '';
+        name.value = '';
+        user_name.value = '';
+        email.value = '';
+        address.value = '';
+        state.value = '';
+        zip.value = 0;
+      })
+      .then(() => {
+        this.props.history.push('/profile-page');
       })
       .catch(this.context.setError);
   };
 
   render() {
     const { users } = this.context;
-
     const userProfileEditForm = users
       .filter(user => {
         return (
@@ -49,37 +57,39 @@ export default class EditProfileForm extends Component {
       })
       .map(user => {
         return (
-          <form
-            key={user.user_id}
-            className='edit-admin-form'
-            onSubmit={this.handleSubmit}
-          >
-            <h2> Edit Details </h2>
+          <div key={user.user_id} className='edit-profile-page'>
+            <form
+              key={user.user_id}
+              className='edit-profile-form'
+              onSubmit={this.handleSubmit}
+            >
+              <h2> Edit Details </h2>
 
-            <img className='edit-form-photo' src={user.photo}></img>
-            <input name='photo' type='text' defaultValue={user.photo}></input>
-            <input name='name' type='text' defaultValue={user.name}></input>
-            <input
-              name='user_name'
-              type='text'
-              defaultValue={user.user_name}
-            ></input>
-            <input name='email' type='text' defaultValue={user.email}></input>
-            <input
-              name='address'
-              type='text'
-              defaultValue={user.address}
-            ></input>
+              <img className='edit-form-photo' src={user.photo}></img>
+              <input name='photo' type='text' defaultValue={user.photo}></input>
+              <input name='name' type='text' defaultValue={user.name}></input>
+              <input
+                name='user_name'
+                type='text'
+                defaultValue={user.user_name}
+              ></input>
+              <input name='email' type='text' defaultValue={user.email}></input>
+              <input
+                name='address'
+                type='text'
+                defaultValue={user.address}
+              ></input>
 
-            <select name='state' defaultValue={user.state}>
-              <option> VA </option>
-            </select>
+              <select name='state' defaultValue={user.state}>
+                <option> VA </option>
+              </select>
 
-            <input name='zip' defaultValue={user.zip}></input>
-            <button type='submit'> Submit </button>
-          </form>
+              <input name='zip' defaultValue={user.zip}></input>
+              <button type='submit'> Submit </button>
+            </form>
+          </div>
         );
       });
-    return <div className='edit-admin'>{userProfileEditForm}</div>;
+    return <div className='edit-profile'>{userProfileEditForm}</div>;
   }
 }

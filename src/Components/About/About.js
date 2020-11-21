@@ -12,20 +12,23 @@ export default class About extends Component {
           ></img>
         </div>
         <div className='main-content-about'>
-          <h3> About Sarah </h3>
-          <p>
-            'Sarah is a certified personal trainer through the National Academy
-            of Sports Medicine (NASM) who emphasizes a strong at every size
-            approach. Through her own battles with PCOS, Sarah has learned that
-            the scale is just a number and it shouldn't define you. You can be
-            strong and fit regardless of your size or the number on the scale.
-            She emphasizes functional movements for improving strength and the
-            ability to live life more fully. While on her own health and fitness
-            journey, Sarah lives by the philosophy that, your ideal weight is
-            whatever weight you reach, when you are mindfully nourishing
-            yourself with food and movement that you actually enjoy, and fully
-            engaging in your life. (Jennifer Rollin).'
-          </p>
+          <div className='about-section'>
+            <h3> About Sarah </h3>
+            <p>
+              'Sarah is a certified personal trainer through the National
+              Academy of Sports Medicine (NASM) who emphasizes a strong at every
+              size approach. Through her own battles with PCOS, Sarah has
+              learned that the scale is just a number and it shouldn't define
+              you. You can be strong and fit regardless of your size or the
+              number on the scale. She emphasizes functional movements for
+              improving strength and the ability to live life more fully. While
+              on her own health and fitness journey, Sarah lives by the
+              philosophy that, your ideal weight is whatever weight you reach,
+              when you are mindfully nourishing yourself with food and movement
+              that you actually enjoy, and fully engaging in your life.
+              (Jennifer Rollin).'
+            </p>
+          </div>
         </div>
       </div>
     );

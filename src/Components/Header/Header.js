@@ -30,10 +30,10 @@ export default class Header extends Component {
     return (
       <div className='logout'>
         <Link to='/profile-page'>
-          Profile
+          <button> Profile </button>
         </Link>
-        <Link onClick={this.handleLogoutClick} to='/'>
-          Logout
+        <Link onClick={this.handleLogoutClick} to='/home'>
+          <button> Logout </button>
         </Link>
       </div>
     );
@@ -42,14 +42,16 @@ export default class Header extends Component {
   render() {
     return (
       <div className='header'>
-        <Link to='/'>
+        <Link to='/home'>
           <img
             className='logo'
             alt='strong at every size logo'
             src={smLogo}
           ></img>
         </Link>
-        <Nav />
+        <div className='navigation-links'>
+          <Nav />
+        </div>
         {TokenService.hasAuthToken()
           ? this.renderLogoutLink()
           : this.renderLoginLink()}

@@ -12,8 +12,10 @@ export default class UserReviews extends Component {
     const userReviewList = filteredList.map(review => {
       return (
         <div key={review.review_id} className='review-listing'>
-          <h4> Reviews </h4>
-          <p> Rating: {review.rating} </p>
+          <div className='review-headers'>
+            <h5 className='review-name'> Taylor Phelps </h5>
+            <h5 className='review-rate'> Rating: {review.rating} </h5>
+          </div>
           <p>{review.content}</p>
         </div>
       );

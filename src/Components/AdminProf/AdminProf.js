@@ -17,7 +17,7 @@ export default class AdminProf extends Component {
         return (
           <div key={user.user_id} className='admin-container'>
             <div className='admin-main-info-box'>
-              <img alt='admin' src={`${user.photo}`}></img>
+              <img alt='admin' className='profile-image' src={`${user.photo}`}></img>
 
               <h2> {user.name} </h2>
               <h3> {user.email} </h3>
@@ -26,10 +26,11 @@ export default class AdminProf extends Component {
               </Link>
             </div>
             <div className='admin-control-box'>
+              <h2> User List </h2>
               <div className='view-users-box'>
                 <ViewUsers />
               </div>
-
+              <h2> Store Statistics </h2>
               <div className='store-stats-box'>
                 <ViewStoreStats />
               </div>

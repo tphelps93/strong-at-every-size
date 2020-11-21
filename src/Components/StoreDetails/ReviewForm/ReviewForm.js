@@ -23,7 +23,7 @@ export default class ReviewForm extends Component {
     return (
       <div className='review-field'>
         <form className='review-form' onSubmit={this.handleSubmit}>
-          <h6> Write A Review </h6>
+          <h4> Write A Review </h4>
           <select name='rating'>
             <option> 5 </option>
             <option> 4 </option>

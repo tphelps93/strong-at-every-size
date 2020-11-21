@@ -29,7 +29,9 @@ export default class Store extends Component {
         </div>
 
         <div className='main-content-store'>
-          <StoreItem />
+          <div className='store-item-listing'>
+            <StoreItem />
+          </div>
         </div>
       </div>
     );

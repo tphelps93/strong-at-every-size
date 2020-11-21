@@ -272,8 +272,8 @@ export const deletePromo = promo_id => {
   });
 };
 
-export const deleteArticle = news_id => {
-  return fetch(`${config.API_BASE_URL}/articles/${news_id}`, {
+export const deleteArticle = article_id => {
+  return fetch(`${config.API_BASE_URL}/articles/${article_id}`, {
     method: 'DELETE',
     header: {
       'content-type': 'application/json',
@@ -281,7 +281,7 @@ export const deleteArticle = news_id => {
   }).then(res => {
     if (!res.ok) {
       throw new Error(
-        `Something went wrong deleting ${news_id}, please try again later.`
+        `Something went wrong deleting ${article_id}, please try again later.`
       );
     }
   });

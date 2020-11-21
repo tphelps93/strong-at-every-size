@@ -14,10 +14,10 @@ export default class Home extends Component {
       .catch(this.context.setError);
   };
 
-  handleClickDeleteArticle = news_id => {
-    deleteArticle(news_id)
+  handleClickDeleteArticle = article_id => {
+    deleteArticle(article_id)
       .then(article => {
-        this.context.deleteArticle(news_id);
+        this.context.deleteArticle(article_id);
       })
       .catch(this.context.setError);
   };
@@ -26,13 +26,13 @@ export default class Home extends Component {
     const { promos, articles, isadmin } = this.context;
 
     const updateHomePage = isadmin ? (
-      <div className='edit-buttons'>
+      <div key={promos.promo_id} className='edit-buttons'>
         <Link to='/add-promo'>
-          <button className='add-promo'> Add Promo </button>
+          <button className='add-buttons'> Add Promo </button>
         </Link>
 
         <Link to='/add-article'>
-          <button className='add-article'> Add Article </button>
+          <button className='add-buttons'> Add Article </button>
         </Link>
       </div>
     ) : (
@@ -41,10 +41,10 @@ export default class Home extends Component {
 
     const deletePromoButton = promo_id => {
       return isadmin ? (
-        <div className='delete-promo-container'>
+        <div key={promos.promo_id} className='delete-promo-container'>
           <button
             name='delete-button'
-            className='delete-promo-button'
+            className='delete-button'
             onClick={() => this.handleClickDeletePromo(promo_id)}
           >
             {' '}
@@ -56,13 +56,13 @@ export default class Home extends Component {
       );
     };
 
-    const deleteArticleButton = news_id => {
+    const deleteArticleButton = article_id => {
       return isadmin ? (
-        <div className='delete-promo-container'>
+        <div className='delete-article-container'>
           <button
             name='delete-button'
-            className='delete-promo-button'
-            onClick={() => this.handleClickDeleteArticle(news_id)}
+            className='delete-button'
+            onClick={() => this.handleClickDeleteArticle(article_id)}
           >
             {' '}
             Delete{' '}
@@ -75,7 +75,7 @@ export default class Home extends Component {
     const promosList = promos.map(promo => {
       return (
         <div key={promo.promo_id} className='promos'>
-          <h2> {promo.title} </h2>
+          <h4> {promo.title} </h4>
           <p> {promo.content} </p>
           {deletePromoButton(promo.promo_id)}
         </div>
@@ -84,10 +84,10 @@ export default class Home extends Component {
 
     const articlesList = articles.map(article => {
       return (
-        <div key={article.news_id} className='updates'>
-          <h2> {article.title} </h2>
+        <div key={article.article_id} className='updates'>
+          <h4> {article.title} </h4>
           <p> {article.content} </p>
-          {deleteArticleButton(article.news_id)}
+          {deleteArticleButton(article.article_id)}
         </div>
       );
     });
@@ -101,10 +101,14 @@ export default class Home extends Component {
           ></img>
         </div>
         <div className='main-content-home'>
-          <h3> Promos </h3>
-          {promosList}
-          <h3> Updates </h3>
-          {articlesList}
+          <div className='promo-container'>
+            <h3> Promotions </h3>
+            {promosList}
+          </div>
+          <div className='update-container'>
+            <h3> News </h3>
+            {articlesList}
+          </div>
         </div>
         {updateHomePage}
       </div>
