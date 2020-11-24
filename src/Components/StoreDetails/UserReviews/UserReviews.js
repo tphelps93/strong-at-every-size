@@ -5,7 +5,7 @@ export default class UserReviews extends Component {
   static contextType = DataContext;
 
   render() {
-    const { reviews } = this.context;
+    const { reviews, users } = this.context;
     const filteredList = reviews.filter(review => {
       return review.itemid == this.props.itemId;
     });
