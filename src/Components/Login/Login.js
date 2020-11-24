@@ -42,7 +42,6 @@ export default class Login extends Component {
 
           <input name='user_name' placeholder='username'></input>
           <input name='password' type='password'></input>
-          <label htmlFor='remember'> Remember Me </label>
           <button type='submit'> Login </button>
         </form>
       </div>

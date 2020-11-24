@@ -1,7 +1,8 @@
 /* *Imports */
 
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Andika&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;400&display=swap');
 /* *All */
 
 .App {
@@ -11,15 +12,22 @@
 html,
 body {
   height: 100%;
-  font-family: 'Amatic SC', cursive;
   background-color: #2b7a78;
+}
+
+body h2,
+body h3,
+body h4,
+body li {
+  font-family: 'Amatic SC', cursive;
 }
 
 input,
 textarea,
 select,
-button {
-  font-family: 'Amatic SC', cursive;
+button,
+p {
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 /* Landing Page */
@@ -673,6 +681,10 @@ button[type='submit'] {
   flex-flow: column;
   height: 100%;
   color: #17252a;
+}
+
+.admin-profile p {
+  font-size: 20px;
 }
 
 .admin-container {

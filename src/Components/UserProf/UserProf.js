@@ -20,7 +20,7 @@ export default class UserProf extends Component {
         return (
           <div key={user.user_id} className='user-profile-container'>
             <div className='main-info-box'>
-              <img
+              <img placeholder='https://breakthrough.org/wp-content/uploads/2018/10/default-placeholder-image.png'
                 alt='user'
                 className='profile-image'
                 src={`${user.photo}`}

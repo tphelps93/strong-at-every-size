@@ -65,7 +65,7 @@ export default class SignUp extends Component {
 
           <input name='user_name' placeholder='User Name'></input>
 
-          <input name='password' type='password'></input>
+          <input name='password' type='password' placeholder='password'></input>
 
           <button type='submit'> Submit </button>
         </form>

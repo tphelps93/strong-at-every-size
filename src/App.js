@@ -225,7 +225,6 @@ class App extends Component {
             <Route path='/add-testimony' component={TestimonyForm} />
             <Route path='/add-item' component={ItemForm} />
 
-            <Footer />
           </UsersContext.Provider>
         </div>
       </Router>

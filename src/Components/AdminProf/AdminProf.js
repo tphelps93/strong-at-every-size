@@ -17,10 +17,10 @@ export default class AdminProf extends Component {
         return (
           <div key={user.user_id} className='admin-container'>
             <div className='admin-main-info-box'>
-              <img alt='admin' className='profile-image' src={`${user.photo}`}></img>
+              <img placeholder='https://breakthrough.org/wp-content/uploads/2018/10/default-placeholder-image.png' alt='admin' className='profile-image' src={`${user.photo}`}></img>
 
-              <h2> {user.name} </h2>
-              <h3> {user.email} </h3>
+              <p> {user.name} </p>
+              <p> {user.email} </p>
               <Link to='/edit-profile'>
                 <button type='submit'> Edit Profile </button>
               </Link>

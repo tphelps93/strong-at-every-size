@@ -65,7 +65,7 @@ export default class EditProfileForm extends Component {
             >
               <h2> Edit Details </h2>
 
-              <img className='edit-form-photo' src={user.photo}></img>
+              <img alt='placeholder profile image' placeholder='https://breakthrough.org/wp-content/uploads/2018/10/default-placeholder-image.png' className='edit-form-photo' src={user.photo}></img>
               <input name='photo' type='text' defaultValue={user.photo}></input>
               <input name='name' type='text' defaultValue={user.name}></input>
               <input

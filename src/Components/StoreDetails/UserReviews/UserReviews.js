@@ -13,7 +13,7 @@ export default class UserReviews extends Component {
       return (
         <div key={review.review_id} className='review-listing'>
           <div className='review-headers'>
-            <h5 className='review-name'> Taylor Phelps </h5>
+            <h5 className='review-name'> Lore Ipsum </h5>
             <h5 className='review-rate'> Rating: {review.rating} </h5>
           </div>
           <p>{review.content}</p>

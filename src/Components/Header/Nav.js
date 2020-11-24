@@ -30,19 +30,19 @@ export default class Nav extends Component {
         </div>
         <ul className='nav-list visible'>
           <Link style={{textDecoration:'none'}} to='/about'>
-            <li> About </li>
+            <li onClick={!this.state.menuOpen} > About </li>
           </Link>
 
           <Link style={{textDecoration:'none'}} to='/contact'>
-            <li> Contact </li>
+            <li onClick={!this.state.menuOpen}> Contact </li>
           </Link>
 
           <Link style={{textDecoration:'none'}} to='/testimonies'>
-            <li> Testimonies </li>
+            <li onClick={!this.state.menuOpen}> Testimonies </li>
           </Link>
 
           <Link style={{textDecoration:'none'}} to='/store'>
-            <li> Store </li>
+            <li onClick={!this.state.menuOpen}> Store </li>
           </Link>
         </ul>
       </div>
