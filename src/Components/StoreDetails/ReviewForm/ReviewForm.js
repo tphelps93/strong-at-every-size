@@ -1,22 +1,63 @@
 import React, { Component } from 'react';
 import DataContext from '../../../DataContext';
 import { postReview } from '../../../services/api-service';
+import TokenService from '../../../services/token-service';
+const initialState = {
+  content: '',
+  contentError: '',
+  userError: '',
+};
 
 export default class ReviewForm extends Component {
+  state = { initialState };
   static contextType = DataContext;
 
+  handleChange = event => {
+    const isCheckbox = event.target.type === 'checkbox';
+    this.setState({
+      [event.target.name]: isCheckbox
+        ? event.target.checked
+        : event.target.value,
+    });
+  };
+
+  validate = () => {
+    let contentError = '';
+    let userError = '';
+
+    // User Validation
+
+    // Content Validation
+
+    if (!this.state.content) {
+      contentError = 'Content is Required.';
+    }
+
+    if (contentError || userError) {
+      this.setState({ contentError, userError });
+      return false;
+    }
+    return true;
+  };
   handleSubmit = ev => {
+    const user_id = TokenService.jwtDecode(TokenService.getAuthToken()).payload
+    .user_id;
     ev.preventDefault();
     const { content } = ev.target;
     const { rating } = ev.target;
     const itemId = this.props.itemId;
-    postReview(content.value, rating.value, itemId)
-      .then((newReview) => this.context.addReview(newReview))
-      .then(() => {
-        content.value = '';
-        rating.value = 0;
-      })
-      .catch(this.context.setError);
+    const isValid = this.validate();
+    if (isValid) {
+      postReview(content.value, rating.value, itemId)
+        .then(newReview => this.context.addReview(newReview))
+        .then(() => {
+          rating.value = 0;
+          content.value = '';
+        })
+        .catch(this.context.setError);
+      // clear form
+      this.setState(initialState);
+    }
   };
 
   render() {
@@ -24,14 +65,23 @@ export default class ReviewForm extends Component {
       <div className='review-field'>
         <form className='review-form' onSubmit={this.handleSubmit}>
           <h4> Write A Review </h4>
-          <select name='rating'>
+          <select onChange={this.handleChange} name='rating'>
             <option> 5 </option>
             <option> 4 </option>
             <option> 3 </option>
             <option> 2 </option>
             <option> 1 </option>
           </select>
-          <textarea name='content' className='review-field'></textarea>
+          <textarea
+            onChange={this.handleChange}
+            value={this.state.content}
+            name='content'
+            className='review-field'
+          ></textarea>
+          <div style={{ color: 'red', fontSize: 20 }}>
+            {' '}
+            {this.state.contentError}{' '}
+          </div>
           <button type='submit'> Submit Review </button>
         </form>
       </div>

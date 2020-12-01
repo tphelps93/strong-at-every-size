@@ -11,6 +11,7 @@ const DataContext = React.createContext({
   testimonies: [],
   authToken: null,
   isadmin: null,
+  error: null,
   addUser: () => {},
   addReview: () => {},
   addPromo: () => {},

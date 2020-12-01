@@ -17,14 +17,6 @@ export default class StoreDetails extends Component {
         return (
           <div key={item.item_id} className='item-details'>
             <div className='store-buttons'>
-              <button type='submit' className='cart'>
-                {' '}
-                Cart{' '}
-              </button>
-              <button type='submit' className='cart'>
-                {' '}
-                Buy{' '}
-              </button>
             </div>
             <div className='item-details-container'>
               <h1> {item.title} </h1>

@@ -3,13 +3,14 @@ import TokenService from '../../services/token-service';
 import AuthApiService from '../../services/auth-api-service';
 import DataContext from '../../DataContext';
 
+
+
 export default class Login extends Component {
+  state = { error: null };
   static contextType = DataContext;
   static defaultProps = {
     onLoginSuccess: () => {},
   };
-
-  state = { error: null };
 
   handleSubmitJwtAuth = ev => {
     ev.preventDefault();
@@ -43,6 +44,9 @@ export default class Login extends Component {
           <input name='user_name' placeholder='username'></input>
           <input name='password' type='password'></input>
           <button type='submit'> Login </button>
+          <div style={{ color: 'red', fontSize: 20 }}>
+            {this.state.error}
+          </div>
         </form>
       </div>
     );

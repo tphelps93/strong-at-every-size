@@ -1188,7 +1188,7 @@ img {
   margin-top: -40px;
 }
 
-@media all and (min-width: 1000px) {
+@media all and (min-width: 700px) {
   /* All */
   button {
     font-size: 20px;
@@ -1304,7 +1304,7 @@ img {
   }
 
   .trainer-image {
-    height: 95%;
+    height: 100%;
     width: 40%;
   }
 

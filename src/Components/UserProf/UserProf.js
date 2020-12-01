@@ -31,7 +31,6 @@ export default class UserProf extends Component {
                 <Link to='/edit-profile'>
                   <button> Edit Profile </button>
                 </Link>
-                <button className='edit-card-btn'> Edit Card Info </button>
               </div>
             </div>
 
