@@ -46,10 +46,6 @@ export default class SignUp extends Component {
       emailError = 'Email is Required.';
     }
 
-    if (!this.state.email.includes('@')) {
-      emailError = 'Invalid Email.';
-    }
-
     // Password Validation
 
     if (!this.state.password) {

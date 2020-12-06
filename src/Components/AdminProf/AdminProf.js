@@ -17,7 +17,7 @@ export default class AdminProf extends Component {
         return (
           <div key={user.user_id} className='admin-container'>
             <div className='admin-main-info-box'>
-              <img placeholder='https://breakthrough.org/wp-content/uploads/2018/10/default-placeholder-image.png' alt='admin' className='profile-image' src={`${user.photo}`}></img>
+              <img alt='admin' className='profile-image' src={`${user.photo}`}></img>
 
               <p> {user.name} </p>
               <p> {user.email} </p>

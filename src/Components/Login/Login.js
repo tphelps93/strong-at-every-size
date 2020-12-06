@@ -32,7 +32,7 @@ export default class Login extends Component {
         this.props.history.push('/home');
       })
       .catch(res => {
-        this.setState({ error: res.error });
+        this.setState({ error: 'Incorrect username or password.' });
       });
   };
   render() {

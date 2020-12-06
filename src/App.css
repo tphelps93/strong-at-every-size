@@ -315,7 +315,7 @@ p {
 }
 
 .image-container {
-  height: 35vh;
+  height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -440,8 +440,8 @@ button[type='submit'] {
 }
 
 .client-img {
-  height: 35vh;
-  width: 80vw;
+  height: 30%;
+  width: 80%;
   border: 2px solid #17252a;
   box-shadow: 0px 0px 5px 2px #17252a;
   animation: 1.5s ease-in 0s 1 fadeIn;
@@ -699,7 +699,11 @@ img {
 }
 
 .profile-image {
-  height: 150px;
+  background: url('https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
   border: 2px solid #17252a;
   box-shadow: 0px 0px 5px 2px #17252a;
   animation: 1.5s ease-in 0s 1 fadeIn;
@@ -897,6 +901,9 @@ img {
 }
 
 .edit-form-photo {
+  background: url('https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png');
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 150px;
   width: 150px;
   border: 2px solid #17252a;
@@ -1188,7 +1195,7 @@ img {
   margin-top: -40px;
 }
 
-@media all and (min-width: 700px) {
+@media all and (min-width: 500px) {
   /* All */
   button {
     font-size: 20px;
@@ -1293,13 +1300,20 @@ img {
 
   /* About */
 
+  .image-container {
+    height: 60%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
   .about {
     display: flex;
     flex-direction: column;
   }
 
   .image-container {
-    flex: 0.5;
     align-self: center;
   }
 
@@ -1343,7 +1357,8 @@ img {
   }
 
   .client-img {
-    width: 20%;
+    width: 100%;
+    height: 100%;
   }
 
   /* Testimony Form */

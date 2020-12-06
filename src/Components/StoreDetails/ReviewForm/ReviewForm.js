@@ -21,11 +21,19 @@ export default class ReviewForm extends Component {
     });
   };
 
+
+  // find a way to check if a user is logged in. If not and they
+  // try to post a review, spit out an error.
   validate = () => {
+    let userid = TokenService.jwtDecode(TokenService.getAuthToken()).payload.user_id
+    const { users } = this.context;
     let contentError = '';
     let userError = '';
 
     // User Validation
+    if (userid === null) {
+      userError = 'Must be logged in.';
+    }
 
     // Content Validation
 
@@ -40,8 +48,6 @@ export default class ReviewForm extends Component {
     return true;
   };
   handleSubmit = ev => {
-    const user_id = TokenService.jwtDecode(TokenService.getAuthToken()).payload
-    .user_id;
     ev.preventDefault();
     const { content } = ev.target;
     const { rating } = ev.target;
@@ -55,6 +61,7 @@ export default class ReviewForm extends Component {
           content.value = '';
         })
         .catch(this.context.setError);
+      console.log(this.context.error);
       // clear form
       this.setState(initialState);
     }
@@ -81,6 +88,10 @@ export default class ReviewForm extends Component {
           <div style={{ color: 'red', fontSize: 20 }}>
             {' '}
             {this.state.contentError}{' '}
+          </div>
+          <div style={{ color: 'red', fontSize: 20 }}>
+            {' '}
+            {this.state.userError}{' '}
           </div>
           <button type='submit'> Submit Review </button>
         </form>
