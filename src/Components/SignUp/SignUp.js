@@ -52,10 +52,6 @@ export default class SignUp extends Component {
       passwordError = 'Password is Required';
     }
 
-    if (this.state.password.length <= 8) {
-      passwordError = 'Password must be at least 8 characters.';
-    }
-
     // UserName Validation
 
     if (!this.state.user_name) {
