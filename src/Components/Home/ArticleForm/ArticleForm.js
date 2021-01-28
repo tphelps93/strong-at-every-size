@@ -60,7 +60,7 @@ export default class ArticleForm extends Component {
           title.value = '';
         })
         .then(() => {
-          this.props.history.push('/home');
+          this.props.history.push('/');
         })
         .catch(this.context.setError);
       // clear form

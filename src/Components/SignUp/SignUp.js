@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import DataContext from '../../DataContext';
 import { postUser } from '../../services/api-service';
+// CSS Imports
+import './SignUp.css';
 
 const initialState = {
   name: '',
@@ -85,7 +87,7 @@ export default class SignUp extends Component {
         user_name.value,
         password.value
       )
-        .then(user => {
+        .then(user => { 
           this.context.addUser(user);
         })
         .then(() => {
@@ -98,7 +100,7 @@ export default class SignUp extends Component {
           password.value = '';
         })
         .then(() => {
-          this.props.history.push('/home');
+          this.props.history.push('/');
         })
         .catch(this.context.setError);
       // clear form

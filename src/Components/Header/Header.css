@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  width: 100%;
+}
+
+.logo {
+  height: 50px;
+}
+
+.login-signup button,
+.logout button {
+  border: none;
+  padding: 5px;
+  margin: 3px;
+  border-radius: 3px;
+  background-color: #3aafa9;
+  color: black;
+  font-weight: bold;
+}
+
+@media all and (min-width: 768px) {
+  .login-signup button:hover,
+  .logout button:hover {
+    cursor: pointer;
+  }
+}

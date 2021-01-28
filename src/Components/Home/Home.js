@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import DataContext from '../../DataContext';
 import { Link } from 'react-router-dom';
 import { deletePromo, deleteArticle } from '../../services/api-service';
+import './Home.css';
 
 export default class Home extends Component {
   static contextType = DataContext;

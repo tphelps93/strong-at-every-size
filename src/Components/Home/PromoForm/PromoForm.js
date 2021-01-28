@@ -59,7 +59,7 @@ export default class PromoForm extends Component {
           content.value = '';
         })
         .then(() => {
-          this.props.history.push('/home');
+          this.props.history.push('/');
         })
         .catch(this.context.setError);
       // clear form

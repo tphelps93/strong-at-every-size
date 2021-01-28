@@ -5,6 +5,9 @@ import TokenService from '../../services/token-service';
 import { Link } from 'react-router-dom';
 import DataContext from '../../DataContext';
 
+// CSS Imports 
+import './Header.css';
+
 export default class Header extends Component {
   static contextType = DataContext;
 
@@ -32,7 +35,7 @@ export default class Header extends Component {
         <Link to='/profile-page'>
           <button> Profile </button>
         </Link>
-        <Link onClick={this.handleLogoutClick} to='/home'>
+        <Link onClick={this.handleLogoutClick} to='/'>
           <button> Logout </button>
         </Link>
       </div>
@@ -42,7 +45,7 @@ export default class Header extends Component {
   render() {
     return (
       <div className='header'>
-        <Link to='/home'>
+        <Link to='/'>
           <img
             className='logo'
             alt='strong at every size logo'

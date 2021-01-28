@@ -14,11 +14,9 @@ import {
   fetchIsAdminCheck,
 } from '../src/services/api-service';
 
-import LandingPage from './Components/LandingPage/LangingPage';
 
 import Home from './Components/Home/Home';
 import Header from './Components/Header/Header';
-import Footer from './Components/Footer/Footer';
 import About from './Components/About/About';
 import Contact from './Components/Contact/Contact';
 import Testimonies from './Components/Testimonies/Testimonies';
@@ -207,8 +205,7 @@ class App extends Component {
         <div className='App'>
           <UsersContext.Provider value={contextValue}>
             <Header />
-            <Route exact path='/' component={LandingPage} />
-            <Route path='/home' component={Home} />
+            <Route exact path='/' component={Home} />
             <Route path='/about' component={About} />
             <Route path='/testimonies' component={Testimonies} />
             <Route path='/contact' component={Contact} />
