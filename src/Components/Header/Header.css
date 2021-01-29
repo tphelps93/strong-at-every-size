@@ -1,8 +1,9 @@
 .header {
   display: flex;
   justify-content: space-between;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 100%);
   width: 100%;
+  position: fixed;
 }
 
 .logo {
@@ -24,5 +25,9 @@
   .login-signup button:hover,
   .logout button:hover {
     cursor: pointer;
+  }
+
+  .logo {
+    height: 80px;
   }
 }

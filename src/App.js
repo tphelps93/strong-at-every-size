@@ -13,7 +13,8 @@ import {
   fetchTestimonies,
   fetchIsAdminCheck,
 } from '../src/services/api-service';
-
+// CSS Imports
+import '../src/Components/FontAwesomeIcons/store';
 
 import Home from './Components/Home/Home';
 import Header from './Components/Header/Header';
@@ -113,10 +114,12 @@ class App extends Component {
     });
   };
 
-  editProfile = (updatedUser) => {
-    let userId = this.state.users.findIndex(user => user.user_id === updatedUser.user_id);
+  editProfile = updatedUser => {
+    let userId = this.state.users.findIndex(
+      user => user.user_id === updatedUser.user_id
+    );
     this.setState({
-      users: this.state.users.splice(userId, 1, updatedUser)
+      users: this.state.users.splice(userId, 1, updatedUser),
     });
   };
 
@@ -221,7 +224,6 @@ class App extends Component {
             <Route path='/add-article' component={ArticleForm} />
             <Route path='/add-testimony' component={TestimonyForm} />
             <Route path='/add-item' component={ItemForm} />
-
           </UsersContext.Provider>
         </div>
       </Router>

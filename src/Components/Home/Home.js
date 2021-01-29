@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import DataContext from '../../DataContext';
 import { Link } from 'react-router-dom';
 import { deletePromo, deleteArticle } from '../../services/api-service';
+// CSS Imports
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Home.css';
 
 export default class Home extends Component {
@@ -95,19 +97,32 @@ export default class Home extends Component {
     return (
       <div className='home'>
         <div className='slideshow'>
-          <img
-            className='slideshow-1'
-            alt='man doing a deadlift'
-            src='https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80'
-          ></img>
         </div>
         <div className='main-content-home'>
           <div className='promo-container'>
-            <h3> Promotions </h3>
+            <h3>
+              {' '}
+              <span>
+                <FontAwesomeIcon
+                  style={{ fontSize: '35px' }}
+                  icon='bullhorn'
+                />
+              </span>{' '}
+              Promotions{' '}
+            </h3>
             {promosList}
           </div>
           <div className='update-container'>
-            <h3> News </h3>
+            <h3>
+              {' '}
+              <span>
+                <FontAwesomeIcon
+                  style={{ fontSize: '35px' }}
+                  icon='newspaper'
+                />
+              </span>
+              News{' '}
+            </h3>
             {articlesList}
           </div>
         </div>

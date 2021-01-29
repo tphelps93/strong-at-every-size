@@ -1,9 +1,26 @@
 .home {
-  background: radial-gradient(ellipse at top, #3aafa9 0%, #17252a 100%);
+  /* background: radial-gradient(ellipse at top, #3aafa9 0%, #17252a 100%); */
+  background-image: url('../../Images/gym2.jpg');
+  background-position: center; 
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
+
+.slideshow {
+  border: 1px solid black;
+  height: 500px;
+}
+
+.main-content-home {
+  display: flex;
+  flex-direction: column;
+}
+
 .home h3 {
+  color: #3aafa9;
+  display: flex;
+  flex-direction: column;
   font-family: 'Bebas Neue', cursive;
   font-size: 30px;
   margin-bottom: 5px;
@@ -20,17 +37,11 @@
   line-height: 32px;
 }
 
-.slideshow-1 {
-  height: 230px;
-  padding: 10px;
-}
-
 .promos,
 .updates {
   padding: 20px;
   margin: 10px;
-  border: 1px solid black;
-  border-width: thin;
+  border: 2px solid black;
   background-color: #feffff;
   box-shadow: 5px 0 25px 10px rgba(0, 0, 0, 0.25);
 }
@@ -48,17 +59,22 @@
 @media all and (min-width: 768px) {
   .home {
     height: 100vh;
-
   }
+
+  .main-content-home {
+    flex-direction: row;
+    justify-content: center;
+    background-color: white;
+  }
+
   .promo-container,
   .update-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    width: 40%;
+    background-image: url('../../Images/background.jpg');
   }
+
   .promos,
   .updates {
-    width: 50%;
-    align-self: center;
+    height: 500px;
   }
 }

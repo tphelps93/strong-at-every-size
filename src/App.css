@@ -10,7 +10,7 @@
 }
 
 html, body {
-  background: radial-gradient(ellipse at top, #3aafa9 0%, #17252a 100%);
+  /* background: radial-gradient(ellipse at top, #3aafa9 0%, #17252a 100%); */
   background-repeat: no-repeat;
   background-size: cover;
 }
