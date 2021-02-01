@@ -5,6 +5,7 @@ import { deletePromo, deleteArticle } from '../../services/api-service';
 // CSS Imports
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Home.css';
+import sarah from '../../Images/sarah.jpg';
 
 export default class Home extends Component {
   static contextType = DataContext;
@@ -98,53 +99,52 @@ export default class Home extends Component {
       <div className='home'>
         <div className='slideshow'></div>
         <div className='main-content-home'>
-          <div className='promos'>
-            <h3>
-              {' '}
-              <span>
-                <FontAwesomeIcon style={{ fontSize: '35px' }} icon='bullhorn' />
-              </span>{' '}
-              Promotions{' '}
-            </h3>
+          <div className='nav-buttons'>
+            <div className='promos'>
+              <h3>
+                {' '}
+                <span>
+                  <FontAwesomeIcon
+                    style={{ fontSize: '35px' }}
+                    icon='bullhorn'
+                  />
+                </span>{' '}
+                Promotions{' '}
+              </h3>
+            </div>
+            <div className='updates'>
+              <h3>
+                {' '}
+                <span>
+                  <FontAwesomeIcon
+                    style={{ fontSize: '35px' }}
+                    icon='newspaper'
+                  />
+                </span>
+                News{' '}
+              </h3>
+            </div>
+          </div>{' '}
+          <div className='about'>
+            <h2> About Me </h2>
+            <div className='about-content'>
+            <img src={sarah} alt='sarah phelps'></img>
+            <p>
+              'Sarah is a certified personal trainer through the National
+              Academy of Sports Medicine (NASM) who emphasizes a strong at every
+              size approach. Through her own battles with PCOS, Sarah has
+              learned that the scale is just a number and it shouldn't define
+              you. You can be strong and fit regardless of your size or the
+              number on the scale. She emphasizes functional movements for
+              improving strength and the ability to live life more fully. While
+              on her own health and fitness journey, Sarah lives by the
+              philosophy that, your ideal weight is whatever weight you reach,
+              when you are mindfully nourishing yourself with food and movement
+              that you actually enjoy, and fully engaging in your life.
+              (Jennifer Rollin).'
+            </p>
+            </div>
           </div>
-          <div className='updates'>
-            <h3>
-              {' '}
-              <span>
-                <FontAwesomeIcon
-                  style={{ fontSize: '35px' }}
-                  icon='newspaper'
-                />
-              </span>
-              News{' '}
-            </h3>
-          </div>
-          {/* <div className='promo-container'>
-            <h3>
-              {' '}
-              <span>
-                <FontAwesomeIcon
-                  style={{ fontSize: '35px' }}
-                  icon='bullhorn'
-                />
-              </span>{' '}
-              Promotions{' '}
-            </h3>
-            {promosList}
-          </div>
-          <div className='update-container'>
-            <h3>
-              {' '}
-              <span>
-                <FontAwesomeIcon
-                  style={{ fontSize: '35px' }}
-                  icon='newspaper'
-                />
-              </span>
-              News{' '}
-            </h3>
-            {articlesList}
-          </div> */}
         </div>
         {updateHomePage}
       </div>

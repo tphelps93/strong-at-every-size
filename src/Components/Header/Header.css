@@ -19,6 +19,7 @@
   border: 2px solid #2B7A78;
   color: black;
   font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
 }
 
 @media all and (min-width: 768px) {

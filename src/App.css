@@ -9,61 +9,6 @@
   text-align: center;
 }
 
-html, body {
-  /* background: radial-gradient(ellipse at top, #3aafa9 0%, #17252a 100%); */
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.sign-up-page h2,
-.login-page h2 {
-  font-family: 'Bebas Neue', cursive;
-}
-
-.sign-up-page,
-.login-page {
-  display: flex;
-  flex-direction: column;
-}
-
-.sign-up-form,
-.login-form {
-  width: 50%;
-  align-self: center;
-}
-
-input {
-  margin-bottom: 1.6rem;
-  height: 2.8rem;
-  padding-left: 0.8rem;
-  border-radius: 0.2rem;
-  border: none;
-  background-color: #feffff;
-  color: #17252a;
-}
-
-select {
-  margin-bottom: 1.6rem;
-  height: 2rem;
-  padding-left: 0.8rem;
-  border-radius: 0.2rem;
-  border: none;
-  background-color: #feffff;
-  color: #17252a;
-}
-
-.login-form button,
-.sign-up-form button {
-  background-color: #3aafa9;
-  color: #17252a;
-  font-size: 16px;
-  border: none;
-  border-radius: 0.2rem;
-  text-align: center;
-  padding: 10px;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-weight: bold;
-}
 /* *Footer */
 
 @media all and (min-width: 768px) {
