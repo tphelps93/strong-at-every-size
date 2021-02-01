@@ -16,7 +16,7 @@
   padding: 5px;
   margin: 3px;
   border-radius: 3px;
-  background-color: #3aafa9;
+  border: 2px solid #2B7A78;
   color: black;
   font-weight: bold;
 }
@@ -25,6 +25,9 @@
   .login-signup button:hover,
   .logout button:hover {
     cursor: pointer;
+    background-color: #2B7A78;
+    color: #FEFFFF;
+    transition: 200ms;
   }
 
   .logo {

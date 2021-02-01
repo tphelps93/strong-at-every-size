@@ -96,10 +96,30 @@ export default class Home extends Component {
     });
     return (
       <div className='home'>
-        <div className='slideshow'>
-        </div>
+        <div className='slideshow'></div>
         <div className='main-content-home'>
-          <div className='promo-container'>
+          <div className='promos'>
+            <h3>
+              {' '}
+              <span>
+                <FontAwesomeIcon style={{ fontSize: '35px' }} icon='bullhorn' />
+              </span>{' '}
+              Promotions{' '}
+            </h3>
+          </div>
+          <div className='updates'>
+            <h3>
+              {' '}
+              <span>
+                <FontAwesomeIcon
+                  style={{ fontSize: '35px' }}
+                  icon='newspaper'
+                />
+              </span>
+              News{' '}
+            </h3>
+          </div>
+          {/* <div className='promo-container'>
             <h3>
               {' '}
               <span>
@@ -124,7 +144,7 @@ export default class Home extends Component {
               News{' '}
             </h3>
             {articlesList}
-          </div>
+          </div> */}
         </div>
         {updateHomePage}
       </div>
