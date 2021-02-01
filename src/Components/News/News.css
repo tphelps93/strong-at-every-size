@@ -1,0 +1,8 @@
+.news-page {
+  display: flex;
+  flex-direction: column;
+  background-image: url('../../Images/paper-colorized-2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}

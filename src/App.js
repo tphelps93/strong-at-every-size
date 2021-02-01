@@ -16,7 +16,9 @@ import {
 // CSS Imports
 import '../src/Components/FontAwesomeIcons/store';
 
-import Home from './Components/Home/Home';
+import Home from './Components/Home/HomePage/Home';
+import Promos from './Components/Promotions/Promos';
+import News from './Components/News/News';
 import Header from './Components/Header/Header';
 import About from './Components/About/About';
 import Contact from './Components/Contact/Contact';
@@ -209,6 +211,8 @@ class App extends Component {
           <UsersContext.Provider value={contextValue}>
             <Header />
             <Route exact path='/' component={Home} />
+            <Route path='/promos' component={Promos} />
+            <Route path='/news' component={News} />
             <Route path='/about' component={About} />
             <Route path='/testimonies' component={Testimonies} />
             <Route path='/contact' component={Contact} />
