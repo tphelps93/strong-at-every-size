@@ -1,8 +1,80 @@
 .promotions-page {
-    display: flex;
-    flex-direction: column;
-    background-image: url('../../Images/paper-colorized-2.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-image: url('../../Images/paper-colorized-2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.promotions-page h2 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 35px;
+  color: #17252a;
+}
+
+.promo-listing {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  background-color: #feffff;
+  margin: 10px;
+  width: 50%;
+  box-shadow: 5px 0 25px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+}
+
+.promo-listing h4 {
+  align-self: flex-start;
+  margin-left: 5px;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 25px;
+  color: #17252a;
+  border-bottom: 2px solid black;
+  width: 100px;
+  margin-top: 20px;
+}
+
+.promo-listing p {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.promo-content {
+  font-weight: bold;
+}
+
+.date-text {
+  font-size: 12px;
+  align-self: flex-end;
+  margin-right: 5px;
+}
+
+.promotions-page button {
+  border: none;
+  padding: 10px;
+  margin: 3px;
+  border-radius: 3px;
+  border: 2px solid #2b7a78;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.add-promo-button {
+    color: green;
+}
+
+.delete-promo-button {
+    color: red;
+}
+
+@media all and (min-width: 768px) {
+  .promotions-page button:hover {
+    cursor: pointer;
+    background-color: #2b7a78;
+    color: #feffff;
+    transition: 200ms;
+  }
 }
