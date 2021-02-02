@@ -27,6 +27,7 @@ import Store from './Components/Store/Store';
 import StoreDetails from './Components/StoreDetails/StoreDetails';
 import SignUp from './Components/SignUp/SignUp';
 import Login from './Components/Login/Login';
+import Footer from './Components/Footer/Footer';
 
 import ProfilePage from './Components/ProfilePage/ProfilePage';
 import EditProfileForm from './Components/ProfilePage/EditProfileForm/EditProfileForm';
@@ -228,6 +229,7 @@ class App extends Component {
             <Route path='/add-article' component={ArticleForm} />
             <Route path='/add-testimony' component={TestimonyForm} />
             <Route path='/add-item' component={ItemForm} />
+            {/* <Footer /> */}
           </UsersContext.Provider>
         </div>
       </Router>

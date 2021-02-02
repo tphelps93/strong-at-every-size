@@ -1,0 +1,140 @@
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url('../../Images/paper-colorized-2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  margin-bottom: 200px;
+}
+
+.contact-form h2 {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 40px;
+  color: #17252a;
+}
+
+.contact-form p {
+  font-family: 'Bebas Neue', cursive;
+  color: #17252a;
+  font-size: 25px;
+}
+
+::-webkit-input-placeholder {
+  color: #3aafa9;
+} /* Chrome/Opera/Safari */
+::-moz-placeholder {
+  color: #3aafa9;
+} /* Firefox 19+ */
+:-ms-input-placeholder {
+  color: #3aafa9;
+} /* IE 10+ */
+:-moz-placeholder {
+  color: #3aafa9;
+} /* Firefox 18- */
+
+.contact-form button {
+  margin: 10px;
+  padding: 10px;
+  width: 50%;
+  align-self: center;
+  border-radius: 3px;
+  border: none;
+  background-color: #2b7a78;
+  font-weight: bold;
+  color: #17252a;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.form-title {
+  font-size: 2em;
+  font-weight: 600;
+  color: #0088a9;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-item > * {
+  align-self: center;
+}
+
+.form-label {
+  font-weight: bold;
+  padding: 10px 0;
+  color: #2B7a78;
+}
+
+.form-input {
+  -webkit-appearance: none;
+  width: 300px;
+  max-width: 425px;
+  min-height: calc(0.9em + (0.8em * 2) + 0.6em);
+  padding: 0.5em;
+  font-size: 0.9em;
+  font-family: 'Montserrat', sans-serif;
+  outline: none;
+  color: #3aafa9;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin: 10px;
+  background: #f9f9f9;
+  transition: background 0.25s, border-color 0.25s, color 0.25s;
+}
+
+.form-input:focus {
+  background: #ffffff;
+}
+
+.form-input::placeholder {
+  color: #bbbbbb;
+}
+
+.form-input-error {
+  color: #d50000;
+  background: #fff8f8;
+  border-color: #d50000;
+}
+
+.form-input-error::placeholder {
+  color: #ffbfbf;
+}
+
+.form-error {
+  color: #d50000;
+  font-size: 0.9em;
+  visibility: hidden;
+}
+
+.form-input-error + .form-error {
+  visibility: visible;
+}
+
+@media all and (min-width: 768px) {
+  .contact-form button:hover {
+    cursor: pointer;
+    background-color: #2b7a78;
+    color: #feffff;
+    transition: 200ms;
+  }
+
+  .contact-form {
+    width: 20%;
+  }
+
+  .contact-form button {
+    width: 20%;
+  }
+}
