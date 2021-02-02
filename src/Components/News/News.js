@@ -64,7 +64,13 @@ export default class News extends Component {
     });
     return (
       <div className='news-page'>
-        <h2> News </h2>
+        <h2>
+          {' '}
+          <span>
+            <FontAwesomeIcon style={{ fontSize: '35px' }} icon='newspaper' />
+          </span>
+          News{' '}
+        </h2>
         {articlesList}
         {addArticle}
       </div>

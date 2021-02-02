@@ -1,0 +1,80 @@
+.promo-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url('../../../Images/paper-colorized-2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.promo-form {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  margin-bottom: 200px;
+}
+
+.promo-form h2 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 40px;
+  color: #17252a;
+}
+
+.promo-form input, textarea {
+  -webkit-appearance: none;
+  max-width: 425px;
+  min-height: calc(0.9em + (0.8em * 2) + 0.6em);
+  padding: 0.5em;
+  font-size: 0.9em;
+  font-family: 'Montserrat', sans-serif;
+  outline: none;
+  color: #3aafa9;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin: 10px;
+  background: #f9f9f9;
+  transition: background 0.25s, border-color 0.25s, color 0.25s;
+}
+
+::-webkit-input-placeholder {
+  color: #3aafa9;
+} /* Chrome/Opera/Safari */
+::-moz-placeholder {
+  color: #3aafa9;
+} /* Firefox 19+ */
+:-ms-input-placeholder {
+  color: #3aafa9;
+} /* IE 10+ */
+:-moz-placeholder {
+  color: #3aafa9;
+} /* Firefox 18- */
+
+.promo-form button {
+  padding: 10px;
+  width: 50%;
+  align-self: center;
+  border-radius: 3px;
+  border: none;
+  background-color: #2b7a78;
+  font-weight: bold;
+  color: #17252a;
+  font-family: 'Montserrat', sans-serif;
+}
+
+@media all and (min-width: 768px) {
+  .promo-form button:hover {
+    cursor: pointer;
+    background-color: #2b7a78;
+    color: #feffff;
+    transition: 200ms;
+  }
+
+  .promo-form {
+    width: 20%;
+  }
+
+  .promo-form button {
+    width: 20%;
+  }
+}

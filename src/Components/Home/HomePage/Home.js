@@ -66,6 +66,7 @@ export default class Home extends Component {
                   strong and fit regardless of your size or the number on the
                   scale.
                 </p>
+                <Link to='/about'>
                 <button>
                   {' '}
                   Learn More{' '}
@@ -74,6 +75,7 @@ export default class Home extends Component {
                     icon='chevron-right'
                   />
                 </button>
+              </Link>
               </div>
             </div>
           </div>

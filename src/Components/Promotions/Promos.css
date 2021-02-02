@@ -9,12 +9,12 @@
 
 .promotions-page h2 {
   display: flex;
-  justify-content: center;
   flex-direction: column;
   font-family: 'Bebas Neue', cursive;
   font-size: 35px;
   color: #17252a;
 }
+
 
 .promo-listing {
   display: flex;

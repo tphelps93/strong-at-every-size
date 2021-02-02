@@ -64,7 +64,12 @@ export default class Promos extends Component {
     });
     return (
       <div className='promotions-page'>
-        <h2> Promotions </h2>
+        <h2>
+          <span>
+            <FontAwesomeIcon style={{ fontSize: '35px' }} icon='bullhorn' />
+          </span>
+          Promotions{' '}
+        </h2>
         {promosList}
         {addPromos}
       </div>
