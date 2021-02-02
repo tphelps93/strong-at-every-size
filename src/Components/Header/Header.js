@@ -4,8 +4,11 @@ import smLogo from '../../Images/smLogo.png';
 import TokenService from '../../services/token-service';
 import { Link } from 'react-router-dom';
 import DataContext from '../../DataContext';
+// CSS Imports
+import './Header.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-// CSS Imports 
+// CSS Imports
 import './Header.css';
 
 export default class Header extends Component {
@@ -20,10 +23,27 @@ export default class Header extends Component {
     return (
       <div className='login-signup'>
         <Link to='/login'>
-          <button> Login </button>
+          <button className='sign-in-btn'>
+            <span>
+              <FontAwesomeIcon
+                style={{ fontSize: '20px' }}
+                icon='sign-in-alt'
+              />
+            </span>{' '}
+            Login
+          </button>
         </Link>
         <Link to='/signup'>
-          <button> Sign Up </button>
+          <button className='sign-up-btn'>
+            {' '}
+            <span>
+              <FontAwesomeIcon
+                style={{ fontSize: '20px' }}
+                icon='user-plus'
+              />
+            </span>{' '}
+            Register
+          </button>
         </Link>
       </div>
     );
@@ -33,10 +53,28 @@ export default class Header extends Component {
     return (
       <div className='logout'>
         <Link to='/profile-page'>
-          <button> Profile </button>
+          <button className='profile-btn'>
+            {' '}
+            <span>
+              <FontAwesomeIcon
+                style={{ fontSize: '20px' }}
+                icon='user-circle'
+              />
+            </span>{' '}
+            Profile
+          </button>
         </Link>
         <Link onClick={this.handleLogoutClick} to='/'>
-          <button> Logout </button>
+          <button className='logout-btn'>
+            {' '}
+            <span>
+              <FontAwesomeIcon
+                style={{ fontSize: '20px' }}
+                icon='sign-out-alt'
+              />
+            </span>{' '}
+            Logout
+          </button>
         </Link>
       </div>
     );

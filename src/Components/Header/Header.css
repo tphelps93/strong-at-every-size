@@ -10,16 +10,44 @@
   height: 50px;
 }
 
-.login-signup button,
+.login-signup button {
+  border: none;
+  padding: 5px;
+  margin: 3px;
+  border-radius: 3px;
+  border: 2px solid #2B7A78;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.sign-in-btn {
+  color: green;
+}
+
+.sign-up-btn {
+  color: #17252A;
+}
+
+.logout {
+  display: flex;
+}
+
 .logout button {
   border: none;
   padding: 5px;
   margin: 3px;
   border-radius: 3px;
   border: 2px solid #2B7A78;
-  color: black;
   font-weight: bold;
   font-family: 'Montserrat', sans-serif;
+}
+
+.profile-btn {
+  color: #17252A;
+}
+
+.logout-btn {
+  color: red;
 }
 
 @media all and (min-width: 768px) {

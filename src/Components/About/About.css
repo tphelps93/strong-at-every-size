@@ -1,0 +1,45 @@
+.about-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url('../../Images/paper-colorized-2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.main-content-about {
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(ellipse at bottom, #feffff 0%, #2b7a78 200%);
+  box-shadow: 5px 0 25px 10px rgba(0, 0, 0, 0.25);
+}
+
+.about-page-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-content-about h2 {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 30px;
+  color: #17252a;
+}
+
+.about-section {
+  width: 30%;
+}
+
+.about-page-content p {
+  padding: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+}
+.trainer-image {
+  height: 500px;
+  margin: 30px;
+  border-radius: 3px;
+}

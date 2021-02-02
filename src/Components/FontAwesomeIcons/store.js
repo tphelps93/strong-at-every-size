@@ -10,6 +10,10 @@ import {
   faChevronRight,
   faTrashAlt,
   faPlus,
+  faSignOutAlt,
+  faSignInAlt,
+  faUserCircle,
+  faUserPlus,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -22,5 +26,9 @@ library.add(
   faBook,
   faChevronRight,
   faTrashAlt,
-  faPlus
+  faPlus,
+  faSignOutAlt,
+  faSignInAlt,
+  faUserCircle,
+  faUserPlus
 );
