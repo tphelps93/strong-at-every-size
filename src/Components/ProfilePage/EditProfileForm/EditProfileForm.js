@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import DataContext from '../../../DataContext';
 import TokenService from '../../../services/token-service';
 import { editUserDetails } from '../../../services/api-service';
-
+// CSS Imports
+import './EditProfileForm.css';
 export default class EditProfileForm extends Component {
   static contextType = DataContext;
 

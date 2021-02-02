@@ -51,19 +51,23 @@ export default class Testimonies extends Component {
     const testimonyList = testimonies.map(testimony => {
       return (
         <div key={testimony.testimony_id} className='client-story'>
-          <img
-            className='client-img'
-            src={`${testimony.photo}`}
-            alt='client'
-          ></img>
-          <div className='story-content'>
-            <h4> Client Name </h4>
-          <p> {testimony.content} </p>
+          <div className='testimony-container-1'>
+            <img
+              className='client-img'
+              src={`${testimony.photo}`}
+              alt='client'
+            ></img>
           </div>
-          <p className='date-text'>
-            {deleteTestimony(testimony.testimony_id)}
-            {testimony.date_created.split('T')[0]}
-          </p>
+          <div className='testimony-container-2'>
+            <h4> Client Name </h4>
+            <p> {testimony.content} </p>
+          </div>
+          <div className='testimony-container-3'>
+            <p className='date-text'>
+              {deleteTestimony(testimony.testimony_id)}
+              {testimony.date_created.split('T')[0]}
+            </p>
+          </div>
         </div>
       );
     });

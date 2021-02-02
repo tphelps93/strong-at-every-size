@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import DataContext from '../../../DataContext';
 import { postTestimony } from '../../../services/api-service';
+// CSS Imports
+import './TestimonyForm.css';
 
 const initialState = {
   photo: '',
@@ -70,7 +72,7 @@ export default class PromoForm extends Component {
     return (
       <div className='testimony-page'>
         <form className='testimony-form' onSubmit={this.handleSubmit}>
-          <h2> Add A New Promo </h2>
+          <h2> Add A New Testimony </h2>
 
           <input
             onChange={this.handleChange}

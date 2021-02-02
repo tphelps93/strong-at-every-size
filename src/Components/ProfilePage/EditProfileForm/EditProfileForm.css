@@ -1,0 +1,73 @@
+.edit-profile-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url('../../../Images/paper-colorized-2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+  }
+  
+  .edit-profile-form {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin-bottom: 200px;
+  }
+  
+  .edit-profile-form h2 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 40px;
+    color: #17252a;
+  }
+  
+  .edit-profile-form input,
+  .edit-profile-form select {
+    -webkit-appearance: none;
+    max-width: 425px;
+    min-height: calc(0.9em + (0.8em * 2) + 0.6em);
+    padding: 0.5em;
+    font-size: 0.9em;
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin: 10px;
+    background: #f9f9f9;
+    color: #3aafa9;
+    transition: background 0.25s, border-color 0.25s, color 0.25s;
+  }
+  
+  .edit-profile-form select {
+      align-self: center;
+      width: 100%;
+  }
+  
+  .edit-profile-form button {
+    padding: 10px;
+    width: 50%;
+    align-self: center;
+    border-radius: 3px;
+    border: none;
+    background-color: #2b7a78;
+    font-weight: bold;
+    color: #17252a;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  @media all and (min-width: 768px) {
+    .edit-profile-form button:hover {
+      cursor: pointer;
+      background-color: #2b7a78;
+      color: #feffff;
+      transition: 200ms;
+    }
+  
+    .edit-profile-form {
+      width: 20%;
+    }
+  
+    .edit-profile-form button {
+      width: 20%;
+    }
+  }
