@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import DataContext from '../../DataContext';
 import { Link } from 'react-router-dom';
 import { deleteTestimony } from '../../services/api-service';
+// CSS Imports
+import './Testimonies.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default class Testimonies extends Component {
   static contextType = DataContext;
@@ -20,7 +23,9 @@ export default class Testimonies extends Component {
     const addTestimonies = isadmin ? (
       <div className='add-testimonies'>
         <Link to='/add-testimony'>
-          <button className='add-testimony'> Add Testimony </button>
+          <button className='add-testimony'>
+            <FontAwesomeIcon style={{ fontSize: '15px' }} icon='plus' />
+          </button>
         </Link>
       </div>
     ) : (
@@ -35,8 +40,7 @@ export default class Testimonies extends Component {
             onClick={() => this.handleClickDelete(testimony_id)}
             className='delete-testimony'
           >
-            {' '}
-            Delete{' '}
+            <FontAwesomeIcon style={{ fontSize: '15px' }} icon='trash-alt' />
           </button>
         </div>
       ) : (
@@ -52,16 +56,29 @@ export default class Testimonies extends Component {
             src={`${testimony.photo}`}
             alt='client'
           ></img>
+          <div className='story-content'>
+            <h4> Client Name </h4>
           <p> {testimony.content} </p>
-          {deleteTestimony(testimony.testimony_id)}
+          </div>
+          <p className='date-text'>
+            {deleteTestimony(testimony.testimony_id)}
+            {testimony.date_created.split('T')[0]}
+          </p>
         </div>
       );
     });
+
     return (
       <div className='testimonies'>
+        <h2>
+          {' '}
+          <span>
+            <FontAwesomeIcon style={{ fontSize: '35px' }} icon='book-reader' />
+          </span>
+          Client Stories{' '}
+        </h2>
+        {testimonyList}
         {addTestimonies}
-        <h2> Client Stories </h2>
-        <div className='main-content-stories'>{testimonyList}</div>
       </div>
     );
   }

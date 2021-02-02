@@ -15,6 +15,7 @@ import {
   faUserCircle,
   faUserPlus,
   faEnvelope,
+  faBookReader,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -32,5 +33,6 @@ library.add(
   faSignInAlt,
   faUserCircle,
   faUserPlus,
-  faEnvelope
+  faEnvelope,
+  faBookReader
 );
