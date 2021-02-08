@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import DataContext from '../../../DataContext';
 import { postItem } from '../../../services/api-service';
+// CSS Imports
+import './ItemForm.css';
 
 const initialState = {
+  selectedFile: null,
   photo: '',
   title: '',
   price: '',
@@ -17,6 +20,12 @@ export default class PromoForm extends Component {
   state = { initialState };
   static contextType = DataContext;
 
+  handleFile = event => {
+    this.setState({
+      selectedFile: event.target.files[0],
+    });
+  };
+
   handleChange = event => {
     const isCheckbox = event.target.type === 'checkbox';
     this.setState({
@@ -27,16 +36,16 @@ export default class PromoForm extends Component {
   };
 
   validate = () => {
-    let photoError = '';
+    // let photoError = '';
     let titleError = '';
     let priceError = '';
     let descError = '';
 
     // Photo Validation
 
-    if (!this.state.photo) {
-      photoError = 'Photo is Required.';
-    }
+    // if (!this.state.photo) {
+    // photoError = 'Photo is Required.';
+    // }
 
     // Title Validation
 
@@ -55,8 +64,8 @@ export default class PromoForm extends Component {
       descError = 'Description is Required';
     }
 
-    if (photoError || titleError || priceError || descError) {
-      this.setState({ photoError, titleError, priceError, descError });
+    if (/* photoError ||*/ titleError || priceError || descError) {
+      this.setState({ /* photoError,*/ titleError, priceError, descError });
       return false;
     }
     return true;
@@ -64,7 +73,8 @@ export default class PromoForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const { photo } = event.target;
+    const photo = this.state.selectedFile;
+    // const { photo } = event.target;
     const { title } = event.target;
     const { price } = event.target;
     const { category } = event.target;
@@ -72,7 +82,7 @@ export default class PromoForm extends Component {
     const isValid = this.validate();
     if (isValid) {
       postItem(
-        photo.value,
+        photo.name,
         title.value,
         price.value,
         category.value,
@@ -82,7 +92,6 @@ export default class PromoForm extends Component {
           this.context.addItem(item);
         })
         .then(() => {
-          photo.value = '';
           title.value = '';
           price.value = '';
           category.value = '';
@@ -97,19 +106,20 @@ export default class PromoForm extends Component {
     }
   };
   render() {
+    console.log(this.state.selectedFile);
     return (
       <div className='add-item-page'>
         <form className='add-item-form' onSubmit={this.handleSubmit}>
           <h2> Add A New Item </h2>
           <input
-            onChange={this.handleChange}
+            type='file'
+            onChange={this.handleFile}
             value={this.state.photo}
             name='photo'
-            placeholder='Photo URL'
           ></input>
-          <div style={{ color: 'red', fontSize: 20 }}>
-            {this.state.photoError}
-          </div>
+          {/* <div style={{ color: 'red', fontSize: 20 }}> */}
+          {/* {this.state.photoError} */}
+          {/* </div> */}
           <input
             onChange={this.handleChange}
             value={this.state.title}

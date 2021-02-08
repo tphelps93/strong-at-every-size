@@ -312,7 +312,7 @@ export const editUserDetails = (
       email,
       address,
       state,
-      zip
+      zip,
     }),
   }).then(res => {
     if (!res.ok) {
