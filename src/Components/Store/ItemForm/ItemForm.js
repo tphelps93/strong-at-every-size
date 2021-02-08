@@ -5,8 +5,9 @@ import { postItem } from '../../../services/api-service';
 import './ItemForm.css';
 
 const initialState = {
-  selectedFile: null,
-  photo: '',
+  photo: null,
+  imageAlt: null,
+  error: null,
   title: '',
   price: '',
   description: '',
@@ -16,13 +17,35 @@ const initialState = {
   descError: '',
 };
 
+function UploadPhoto(props) {
+  return (
+    <section className='step1'>
+      <section className='left-side'>
+        <button type='button' className='widget-btn' onClick={props.openWidget}>
+          Upload Image
+        </button>
+      </section>
+
+      <section className='right-side'>
+        {props.photo && (
+          <img
+            src={props.photo}
+            alt={props.imageAlt}
+            className='displayed-image'
+          />
+        )}
+      </section>
+    </section>
+  );
+}
+
 export default class PromoForm extends Component {
   state = { initialState };
   static contextType = DataContext;
 
   handleFile = event => {
     this.setState({
-      selectedFile: event.target.files[0],
+      photo: event.target.files[0],
     });
   };
 
@@ -73,8 +96,7 @@ export default class PromoForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const photo = this.state.selectedFile;
-    // const { photo } = event.target;
+    // const photo = this.state.selectedFile;
     const { title } = event.target;
     const { price } = event.target;
     const { category } = event.target;
@@ -82,7 +104,7 @@ export default class PromoForm extends Component {
     const isValid = this.validate();
     if (isValid) {
       postItem(
-        photo.name,
+        this.state.photo,
         title.value,
         price.value,
         category.value,
@@ -105,21 +127,38 @@ export default class PromoForm extends Component {
       this.setState(initialState);
     }
   };
+
+
+
+  // openWidget = () => {
+  //   window.cloudinary
+  //     .createUploadWidget(
+  //       {
+  //         cloudName: 'strong-at-every-size',
+  //         uploadPreset: 'ftjhamcq',
+  //       },
+  //       (error, result) => {
+  //         if (result.event === 'success')
+  //           this.setState({
+  //             photo: result.info.secure_url,
+  //             imageAlt: `An image of ${result.info.original_filename}`,
+  //           });
+  //       }
+  //     )
+  //     .open();
+  // };
+
   render() {
-    console.log(this.state.selectedFile);
     return (
       <div className='add-item-page'>
         <form className='add-item-form' onSubmit={this.handleSubmit}>
           <h2> Add A New Item </h2>
-          <input
-            type='file'
-            onChange={this.handleFile}
-            value={this.state.photo}
-            name='photo'
-          ></input>
-          {/* <div style={{ color: 'red', fontSize: 20 }}> */}
-          {/* {this.state.photoError} */}
-          {/* </div> */}
+          <UploadPhoto
+          onChange={this.handleChange}
+          // openWidget={this.openWidget}
+          photo={this.state.photo}
+          imgAlt={this.state.imgAlt}
+          />
           <input
             onChange={this.handleChange}
             value={this.state.title}

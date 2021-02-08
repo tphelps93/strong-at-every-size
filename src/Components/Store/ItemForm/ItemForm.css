@@ -50,6 +50,20 @@
     color: #17252a;
     font-family: 'Montserrat', sans-serif;
   }
+
+  .left-side {
+    flex: 1;
+    padding: .5em;
+  }
+
+  .right-side img {
+    height: 200px;
+  }
+
+  .right-side{
+    flex: 1;
+    padding: .5em;
+  }
   
   @media all and (min-width: 768px) {
     .add-item-form button:hover {

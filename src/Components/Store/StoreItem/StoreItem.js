@@ -35,6 +35,7 @@ export default class StoreItem extends Component {
     };
 
     const itemsList = items.map(item => {
+      { console.log(item.photo)}
       return (
         <div key={item.item_id} className='item-listing'>
           <Link to={`/store/${item.item_id}`}>

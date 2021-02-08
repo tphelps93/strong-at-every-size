@@ -171,6 +171,12 @@ export const postTestimony = (photo, content) => {
 };
 
 export const postItem = (photo, title, price, category, description) => {
+  const formData = new FormData();
+  formData.append('photo', photo);
+  formData.append('title', title);
+  formData.append('price', price);
+  formData.append('category', category);
+  formData.append('description', description);
   return fetch(`${config.API_BASE_URL}/items`, {
     method: 'POST',
     headers: {
@@ -178,11 +184,7 @@ export const postItem = (photo, title, price, category, description) => {
       authorization: `bearer ${TokenService.getAuthToken()}`,
     },
     body: JSON.stringify({
-      photo,
-      title,
-      price,
-      category,
-      description,
+      formData,
     }),
   }).then(res => {
     if (!res.ok) {
