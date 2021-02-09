@@ -1,0 +1,27 @@
+.construction {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  margin-top: 200px;
+  background-image: url('../../Images/construction.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 0px 100px;
+  box-shadow: 5px 0 25px 10px rgba(0, 0, 0, 0.25);
+}
+
+.construction h1 {
+  display: flex;
+  font-size: 80px;
+  font-family: 'Bebas Neue', cursive;
+  color: #17252a;
+  text-shadow: 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+.construction span {
+  position: absolute;
+  margin-top: -55px;
+  margin-left: -40px;
+  transform: rotate(-30deg);
+}

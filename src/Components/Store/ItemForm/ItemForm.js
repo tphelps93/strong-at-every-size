@@ -21,7 +21,7 @@ function UploadPhoto(props) {
   return (
     <section className='step1'>
       <section className='left-side'>
-        <button type='button' className='widget-btn' onClick={props.openWidget}>
+        <button type='button' className='widget-btn'>
           Upload Image
         </button>
       </section>
@@ -128,34 +128,13 @@ export default class PromoForm extends Component {
     }
   };
 
-
-
-  // openWidget = () => {
-  //   window.cloudinary
-  //     .createUploadWidget(
-  //       {
-  //         cloudName: 'strong-at-every-size',
-  //         uploadPreset: 'ftjhamcq',
-  //       },
-  //       (error, result) => {
-  //         if (result.event === 'success')
-  //           this.setState({
-  //             photo: result.info.secure_url,
-  //             imageAlt: `An image of ${result.info.original_filename}`,
-  //           });
-  //       }
-  //     )
-  //     .open();
-  // };
-
   render() {
     return (
       <div className='add-item-page'>
-        <form className='add-item-form' onSubmit={this.handleSubmit}>
+        <form className='add-item-form' onSubmit={this.handleSubmit} enctype="multipart/form-data">
           <h2> Add A New Item </h2>
           <UploadPhoto
           onChange={this.handleChange}
-          // openWidget={this.openWidget}
           photo={this.state.photo}
           imgAlt={this.state.imgAlt}
           />

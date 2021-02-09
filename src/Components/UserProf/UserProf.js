@@ -21,7 +21,7 @@ export default class UserProf extends Component {
           <div key={user.user_id} className='user-profile-container'>
             <div className='main-info-box'>
               <img
-                alt=''
+                alt='profile'
                 className='profile-image'
                 src={`${user.photo}`}
               ></img>

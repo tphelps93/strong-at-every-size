@@ -66,7 +66,7 @@ export default class EditProfileForm extends Component {
             >
               <h2> Edit Details </h2>
 
-              <img alt='placeholder profile image' className='edit-form-photo' src={user.photo}></img>
+              <img alt='placeholder' className='edit-form-photo' src={user.photo}></img>
               <input name='photo' type='text' defaultValue={user.photo}></input>
               <input name='name' type='text' defaultValue={user.name}></input>
               <input

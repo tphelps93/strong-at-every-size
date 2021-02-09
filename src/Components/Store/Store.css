@@ -1,0 +1,43 @@
+.store {
+    background-image: url('../../Images/paper-colorized-2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.searchBar input {
+  -webkit-appearance: none;
+  max-width: 425px;
+  min-height: calc(0.9em + (0.8em * 2) + 0.6em);
+  padding: 0.2em;
+  font-size: 0.9em;
+  font-family: 'Montserrat', sans-serif;
+  outline: none;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin: 10px;
+  background: #f9f9f9;
+  color: #3aafa9;
+  transition: background 0.25s, border-color 0.25s, color 0.25s;
+}
+
+.searchBar button {
+  padding: 10px;
+  width: 5%;
+  align-self: center;
+  border-radius: 3px;
+  border: none;
+  background-color: #2b7a78;
+  font-weight: bold;
+  color: #17252a;
+  font-family: 'Montserrat', sans-serif;
+}
+
+@media all and (min-width: 768px) {
+  .searchBar button:hover {
+    cursor: pointer;
+    background-color: #2b7a78;
+    color: #feffff;
+    transition: 200ms;
+  }
+}

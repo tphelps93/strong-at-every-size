@@ -4,7 +4,7 @@ import TokenService from '../services/token-service';
 /* FETCH */
 
 export const fetchUsers = () => {
-  return fetch(`${config.API_BASE_URL}/users`).then(res => {
+  return fetch(`${config.API_BASE_URL}/api/users`).then(res => {
     if (!res.ok) {
       return Promise.reject(res.statusText);
     }
@@ -13,7 +13,7 @@ export const fetchUsers = () => {
 };
 
 export const fetchItems = () => {
-  return fetch(`${config.API_BASE_URL}/items`).then(res => {
+  return fetch(`${config.API_BASE_URL}/api/items`).then(res => {
     if (!res.ok) {
       return Promise.reject(res.statusText);
     }
@@ -22,7 +22,7 @@ export const fetchItems = () => {
 };
 
 export const fetchPrograms = () => {
-  return fetch(`${config.API_BASE_URL}/programs`).then(res => {
+  return fetch(`${config.API_BASE_URL}/api/programs`).then(res => {
     if (!res.ok) {
       return Promise.reject(res.statusText);
     }
@@ -31,7 +31,7 @@ export const fetchPrograms = () => {
 };
 
 export const fetchPurchases = () => {
-  return fetch(`${config.API_BASE_URL}/purchases`).then(res => {
+  return fetch(`${config.API_BASE_URL}/api/purchases`).then(res => {
     if (!res.ok) {
       return Promise.reject(res.statusText);
     }
@@ -40,7 +40,7 @@ export const fetchPurchases = () => {
 };
 
 export const fetchReviews = () => {
-  return fetch(`${config.API_BASE_URL}/reviews`).then(res => {
+  return fetch(`${config.API_BASE_URL}/api/reviews`).then(res => {
     if (!res.ok) {
       return Promise.reject(res.statusText);
     }
@@ -49,7 +49,7 @@ export const fetchReviews = () => {
 };
 
 export const fetchPromos = () => {
-  return fetch(`${config.API_BASE_URL}/promos`).then(res => {
+  return fetch(`${config.API_BASE_URL}/api/promos`).then(res => {
     if (!res.ok) {
       return Promise.reject(res.statusText);
     }
@@ -58,7 +58,7 @@ export const fetchPromos = () => {
 };
 
 export const fetchArticles = () => {
-  return fetch(`${config.API_BASE_URL}/articles`).then(res => {
+  return fetch(`${config.API_BASE_URL}/api/articles`).then(res => {
     if (!res.ok) {
       return Promise.reject(res.statusText);
     }
@@ -67,7 +67,7 @@ export const fetchArticles = () => {
 };
 
 export const fetchTestimonies = () => {
-  return fetch(`${config.API_BASE_URL}/testimonies`).then(res => {
+  return fetch(`${config.API_BASE_URL}/api/testimonies`).then(res => {
     if (!res.ok) {
       return Promise.reject(res.statusText);
     }
@@ -78,7 +78,7 @@ export const fetchTestimonies = () => {
 // use above error handling to post requests
 
 export const fetchIsAdminCheck = () => {
-  return fetch(`${config.API_BASE_URL}/promos/is-admin`, {
+  return fetch(`${config.API_BASE_URL}/api/promos/is-admin`, {
     method: 'GET',
     headers: {
       'content-type': 'application/json',
@@ -94,7 +94,7 @@ export const fetchIsAdminCheck = () => {
 
 /* POST */
 export const postReview = (content, rating, itemid) => {
-  return fetch(`${config.API_BASE_URL}/reviews`, {
+  return fetch(`${config.API_BASE_URL}/api/reviews`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
@@ -114,7 +114,7 @@ export const postReview = (content, rating, itemid) => {
 };
 
 export const postPromo = (title, content) => {
-  return fetch(`${config.API_BASE_URL}/promos`, {
+  return fetch(`${config.API_BASE_URL}/api/promos`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
@@ -133,7 +133,7 @@ export const postPromo = (title, content) => {
 };
 
 export const postArticle = (title, content) => {
-  return fetch(`${config.API_BASE_URL}/articles`, {
+  return fetch(`${config.API_BASE_URL}/api/articles`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
@@ -152,7 +152,7 @@ export const postArticle = (title, content) => {
 };
 
 export const postTestimony = (photo, content) => {
-  return fetch(`${config.API_BASE_URL}/testimonies`, {
+  return fetch(`${config.API_BASE_URL}/api/testimonies`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
@@ -203,7 +203,7 @@ export const postUser = (
   user_name,
   password
 ) => {
-  return fetch(`${config.API_BASE_URL}/users`, {
+  return fetch(`${config.API_BASE_URL}/api/users`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
@@ -230,7 +230,7 @@ export const postUser = (
 /* DELETE */
 
 export const deleteItem = item_id => {
-  return fetch(`${config.API_BASE_URL}/items/${item_id}`, {
+  return fetch(`${config.API_BASE_URL}/api/items/${item_id}`, {
     method: 'DELETE',
     header: {
       'content-type': 'application/json',
@@ -245,7 +245,7 @@ export const deleteItem = item_id => {
 };
 
 export const deleteTestimony = testimony_id => {
-  return fetch(`${config.API_BASE_URL}/testimonies/${testimony_id}`, {
+  return fetch(`${config.API_BASE_URL}/api/testimonies/${testimony_id}`, {
     method: 'DELETE',
     header: {
       'content-type': 'application/json',
@@ -260,7 +260,7 @@ export const deleteTestimony = testimony_id => {
 };
 
 export const deletePromo = promo_id => {
-  return fetch(`${config.API_BASE_URL}/promos/${promo_id}`, {
+  return fetch(`${config.API_BASE_URL}/api/promos/${promo_id}`, {
     method: 'DELETE',
     header: {
       'content-type': 'application/json',
@@ -275,7 +275,7 @@ export const deletePromo = promo_id => {
 };
 
 export const deleteArticle = article_id => {
-  return fetch(`${config.API_BASE_URL}/articles/${article_id}`, {
+  return fetch(`${config.API_BASE_URL}/api/articles/${article_id}`, {
     method: 'DELETE',
     header: {
       'content-type': 'application/json',
@@ -301,7 +301,7 @@ export const editUserDetails = (
   state,
   zip
 ) => {
-  return fetch(`${config.API_BASE_URL}/users/${user_id}`, {
+  return fetch(`${config.API_BASE_URL}/api/users/${user_id}`, {
     method: 'PATCH',
     headers: {
       'content-type': 'application/json',

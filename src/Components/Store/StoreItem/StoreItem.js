@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { deleteItem } from '../../../services/api-service';
 import { Link } from 'react-router-dom';
 import DataContext from '../../../DataContext';
+import config from '../../../config';
+
+// CSS Imports
+import './StoreItem.css';
 
 export default class StoreItem extends Component {
   static contextType = DataContext;
@@ -35,18 +39,17 @@ export default class StoreItem extends Component {
     };
 
     const itemsList = items.map(item => {
-      { console.log(item.photo)}
       return (
         <div key={item.item_id} className='item-listing'>
           <Link to={`/store/${item.item_id}`}>
             <img
               className='store-item-image'
               alt='item'
-              src={`${item.photo}`}
+              src={`${config.API_BASE_URL}/uploads/${item.photo}`}
             ></img>
           </Link>
           <h4>{item.title}</h4>
-          <p>{item.price}</p>
+          <p> $ {item.price}</p>
           {deleteItemButton(item.item_id)}
         </div>
       );

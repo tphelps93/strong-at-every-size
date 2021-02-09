@@ -17,11 +17,15 @@ export default class Nav extends Component {
     if (!this.state.menuOpen) {
       menuBtn.classList.add('open');
       navList.classList.remove('visible');
-      this.state.menuOpen = true;
+      this.setState({
+        menuOpen: true,
+      })
     } else {
       menuBtn.classList.remove('open');
       navList.classList.add('visible');
-      this.state.menuOpen = false;
+      this.setState({
+        menuOpen: false,
+      })
     }
   };
   render() {

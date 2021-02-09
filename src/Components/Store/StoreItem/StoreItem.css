@@ -1,0 +1,36 @@
+.store-item-image {
+  height: 200px;
+  width: 200px;
+}
+
+.store-item {
+  padding: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 35px;
+}
+
+.item-listing {
+  margin: 50px;
+  line-height: 10px;
+}
+
+.item-listing h4 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 25px;
+  color: #17252a;
+}
+
+.item-listing p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color: #17252a;
+}
+
+@media all and (min-width: 768px) {
+  .item-listing:hover h4 {
+    cursor: pointer;
+    color: #2b7a78;
+    transition: 200ms;
+  }
+}

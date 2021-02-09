@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import StoreItem from './StoreItem/StoreItem';
+import Construction from '../ConstructionPage/Construction';
 import DataContext from '../../DataContext';
 import { Link } from 'react-router-dom';
+// CSS Imports
+import './Store.css';
 
 export default class Store extends Component {
   static contextType = DataContext;
@@ -30,7 +33,8 @@ export default class Store extends Component {
 
         <div className='main-content-store'>
           <div className='store-item-listing'>
-            <StoreItem />
+            {/* <StoreItem /> */}
+            <Construction />
           </div>
         </div>
       </div>

@@ -1,0 +1,38 @@
+.item-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url('../../Images/paper-colorized-2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.item-details img {
+  height: 300px;
+  width: 300px;
+}
+
+.item-details-container {
+    line-height: 10px;
+  }
+  
+.item-details h1, .item-details h4 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 25px;
+    color: #17252a;
+  }
+  
+  .item-details p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: #17252a;
+  }
+  
+  @media all and (min-width: 768px) {
+    .item-listing:hover h4 {
+      cursor: pointer;
+      color: #3aafa9;
+      transition: 200ms;
+    }
+  }

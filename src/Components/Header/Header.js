@@ -86,7 +86,7 @@ export default class Header extends Component {
         <Link to='/'>
           <img
             className='logo'
-            alt='strong at every size logo'
+            alt='strong at every size'
             src={smLogo}
           ></img>
         </Link>
