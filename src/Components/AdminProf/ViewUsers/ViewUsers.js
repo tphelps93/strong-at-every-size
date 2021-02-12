@@ -13,7 +13,7 @@ export default class ViewUsers extends Component {
       .map(user => {
         return (
           <div key={user.user_id} className='user-listing'>
-            <h4>{user.name}</h4>
+            <h3>{user.name}</h3>
             <p>{user.email}</p>
           </div>
         );

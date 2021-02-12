@@ -3,6 +3,7 @@ import ViewUsers from './ViewUsers/ViewUsers';
 import ViewStoreStats from './ViewStoreStats/ViewStoreStats';
 import DataContext from '../../DataContext';
 import { Link } from 'react-router-dom';
+import './AdminProf.css';
 
 export default class AdminProf extends Component {
   static contextType = DataContext;
@@ -19,7 +20,7 @@ export default class AdminProf extends Component {
             <div className='admin-main-info-box'>
               <img alt='admin' className='profile-image' src={`${user.photo}`}></img>
 
-              <p> {user.name} </p>
+              <h3> {user.name} </h3>
               <p> {user.email} </p>
               <Link to='/edit-profile'>
                 <button type='submit'> Edit Profile </button>
