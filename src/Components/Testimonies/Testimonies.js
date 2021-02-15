@@ -5,6 +5,7 @@ import { deleteTestimony } from '../../services/api-service';
 // CSS Imports
 import './Testimonies.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import config from '../../config';
 
 export default class Testimonies extends Component {
   static contextType = DataContext;
@@ -51,15 +52,13 @@ export default class Testimonies extends Component {
     const testimonyList = testimonies.map(testimony => {
       return (
         <div key={testimony.testimony_id} className='client-story'>
-          <div className='testimony-container-1'>
-            <img
-              className='client-img'
-              src={`${testimony.photo}`}
-              alt='client'
-            ></img>
-          </div>
           <div className='testimony-container-2'>
             <h4> Client Name </h4>
+            <img
+              src={`${config.API_BASE_URL}/uploads/${testimony.photo}`}
+              alt='promotion'
+              className='client-img'
+            />
             <p> {testimony.content} </p>
           </div>
           <div className='testimony-container-3'>

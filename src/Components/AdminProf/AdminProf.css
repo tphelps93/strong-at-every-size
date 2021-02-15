@@ -35,4 +35,11 @@
   .admin-container {
     display: flex;
   }
+
+  .admin-profile button:hover {
+    cursor: pointer;
+    background-color: #2b7a78;
+    color: #feffff;
+    transition: 200ms;
+  }
 }

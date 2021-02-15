@@ -5,6 +5,7 @@ import { deletePromo } from '../../services/api-service';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Promos.css';
 import DataContext from '../../DataContext';
+import config from '../../config';
 
 export default class Promos extends Component {
   static contextType = DataContext;
@@ -49,10 +50,14 @@ export default class Promos extends Component {
       );
     };
 
-    const promosList = promos.map(promo => {
+    const promosList = promos.reverse().map(promo => {
       return (
         <div key={promo.promo_id} className='promo-listing'>
           <h4> {promo.title} </h4>
+          <img
+            src={`${config.API_BASE_URL}/uploads/${promo.photo}`}
+            alt='promotion'
+          />
           <p className='promo-content'> {promo.content} </p>
           <p className='date-text'>
             {' '}

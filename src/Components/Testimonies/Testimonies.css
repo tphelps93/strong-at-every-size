@@ -17,11 +17,12 @@
 }
 
 .client-img {
-  width: 250px;
+  width: 450px;
 }
 
 .client-story {
   display: flex;
+  flex-direction: column;
   align-self: center;
   background-color: #feffff;
   justify-content: space-between;

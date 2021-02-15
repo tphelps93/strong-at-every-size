@@ -5,6 +5,7 @@ import { deleteArticle } from '../../services/api-service';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './News.css';
 import DataContext from '../../DataContext';
+import config from '../../config';
 
 export default class News extends Component {
   static contextType = DataContext;
@@ -49,10 +50,14 @@ export default class News extends Component {
       );
     };
 
-    const articlesList = articles.map(article => {
+    const articlesList = articles.reverse().map(article => {
       return (
         <div key={article.article_id} className='news-listing'>
           <h4> {article.title} </h4>
+          <img
+            src={`${config.API_BASE_URL}/uploads/${article.photo}`}
+            alt='promotion'
+          />
           <p> {article.content} </p>
           <p className='date-text'>
             {' '}
