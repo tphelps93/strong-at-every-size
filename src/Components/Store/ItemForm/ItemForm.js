@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import DataContext from '../../../DataContext';
 import { postItem } from '../../../services/api-service';
+import config from '../../../config';
+
 // CSS Imports
 import './ItemForm.css';
 
@@ -17,37 +19,9 @@ const initialState = {
   descError: '',
 };
 
-function UploadPhoto(props) {
-  return (
-    <section className='step1'>
-      <section className='left-side'>
-        <button type='button' className='widget-btn'>
-          Upload Image
-        </button>
-      </section>
-
-      <section className='right-side'>
-        {props.photo && (
-          <img
-            src={props.photo}
-            alt={props.imageAlt}
-            className='displayed-image'
-          />
-        )}
-      </section>
-    </section>
-  );
-}
-
 export default class PromoForm extends Component {
   state = { initialState };
   static contextType = DataContext;
-
-  handleFile = event => {
-    this.setState({
-      photo: event.target.files[0],
-    });
-  };
 
   handleChange = event => {
     const isCheckbox = event.target.type === 'checkbox';
@@ -56,6 +30,12 @@ export default class PromoForm extends Component {
         ? event.target.checked
         : event.target.value,
     });
+  };
+
+  handleFile = event => {
+    this.setState({
+      photo: event.target.files[0]
+    })
   };
 
   validate = () => {
@@ -96,7 +76,7 @@ export default class PromoForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    // const photo = this.state.selectedFile;
+    // const { photo } = event.target;
     const { title } = event.target;
     const { price } = event.target;
     const { category } = event.target;
@@ -129,15 +109,36 @@ export default class PromoForm extends Component {
   };
 
   render() {
+    // const UploadPhoto = props => {
+    //   return (
+    //     <div>
+    //       <section className='left-side'>
+    //         <input onChange={this.handleFile} name='photo' type='file'></input>
+    //       </section>
+
+    //       {/* <section className='right-side'>
+    //         {props.photo && (
+    //           <img
+    //             src={props.photo}
+    //             alt={props.imageAlt}
+    //             className='displayed-image'
+    //           />
+    //         )}
+    //       </section> */}
+    //     </div>
+    //   );
+    // };
+
     return (
       <div className='add-item-page'>
-        <form className='add-item-form' onSubmit={this.handleSubmit} enctype="multipart/form-data">
+        <form
+          className='add-item-form'
+          onSubmit={this.handleSubmit}
+          enctype='multipart/form-data'
+        >
           <h2> Add A New Item </h2>
-          <UploadPhoto
-          onChange={this.handleChange}
-          photo={this.state.photo}
-          imgAlt={this.state.imgAlt}
-          />
+          <input onChange={this.handleFile} name='photo' type='file'></input>
+
           <input
             onChange={this.handleChange}
             value={this.state.title}

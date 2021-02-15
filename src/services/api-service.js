@@ -172,15 +172,16 @@ export const postTestimony = (photo, content) => {
 
 export const postItem = (photo, title, price, category, description) => {
   const formData = new FormData();
-  formData.append('photo', photo);
+  console.log(title);
+  console.log(photo.name);
+  formData.append('photo', photo.name);
   formData.append('title', title);
   formData.append('price', price);
   formData.append('category', category);
   formData.append('description', description);
-  return fetch(`${config.API_BASE_URL}/items`, {
+  return fetch(`${config.API_BASE_URL}/api/items`, {
     method: 'POST',
     headers: {
-      'content-type': 'application/json',
       authorization: `bearer ${TokenService.getAuthToken()}`,
     },
     body: JSON.stringify({
@@ -192,6 +193,21 @@ export const postItem = (photo, title, price, category, description) => {
     }
     return res.json();
   });
+
+  //   method: 'POST',
+  //   headers: {
+  //     'content-type': 'multipart/formdata',
+  //     authorization: `bearer ${TokenService.getAuthToken()}`,
+  //   },
+  //   body: JSON.stringify({
+  //     formData,
+  //   }),
+  // }).then(res => {
+  //   if (!res.ok) {
+  //     return Promise.reject(res.statusText);
+  //   }
+  //   return res.json();
+  // });
 };
 
 export const postUser = (

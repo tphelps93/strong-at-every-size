@@ -5,6 +5,8 @@ import { postPromo } from '../../../services/api-service';
 import './PromoForm.css';
 
 const initialState = {
+  photo: null,
+  imgAlt: null,
   title: '',
   content: '',
   titleError: '',
@@ -73,7 +75,11 @@ export default class PromoForm extends Component {
       <div className='promo-page'>
         <form className='promo-form' onSubmit={this.handleSubmit}>
           <h2> Add A New Promo </h2>
-
+          {/* <UploadPhoto
+            onChange={this.handleChange}
+            photo={this.state.photo}
+            imgAlt={this.state.imgAlt}
+          /> */}
           <input
             onChange={this.handleChange}
             value={this.state.title}
