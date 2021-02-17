@@ -5,17 +5,17 @@
   height: 100vh;
 }
 
-.admin-profile h3, .admin-profile h2 {
-  flex-direction: column;
+.admin-container h4,
+.admin-container h3 {
   font-family: 'Bebas Neue', cursive;
-  font-size: 40px;
+  font-size: 20px;
   color: #17252a;
 }
 
 .admin-profile p {
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Montserrat', sans-serif;
   color: #17252a;
-  font-size: 25px;
+  font-size: 15px;
 }
 
 .admin-profile button {
@@ -34,6 +34,7 @@
 @media all and (min-width: 768px) {
   .admin-container {
     display: flex;
+    justify-content: space-between;
   }
 
   .admin-profile button:hover {
@@ -41,5 +42,43 @@
     background-color: #2b7a78;
     color: #feffff;
     transition: 200ms;
+  }
+
+  .admin-main-info-box,
+  .bio-box,
+  .view-users-box,
+  .store-stats-box {
+    background-color: #feffff;
+    box-shadow: 5px 0 25px 10px rgba(0, 0, 0, 0.25);
+    padding: 5px;
+    margin: 50px;
+    border: 2px solid gray;
+    border-radius: 3px;
+  }
+
+  .admin-control-box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .admin-main-info-box,
+  .bio-box {
+    width: 400px;
+  }
+
+  .bio-box p {
+    text-align: left;
+    padding-left: 10px;
+    line-height: 8px;
+  }
+
+  .view-users-box,
+  .store-stats-box {
+    width: 500px;
+  }
+
+  .profile-image {
+    height: 200px;
+    width: 200px;
   }
 }

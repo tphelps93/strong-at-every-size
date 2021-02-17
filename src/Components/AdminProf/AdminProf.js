@@ -3,6 +3,8 @@ import ViewUsers from './ViewUsers/ViewUsers';
 import ViewStoreStats from './ViewStoreStats/ViewStoreStats';
 import DataContext from '../../DataContext';
 import { Link } from 'react-router-dom';
+import config from '../../config';
+// CSS Imports
 import './AdminProf.css';
 
 export default class AdminProf extends Component {
@@ -17,22 +19,32 @@ export default class AdminProf extends Component {
       .map(user => {
         return (
           <div key={user.user_id} className='admin-container'>
-            <div className='admin-main-info-box'>
-              <img alt='admin' className='profile-image' src={`${user.photo}`}></img>
+            <div className='admin-info'>
+              <div className='admin-main-info-box'>
+                <img
+                  alt='admin'
+                  className='profile-image'
+                  src={`${config.API_BASE_URL}/uploads/${user.photo}`}
+                ></img>
 
-              <h3> {user.name} </h3>
-              <p> {user.email} </p>
-              <Link to='/edit-profile'>
-                <button type='submit'> Edit Profile </button>
-              </Link>
+                <h4> {user.name} </h4>
+                <p> {user.email} </p>
+                <Link to='/edit-profile'>
+                  <button type='submit'> Edit Profile </button>
+                </Link>
+              </div>
+              <div className='bio-box'>
+                <p> Hello this is sample bio about the user listed above. </p>
+                <p> This is to be dynamically rendered in the future. </p>
+              </div>
             </div>
             <div className='admin-control-box'>
-              <h2> User List </h2>
               <div className='view-users-box'>
+                <h3> User List </h3>
                 <ViewUsers />
               </div>
-              <h2> Store Statistics </h2>
               <div className='store-stats-box'>
+                <h3> Store Statistics </h3>
                 <ViewStoreStats />
               </div>
             </div>

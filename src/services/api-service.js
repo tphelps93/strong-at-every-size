@@ -172,8 +172,6 @@ export const postTestimony = (photo, content) => {
 
 export const postItem = (photo, title, price, category, description) => {
   const formData = new FormData();
-  console.log(title);
-  console.log(photo.name);
   formData.append('photo', photo.name);
   formData.append('title', title);
   formData.append('price', price);
@@ -184,9 +182,7 @@ export const postItem = (photo, title, price, category, description) => {
     headers: {
       authorization: `bearer ${TokenService.getAuthToken()}`,
     },
-    body: JSON.stringify({
-      formData,
-    }),
+    body: formData,
   }).then(res => {
     if (!res.ok) {
       return Promise.reject(res.statusText);
