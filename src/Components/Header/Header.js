@@ -26,7 +26,7 @@ export default class Header extends Component {
           <button className='sign-in-btn'>
             <span>
               <FontAwesomeIcon
-                style={{ fontSize: '20px' }}
+                style={{ fontSize: '15px' }}
                 icon='sign-in-alt'
               />
             </span>{' '}
@@ -38,7 +38,7 @@ export default class Header extends Component {
             {' '}
             <span>
               <FontAwesomeIcon
-                style={{ fontSize: '20px' }}
+                style={{ fontSize: '15px' }}
                 icon='user-plus'
               />
             </span>{' '}
@@ -57,7 +57,7 @@ export default class Header extends Component {
             {' '}
             <span>
               <FontAwesomeIcon
-                style={{ fontSize: '20px' }}
+                style={{ fontSize: '15px' }}
                 icon='user-circle'
               />
             </span>{' '}
@@ -69,7 +69,7 @@ export default class Header extends Component {
             {' '}
             <span>
               <FontAwesomeIcon
-                style={{ fontSize: '20px' }}
+                style={{ fontSize: '15px' }}
                 icon='sign-out-alt'
               />
             </span>{' '}

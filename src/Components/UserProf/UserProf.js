@@ -37,10 +37,10 @@ export default class UserProf extends Component {
                     <button> Edit Profile </button>
                   </Link>
                 </div>
-              </div>
-              <div className='bio-box'>
-                <p> Hello this is sample bio about the user listed above. </p>
-                <p> This is to be dynamically rendered in the future. </p>
+                <div className='user-bio-box'>
+                  <p> Hello this is sample bio about the user listed above. </p>
+                  <p> This is to be dynamically rendered in the future. </p>
+                </div>
               </div>
             </div>
 

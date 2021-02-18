@@ -33,7 +33,7 @@ export default class AdminProf extends Component {
                   <button type='submit'> Edit Profile </button>
                 </Link>
               </div>
-              <div className='bio-box'>
+              <div className='admin-bio-box'>
                 <p> Hello this is sample bio about the user listed above. </p>
                 <p> This is to be dynamically rendered in the future. </p>
               </div>

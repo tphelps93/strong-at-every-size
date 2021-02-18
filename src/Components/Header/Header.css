@@ -2,7 +2,6 @@
   display: flex;
   justify-content: space-between;
   background-color: rgba(255, 255, 255, 100%);
-  width: 100%;
   position: sticky;
 }
 
@@ -11,11 +10,13 @@
 }
 
 .login-signup button {
+  font-size: 10px;
+  width: 50px;
   border: none;
   padding: 5px;
   margin: 3px;
   border-radius: 3px;
-  border: 2px solid #2B7A78;
+  border: 2px solid #2b7a78;
   font-weight: bold;
   font-family: 'Montserrat', sans-serif;
 }
@@ -25,7 +26,7 @@
 }
 
 .sign-up-btn {
-  color: #17252A;
+  color: #17252a;
 }
 
 .logout {
@@ -33,17 +34,19 @@
 }
 
 .logout button {
+  font-size: 10px;
+  width: 50px;
   border: none;
   padding: 5px;
   margin: 3px;
   border-radius: 3px;
-  border: 2px solid #2B7A78;
+  border: 2px solid #2b7a78;
   font-weight: bold;
   font-family: 'Montserrat', sans-serif;
 }
 
 .profile-btn {
-  color: #17252A;
+  color: #17252a;
 }
 
 .logout-btn {
@@ -51,11 +54,45 @@
 }
 
 @media all and (min-width: 768px) {
+  .login-signup button {
+    font-size: 15px;
+    width: 100px;
+    border: none;
+    padding: 5px;
+    margin: 3px;
+    border-radius: 3px;
+    border: 2px solid #2b7a78;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+  }
+    
+  .logout button {
+    font-size: 15px;
+    width: 100px;
+    border: none;
+    padding: 5px;
+    margin: 3px;
+    border-radius: 3px;
+    border: 2px solid #2b7a78;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .logout button {
+    border: none;
+    padding: 5px;
+    margin: 3px;
+    border-radius: 3px;
+    border: 2px solid #2b7a78;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+  }
+
   .login-signup button:hover,
   .logout button:hover {
     cursor: pointer;
-    background-color: #2B7A78;
-    color: #FEFFFF;
+    background-color: #2b7a78;
+    color: #feffff;
     transition: 200ms;
   }
 

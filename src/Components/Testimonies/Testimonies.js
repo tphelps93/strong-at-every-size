@@ -63,7 +63,7 @@ export default class Testimonies extends Component {
           </div>
           <div className='testimony-container-3'>
             <p className='date-text'>
-              {deleteTestimony(testimony.testimony_id)}
+              Posted: {deleteTestimony(testimony.testimony_id)}
               {testimony.date_created.split('T')[0]}
             </p>
           </div>

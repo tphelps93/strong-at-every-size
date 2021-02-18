@@ -17,7 +17,7 @@
   background-image: url('../../../Images/paper-colorized-2.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  height: 110vh;
+  height: 100%;
 }
 
 .nav-buttons {
@@ -29,7 +29,6 @@
 .about {
   background: radial-gradient(ellipse at bottom, #feffff 0%, #2b7a78 200%);
   box-shadow: 5px 0 25px 10px rgba(0, 0, 0, 0.25);
-  justify-content: space-between;
 }
 
 .about h2 {
@@ -43,22 +42,25 @@
 
 .about-content {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  padding: 10px;
 }
 
 .about-content-para {
-  width: 20%;
+  align-self: center;
 }
 
 .about-content-para p {
-  padding: 10px;
+  margin: 10px;
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
 }
 
 .about-content img {
-  height: 350px;
-  margin: 30px;
+  height: 230px;
+  width: 200px;
+  align-self: center;
 }
 
 .home h3 {
@@ -142,7 +144,7 @@
     color: #feffff;
     transition: 200ms;
   }
-  
+
   .home {
     height: 100vh;
     background-position: center;
@@ -169,5 +171,29 @@
     cursor: pointer;
     opacity: 0.6;
     background-size: 120%;
+  }
+
+  .about {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px;
+    align-self: center;
+  }
+
+  .about-content p {
+    width: 20%;
+  }
+
+  .about-content img {
+    height: 330px;
+    width: 300px;
+    margin: 30px;
   }
 }

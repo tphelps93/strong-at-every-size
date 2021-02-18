@@ -100,6 +100,10 @@
 }
 
 @media all and (min-width: 768px) {
+  .testimonies {
+    margin-top: 40px;
+  }
+  
   .testimonies button:hover {
     cursor: pointer;
     background-color: #2b7a78;

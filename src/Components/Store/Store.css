@@ -4,11 +4,11 @@
     background-size: cover;
     height: 100vh;
 }
-
+  
 .searchBar input {
   -webkit-appearance: none;
   max-width: 425px;
-  min-height: calc(0.9em + (0.8em * 2) + 0.6em);
+  min-height: calc(0.1em + (0.6em * 2) + 0.6em);
   padding: 0.2em;
   font-size: 0.9em;
   font-family: 'Montserrat', sans-serif;
@@ -39,5 +39,9 @@
     background-color: #2b7a78;
     color: #feffff;
     transition: 200ms;
+  }
+
+  .store {
+    margin-top: 60px;
   }
 }
