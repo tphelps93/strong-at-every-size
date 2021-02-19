@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import config from '../../config';
+
 import { deletePromo } from '../../services/api-service';
 // CSS Imports
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Promos.css';
+// Context Imports
 import DataContext from '../../DataContext';
-import config from '../../config';
 
 export default class Promos extends Component {
   static contextType = DataContext;
@@ -20,8 +22,9 @@ export default class Promos extends Component {
 
   render() {
     const { promos, isadmin } = this.context;
+    let addPromosBtn;
 
-    const addPromos = isadmin ? (
+    addPromosBtn = isadmin ? (
       <div key={promos.promo_id} className='add-promo-btn'>
         <Link to='/add-promo'>
           <button className='add-promo-button'>
@@ -76,7 +79,7 @@ export default class Promos extends Component {
           Promotions{' '}
         </h2>
         {promosList}
-        {addPromos}
+        {addPromosBtn}
       </div>
     );
   }

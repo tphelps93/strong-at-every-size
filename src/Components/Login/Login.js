@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import TokenService from '../../services/token-service';
 import AuthApiService from '../../services/auth-api-service';
 import DataContext from '../../DataContext';
-// CSS Imports 
+// CSS Imports
 import './Login.css';
-
-
+import { fetchIsAdminCheck } from '../../services/api-service';
 
 export default class Login extends Component {
   state = { error: null };
@@ -31,6 +30,18 @@ export default class Login extends Component {
         this.props.onLoginSuccess();
       })
       .then(() => {
+        let loggedIn = TokenService.hasAuthToken();
+        if (loggedIn) {
+          return fetchIsAdminCheck().then(res => {
+            if (res === true) {
+              this.context.setAdmin();
+            } else {
+              this.context.setUser();
+            }
+          });
+        }
+      })
+      .then(() => {
         this.props.history.push('/');
       })
       .catch(res => {
@@ -46,9 +57,7 @@ export default class Login extends Component {
           <input name='user_name' placeholder='username'></input>
           <input name='password' type='password'></input>
           <button type='submit'> Login </button>
-          <div style={{ color: 'red', fontSize: 20 }}>
-            {this.state.error}
-          </div>
+          <div style={{ color: 'red', fontSize: 20 }}>{this.state.error}</div>
         </form>
       </div>
     );

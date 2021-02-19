@@ -8,15 +8,13 @@ import DataContext from '../../DataContext';
 import './Header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-// CSS Imports
-import './Header.css';
-
 export default class Header extends Component {
   static contextType = DataContext;
 
   handleLogoutClick = () => {
     TokenService.clearAuthToken();
     this.context.clearAuthToken();
+    this.context.setUser();
   };
 
   renderLoginLink() {

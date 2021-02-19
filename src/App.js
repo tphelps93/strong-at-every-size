@@ -49,7 +49,7 @@ class App extends Component {
     articles: [],
     testimonies: [],
     authToken: null,
-    isadmin: null,
+    isadmin: false,
     error: null,
   };
 
@@ -143,6 +143,18 @@ class App extends Component {
     this.setState({ error });
   };
 
+  setAdmin = () => {
+    this.setState({
+      isadmin: true,
+    });
+  };
+
+  setUser = () => {
+    this.setState({
+      isadmin: false,
+    })
+  }
+
   componentDidMount() {
     let promises = [
       fetchUsers(),
@@ -168,7 +180,7 @@ class App extends Component {
           purchases: values[5],
           articles: values[6],
           testimonies: values[7],
-          isadmin: loggedIn ? values[8] : null,
+          isadmin: loggedIn ? values[8] : false,
         })
       )
       .catch(error => {
@@ -179,6 +191,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.isadmin);
     const contextValue = {
       users: this.state.users,
       items: this.state.items,
@@ -202,6 +215,8 @@ class App extends Component {
       deletePromo: this.deletePromo,
       editProfile: this.editProfile,
       setError: this.setError,
+      setAdmin: this.setAdmin,
+      setUser: this.setUser,
       setAuthToken: this.setAuthToken,
       clearAuthToken: this.clearAuthToken,
     };
