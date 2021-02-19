@@ -170,9 +170,9 @@ export const postTestimony = (photo, content) => {
   });
 };
 
-export const postItem = (photo, title, price, category, description) => {
+export const postItem = (filename, title, price, category, description) => {
   const formData = new FormData();
-  formData.append('photo', photo.name);
+  formData.append('filename', filename);
   formData.append('title', title);
   formData.append('price', price);
   formData.append('category', category);

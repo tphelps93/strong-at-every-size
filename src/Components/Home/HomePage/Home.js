@@ -83,7 +83,7 @@ export default class Home extends Component {
             <h2>
               {' '}
               <span>
-                <FontAwesomeIcon style={{ fontSize: '35px' }} icon='dumbbell' />
+                <FontAwesomeIcon style={{ fontSize: '35px', color: '#2b7a78' }} icon='dumbbell' />
               </span>
               My Mission{' '}
             </h2>
@@ -99,7 +99,7 @@ export default class Home extends Component {
           <div className='approaches'>
             <div className='approach-1'>
               <span>
-                <FontAwesomeIcon style={{ fontSize: '35px' }} icon='book' />
+                <FontAwesomeIcon style={{ fontSize: '35px', color: '#2b7a78' }} icon='book' />
               </span>
               <p>
                 {' '}
@@ -109,7 +109,7 @@ export default class Home extends Component {
             </div>
             <div className='approach-2'>
               <span>
-                <FontAwesomeIcon style={{ fontSize: '35px' }} icon='tools' />
+                <FontAwesomeIcon style={{ fontSize: '35px', color: '#2b7a78' }} icon='tools' />
               </span>
               <p>
                 {' '}

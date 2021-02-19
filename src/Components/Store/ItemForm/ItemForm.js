@@ -7,7 +7,7 @@ import config from '../../../config';
 import './ItemForm.css';
 
 const initialState = {
-  photo: null,
+  filename: null,
   imageAlt: null,
   error: null,
   title: '',
@@ -34,7 +34,7 @@ export default class PromoForm extends Component {
 
   handleFile = event => {
     this.setState({
-      photo: event.target.files[0]
+      filename: Date.now() + event.target.files[0].name
     })
   };
 
@@ -84,7 +84,7 @@ export default class PromoForm extends Component {
     const isValid = this.validate();
     if (isValid) {
       postItem(
-        this.state.photo,
+        this.state.filename,
         title.value,
         price.value,
         category.value,
@@ -137,7 +137,7 @@ export default class PromoForm extends Component {
           enctype='multipart/form-data'
         >
           <h2> Add A New Item </h2>
-          <input onChange={this.handleFile} name='photo' type='file'></input>
+          <input onChange={this.handleFile} name='filename' type='file'></input>
 
           <input
             onChange={this.handleChange}
