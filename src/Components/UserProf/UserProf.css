@@ -1,82 +1,82 @@
 .user-profile {
-    background-image: url('../../Images/paper-colorized-2.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-  }
-  
-  .user-profile-container h4,
-  .user-profile-container h3 {
-    font-family: 'Bebas Neue', cursive;
-    font-size: 20px;
-    color: #17252a;
-  }
-  
-  .user-profile p {
-    font-family: 'Montserrat', sans-serif;
-    color: #17252a;
-    font-size: 15px;
-  }
-  
-  .user-profile button {
-    margin: 10px;
-    padding: 10px;
-    width: 50%;
-    align-self: center;
-    border-radius: 3px;
-    border: none;
-    background-color: #2b7a78;
-    font-weight: bold;
-    color: #17252a;
-    font-family: 'Montserrat', sans-serif;
-  }
-  
-  @media all and (min-width: 768px) {
-    .user-profile {
-      margin-top: 20px;
-    }
+  background-image: url('../../Images/paper-colorized-2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
 
-    .user-profile-container {
-      display: flex;
-      justify-content: space-between;
-    }
-  
-    .user-profile button:hover {
-      cursor: pointer;
-      background-color: #2b7a78;
-      color: #feffff;
-      transition: 200ms;
-    }
-  
-    .main-info-box,
-    .purchase-stats-box,
-    .programs-box {
-      background-color: #feffff;
-      box-shadow: 5px 0 25px 10px rgba(0, 0, 0, 0.25);
-      padding: 5px;
-      margin: 50px;
-      border: 2px solid gray;
-      border-radius: 3px;
-    }
-  
-    .user-controls-box {
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .user-bio-box p {
-      text-align: left;
-      padding-left: 10px;
-      line-height: 8px;
-    }
-  
-    .purchase-stats-box,
-    .programs-box {
-      width: 700px;
-    }
-  
-    .profile-image {
-      height: 200px;
-      width: 200px;
-    }
+.user-profile-container h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  margin: 10px;
+  color: #17252a;
+}
+
+.user-profile p {
+  font-family: 'Montserrat', sans-serif;
+  color: #17252a;
+  font-size: 15px;
+}
+
+.user-profile button {
+  margin: 10px;
+  padding: 10px;
+  width: 100px;
+  align-self: center;
+  border-radius: 3px;
+  border: none;
+  background-color: #2b7a78;
+  font-weight: bold;
+  color: #17252a;
+  font-family: 'Montserrat', sans-serif;
+}
+
+@media all and (min-width: 768px) {
+  .user-profile {
+    margin-top: 20px;
   }
+
+  .user-profile-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .user-profile button:hover {
+    cursor: pointer;
+    background-color: #2b7a78;
+    color: #feffff;
+    transition: 200ms;
+  }
+
+  .main-info-box,
+  .purchase-stats-box,
+  .programs-box {
+    background-color: #feffff;
+    padding: 20px;
+    margin: 50px;
+    border: none;
+    border-radius: 2px;
+  }
+
+  .user-controls-box {
+    display: flex;
+    justify-content: center;
+  }
+
+  .user-bio-box p {
+    text-align: center;
+    margin: 20px;
+    line-height: 8px;
+  }
+
+  .purchase-stats-box,
+  .programs-box {
+    width: 700px;
+  }
+
+  .profile-image {
+    height: 200px;
+    width: 200px;
+  }
+}

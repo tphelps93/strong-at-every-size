@@ -5,10 +5,10 @@
   height: 100vh;
 }
 
-.admin-container h4,
-.admin-container h3 {
-  font-family: 'Bebas Neue', cursive;
-  font-size: 20px;
+.admin-container h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  margin: 10px;
   color: #17252a;
 }
 
@@ -21,7 +21,7 @@
 .admin-profile button {
   margin: 10px;
   padding: 10px;
-  width: 50%;
+  width: 100px;
   align-self: center;
   border-radius: 3px;
   border: none;
@@ -38,6 +38,7 @@
 
   .admin-container {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
   }
 
@@ -52,32 +53,33 @@
   .view-users-box,
   .store-stats-box {
     background-color: #feffff;
-    box-shadow: 5px 0 25px 10px rgba(0, 0, 0, 0.25);
-    padding: 5px;
+    padding: 20px;
     margin: 50px;
-    border: 2px solid gray;
-    border-radius: 3px;
+    border: none;
+    border-radius: 2px;
   }
 
   .admin-control-box {
     display: flex;
-    flex-direction: column;
-  }
-
-  .admin-main-info-box,
-  .admin-bio-box {
-    width: 400px;
+    justify-content: center;
   }
 
   .admin-bio-box p {
-    text-align: left;
-    padding-left: 10px;
+    text-align: center;
+    margin: 20px;
     line-height: 8px;
   }
 
   .view-users-box,
   .store-stats-box {
     width: 700px;
+  }
+
+  .view-users-box h3,
+  .store-stats-box h3 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 25px;
+    color: #17252a;
   }
 
   .profile-image {

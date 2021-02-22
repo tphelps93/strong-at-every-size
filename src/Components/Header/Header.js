@@ -52,25 +52,19 @@ export default class Header extends Component {
       <div className='logout'>
         <Link to='/profile-page'>
           <button className='profile-btn'>
-            {' '}
-            <span>
               <FontAwesomeIcon
                 style={{ fontSize: '15px' }}
                 icon='user-circle'
               />
-            </span>{' '}
             Profile
           </button>
         </Link>
         <Link onClick={this.handleLogoutClick} to='/'>
           <button className='logout-btn'>
-            {' '}
-            <span>
               <FontAwesomeIcon
                 style={{ fontSize: '15px' }}
                 icon='sign-out-alt'
               />
-            </span>{' '}
             Logout
           </button>
         </Link>

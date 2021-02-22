@@ -81,26 +81,6 @@
 }
 
 @media all and (min-width: 768px) {
-  /* .burger-container {
-    margin-top: 20px;
-    margin-left: 28px;
-  }
-
-  .menu-btn-burger {
-    height: 6px;
-  }
-
-  .nav-list {
-    margin-top: 84px;
-    width: 100%;
-    font-size: 20px;
-  }
-
-  .nav-list p:hover {
-    color: #2b7a78;
-    transition: 0.5s;
-  } */
-
   .burger-container {
     display: none;
   }

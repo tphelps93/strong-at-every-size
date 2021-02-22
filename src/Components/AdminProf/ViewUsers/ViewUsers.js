@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import UserContext from '../../../DataContext';
+// CSS Imports
+import './ViewUsers.css';
 
 export default class ViewUsers extends Component {
   static contextType = UserContext;
@@ -13,8 +15,8 @@ export default class ViewUsers extends Component {
       .map(user => {
         return (
           <div key={user.user_id} className='user-listing'>
-            <h3>{user.name}</h3>
-            <p>{user.email}</p>
+            <h4>{user.name}</h4>
+            <h4>{user.email}</h4>
           </div>
         );
       });

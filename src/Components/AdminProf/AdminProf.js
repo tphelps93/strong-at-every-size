@@ -28,16 +28,17 @@ export default class AdminProf extends Component {
                 ></img>
 
                 <h4> {user.name} </h4>
-                <p> {user.email} </p>
+                <h4> {user.email} </h4>
                 <Link to='/edit-profile'>
                   <button type='submit'> Edit Profile </button>
                 </Link>
-              </div>
-              <div className='admin-bio-box'>
-                <p> Hello this is sample bio about the user listed above. </p>
-                <p> This is to be dynamically rendered in the future. </p>
+                {/* <div className='admin-bio-box'>
+                  <p> Hello this is sample bio about the user listed above. </p>
+                  <p> This is to be dynamically rendered in the future. </p>
+                </div> */}
               </div>
             </div>
+
             <div className='admin-control-box'>
               <div className='view-users-box'>
                 <h3> User List </h3>

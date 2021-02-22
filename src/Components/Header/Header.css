@@ -65,7 +65,7 @@
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
   }
-    
+
   .logout button {
     font-size: 15px;
     width: 100px;
@@ -87,6 +87,7 @@
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
   }
+
 
   .login-signup button:hover,
   .logout button:hover {

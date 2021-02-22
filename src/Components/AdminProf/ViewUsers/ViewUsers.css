@@ -1,0 +1,4 @@
+.user-listing {
+    display: flex;
+    justify-content: space-between;
+}

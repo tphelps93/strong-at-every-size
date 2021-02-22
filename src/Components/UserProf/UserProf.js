@@ -30,17 +30,17 @@ export default class UserProf extends Component {
                   className='profile-image'
                   src={`${config.API_BASE_URL}/uploads/${user.photo}`}
                 ></img>
-                <h4> {user.name} </h4>
-                <p> {user.email} </p>
+                  <h4> {user.name} </h4>
+                  <h4> {user.email} </h4>
                 <div className='user-btns'>
                   <Link to='/edit-profile'>
                     <button> Edit Profile </button>
                   </Link>
                 </div>
-                <div className='user-bio-box'>
+                {/* <div className='user-bio-box'>
                   <p> Hello this is sample bio about the user listed above. </p>
                   <p> This is to be dynamically rendered in the future. </p>
-                </div>
+                </div> */}
               </div>
             </div>
 
