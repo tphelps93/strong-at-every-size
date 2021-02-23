@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import DataContext from '../../../DataContext';
 import { postItem } from '../../../services/api-service';
 import config from '../../../config';
+import TokenService from '../../../services/token-service';
 
 // CSS Imports
 import './ItemForm.css';
 
 const initialState = {
-  filename: null,
+  photo: null,
   imageAlt: null,
   error: null,
   title: '',
@@ -32,9 +33,19 @@ export default class PromoForm extends Component {
     });
   };
 
-  handleFile = event => {
-    this.setState({
-      filename: Date.now() + event.target.files[0].name
+  handleFile = e => {
+    const photo = e.target.files[0];
+    const formData = new FormData();
+    formData.append('photo', photo);
+    return fetch(`${config.API_BASE_URL}/api/upload`, {
+      method: 'POST',
+      body: formData,
+    }).then(res => {
+      return res.json();
+    }).then(res => {
+      this.setState({
+        photo: res.uploadedImage
+      })
     })
   };
 
@@ -76,7 +87,6 @@ export default class PromoForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    // const { photo } = event.target;
     const { title } = event.target;
     const { price } = event.target;
     const { category } = event.target;
@@ -84,7 +94,7 @@ export default class PromoForm extends Component {
     const isValid = this.validate();
     if (isValid) {
       postItem(
-        this.state.filename,
+        this.state.photo.name,
         title.value,
         price.value,
         category.value,
@@ -109,35 +119,17 @@ export default class PromoForm extends Component {
   };
 
   render() {
-    // const UploadPhoto = props => {
-    //   return (
-    //     <div>
-    //       <section className='left-side'>
-    //         <input onChange={this.handleFile} name='photo' type='file'></input>
-    //       </section>
-
-    //       {/* <section className='right-side'>
-    //         {props.photo && (
-    //           <img
-    //             src={props.photo}
-    //             alt={props.imageAlt}
-    //             className='displayed-image'
-    //           />
-    //         )}
-    //       </section> */}
-    //     </div>
-    //   );
-    // };
-
+    console.log(this.state.photo);
     return (
       <div className='add-item-page'>
-        <form
-          className='add-item-form'
-          onSubmit={this.handleSubmit}
-          enctype='multipart/form-data'
-        >
+        <form className='add-item-form' onSubmit={this.handleSubmit}>
           <h2> Add A New Item </h2>
-          <input onChange={this.handleFile} name='filename' type='file'></input>
+          <input
+            onChange={this.handleFile}
+            name='photo'
+            type='file'
+            accept='image/jpg,image/jpeg'
+          ></input>
 
           <input
             onChange={this.handleChange}

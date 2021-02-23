@@ -170,40 +170,26 @@ export const postTestimony = (photo, content) => {
   });
 };
 
-export const postItem = (filename, title, price, category, description) => {
-  const formData = new FormData();
-  formData.append('filename', filename);
-  formData.append('title', title);
-  formData.append('price', price);
-  formData.append('category', category);
-  formData.append('description', description);
+export const postItem = (photo, title, price, category, description) => {
   return fetch(`${config.API_BASE_URL}/api/items`, {
     method: 'POST',
     headers: {
+      'content-type': 'appliction/json',
       authorization: `bearer ${TokenService.getAuthToken()}`,
     },
-    body: formData,
+    body: JSON.stringify({
+      photo,
+      title,
+      price,
+      category,
+      description,
+    }),
   }).then(res => {
     if (!res.ok) {
       return Promise.reject(res.statusText);
     }
     return res.json();
   });
-
-  //   method: 'POST',
-  //   headers: {
-  //     'content-type': 'multipart/formdata',
-  //     authorization: `bearer ${TokenService.getAuthToken()}`,
-  //   },
-  //   body: JSON.stringify({
-  //     formData,
-  //   }),
-  // }).then(res => {
-  //   if (!res.ok) {
-  //     return Promise.reject(res.statusText);
-  //   }
-  //   return res.json();
-  // });
 };
 
 export const postUser = (
