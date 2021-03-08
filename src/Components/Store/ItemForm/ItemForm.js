@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import DataContext from '../../../DataContext';
 import { postItem } from '../../../services/api-service';
 import config from '../../../config';
+import { fetchUploads, uploadPhoto } from '../../../services/api-service';
 import TokenService from '../../../services/token-service';
 
 // CSS Imports
@@ -37,16 +38,11 @@ export default class PromoForm extends Component {
     const photo = e.target.files[0];
     const formData = new FormData();
     formData.append('photo', photo);
-    return fetch(`${config.API_BASE_URL}/api/upload`, {
-      method: 'POST',
-      body: formData,
-    }).then(res => {
-      return res.json();
-    }).then(res => {
+    uploadPhoto(formData).then(res => {
       this.setState({
-        photo: res.uploadedImage
-      })
-    })
+        photo: res.Key,
+      });
+    });
   };
 
   validate = () => {
@@ -87,6 +83,7 @@ export default class PromoForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    const photo = this.state.photo;
     const { title } = event.target;
     const { price } = event.target;
     const { category } = event.target;
@@ -94,15 +91,14 @@ export default class PromoForm extends Component {
     const isValid = this.validate();
     if (isValid) {
       postItem(
-        this.state.photo.name,
+        photo,
         title.value,
         price.value,
         category.value,
         description.value
-      )
-        .then(item => {
-          this.context.addItem(item);
-        })
+      ).then(item => {
+        this.context.addItem(item);
+      })
         .then(() => {
           title.value = '';
           price.value = '';
@@ -119,7 +115,6 @@ export default class PromoForm extends Component {
   };
 
   render() {
-    console.log(this.state.photo);
     return (
       <div className='add-item-page'>
         <form className='add-item-form' onSubmit={this.handleSubmit}>
@@ -130,7 +125,7 @@ export default class PromoForm extends Component {
             type='file'
             accept='image/jpg,image/jpeg'
           ></input>
-
+          <img src={`${this.state.uploadedImage}`} alt='uploaded-file'></img>
           <input
             onChange={this.handleChange}
             value={this.state.title}

@@ -191,7 +191,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.isadmin);
     const contextValue = {
       users: this.state.users,
       items: this.state.items,

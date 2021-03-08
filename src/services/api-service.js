@@ -3,6 +3,15 @@ import TokenService from '../services/token-service';
 
 /* FETCH */
 
+export const fetchUploads = () => {
+  return fetch(`${config.API_BASE_URL}/api/uploads`).then(res => {
+    if (!res.ok) {
+      return Promise.reject(res.statusText);
+    }
+    return res.json();
+  });
+};
+
 export const fetchUsers = () => {
   return fetch(`${config.API_BASE_URL}/api/users`).then(res => {
     if (!res.ok) {
@@ -93,6 +102,22 @@ export const fetchIsAdminCheck = () => {
 };
 
 /* POST */
+
+export const uploadPhoto = formData => {
+  return fetch(`${config.API_BASE_URL}/api/uploads`, {
+    method: 'POST',
+    headers: {
+      authorization: `bearer ${TokenService.getAuthToken()}`,
+    },
+    body: formData,
+  }).then(res => {
+    if (!res.ok) {
+      return Promise.reject(res.statusText);
+    }
+    return res.json();
+  });
+};
+
 export const postReview = (content, rating, itemid) => {
   return fetch(`${config.API_BASE_URL}/api/reviews`, {
     method: 'POST',

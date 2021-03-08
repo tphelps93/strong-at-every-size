@@ -61,7 +61,6 @@ export default class ReviewForm extends Component {
           content.value = '';
         })
         .catch(this.context.setError);
-      console.log(this.context.error);
       // clear form
       this.setState(initialState);
     }
