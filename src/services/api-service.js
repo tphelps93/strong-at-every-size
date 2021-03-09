@@ -8,6 +8,7 @@ export const fetchUploads = () => {
     if (!res.ok) {
       return Promise.reject(res.statusText);
     }
+    console.log(res.json());
     return res.json();
   });
 };
@@ -199,7 +200,7 @@ export const postItem = (photo, title, price, category, description) => {
   return fetch(`${config.API_BASE_URL}/api/items`, {
     method: 'POST',
     headers: {
-      'content-type': 'appliction/json',
+      'content-type': 'application/json',
       authorization: `bearer ${TokenService.getAuthToken()}`,
     },
     body: JSON.stringify({

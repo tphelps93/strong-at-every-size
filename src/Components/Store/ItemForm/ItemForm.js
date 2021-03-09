@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import DataContext from '../../../DataContext';
-import { postItem } from '../../../services/api-service';
-import config from '../../../config';
-import { fetchUploads, uploadPhoto } from '../../../services/api-service';
-import TokenService from '../../../services/token-service';
+import {
+  postItem,
+  uploadPhoto,
+  fetchUploads,
+} from '../../../services/api-service';
 
 // CSS Imports
 import './ItemForm.css';
@@ -12,6 +13,7 @@ const initialState = {
   photo: null,
   imageAlt: null,
   error: null,
+  fileUrl: '',
   title: '',
   price: '',
   description: '',
@@ -41,6 +43,7 @@ export default class PromoForm extends Component {
     uploadPhoto(formData).then(res => {
       this.setState({
         photo: res.Key,
+        fileUrl: URL.createObjectURL(photo),
       });
     });
   };
@@ -96,9 +99,10 @@ export default class PromoForm extends Component {
         price.value,
         category.value,
         description.value
-      ).then(item => {
-        this.context.addItem(item);
-      })
+      )
+        .then(item => {
+          this.context.addItem(item);
+        })
         .then(() => {
           title.value = '';
           price.value = '';
@@ -125,7 +129,11 @@ export default class PromoForm extends Component {
             type='file'
             accept='image/jpg,image/jpeg'
           ></input>
-          <img src={`${this.state.uploadedImage}`} alt='uploaded-file'></img>
+          {this.state.fileUrl ? (
+            <img src={`${this.state.fileUrl}`} alt='uploaded-file'></img>
+          ) : (
+            ''
+          )}
           <input
             onChange={this.handleChange}
             value={this.state.title}
