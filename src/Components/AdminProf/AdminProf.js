@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ViewUsers from './ViewUsers/ViewUsers';
 import ViewStoreStats from './ViewStoreStats/ViewStoreStats';
 import DataContext from '../../DataContext';
+import { fetchUploads } from '../../services/api-service';
 import { Link } from 'react-router-dom';
 import config from '../../config';
 // CSS Imports
@@ -9,8 +10,17 @@ import './AdminProf.css';
 
 export default class AdminProf extends Component {
   static contextType = DataContext;
+
   render() {
-    const { users } = this.context;
+    const { users, photos } = this.context;
+
+    const insertPhotos = photos.map(photo => {
+      return (
+        <div key={`${photo.Key}`} className='photo'>
+          {/* <img alt='admin' className='profile-image' src={`${URL.createObjectURL(photo)}`}></img> */}
+        </div>
+      );
+    });
 
     const adminProfile = users
       .filter(user => {
@@ -21,21 +31,12 @@ export default class AdminProf extends Component {
           <div key={user.user_id} className='admin-container'>
             <div className='admin-info'>
               <div className='admin-main-info-box'>
-                <img
-                  alt='admin'
-                  className='profile-image'
-                  src={`${config.API_BASE_URL}/uploads/${user.photo}`}
-                ></img>
-
+                {insertPhotos}
                 <h4> {user.name} </h4>
                 <h4> {user.email} </h4>
                 <Link to='/edit-profile'>
                   <button type='submit'> Edit Profile </button>
                 </Link>
-                {/* <div className='admin-bio-box'>
-                  <p> Hello this is sample bio about the user listed above. </p>
-                  <p> This is to be dynamically rendered in the future. </p>
-                </div> */}
               </div>
             </div>
 

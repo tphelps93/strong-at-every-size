@@ -3,7 +3,6 @@ import DataContext from '../../../DataContext';
 import {
   postItem,
   uploadPhoto,
-  fetchUploads,
 } from '../../../services/api-service';
 
 // CSS Imports
@@ -123,17 +122,18 @@ export default class PromoForm extends Component {
       <div className='add-item-page'>
         <form className='add-item-form' onSubmit={this.handleSubmit}>
           <h2> Add A New Item </h2>
+          {this.state.fileUrl ? (
+            <img src={`${this.state.fileUrl}`} alt='uploaded-file'></img>
+          ) : (
+            ''
+          )}
           <input
             onChange={this.handleFile}
             name='photo'
             type='file'
             accept='image/jpg,image/jpeg'
           ></input>
-          {this.state.fileUrl ? (
-            <img src={`${this.state.fileUrl}`} alt='uploaded-file'></img>
-          ) : (
-            ''
-          )}
+
           <input
             onChange={this.handleChange}
             value={this.state.title}

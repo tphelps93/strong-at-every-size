@@ -8,7 +8,6 @@ export const fetchUploads = () => {
     if (!res.ok) {
       return Promise.reject(res.statusText);
     }
-    console.log(res.json());
     return res.json();
   });
 };

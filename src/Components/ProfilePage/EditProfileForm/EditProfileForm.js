@@ -1,17 +1,55 @@
 import React, { Component } from 'react';
 import DataContext from '../../../DataContext';
 import TokenService from '../../../services/token-service';
-import { editUserDetails } from '../../../services/api-service';
+import { editUserDetails, uploadPhoto } from '../../../services/api-service';
 // CSS Imports
 import './EditProfileForm.css';
+
+const initialState = {
+  photo: null,
+  error: null,
+  fileUrl: '',
+  name: '',
+  user_name: '',
+  email: '',
+  address: '',
+  state: '',
+  zip: '',
+  nameError: '',
+  emailError: '',
+  addressError: '',
+  zipError: '',
+};
 export default class EditProfileForm extends Component {
+  state = { initialState };
   static contextType = DataContext;
+
+  handleChange = event => {
+    const isCheckbox = event.target.type === 'checkbox';
+    this.setState({
+      [event.target.name]: isCheckbox
+        ? event.target.checked
+        : event.target.value,
+    });
+  };
+
+  handleFile = e => {
+    const photo = e.target.files[0];
+    const formData = new FormData();
+    formData.append('photo', photo);
+    uploadPhoto(formData).then(res => {
+      this.setState({
+        photo: res.Key,
+        fileUrl: URL.createObjectURL(photo),
+      });
+    });
+  };
 
   handleSubmit = event => {
     const user_id = TokenService.jwtDecode(TokenService.getAuthToken()).payload
       .user_id;
     event.preventDefault();
-    const { photo } = event.target;
+    const photo = this.state.photo;
     const { name } = event.target;
     const { user_name } = event.target;
     const { email } = event.target;
@@ -21,7 +59,7 @@ export default class EditProfileForm extends Component {
 
     editUserDetails(
       user_id,
-      photo.value,
+      photo,
       name.value,
       user_name.value,
       email.value,
@@ -33,7 +71,6 @@ export default class EditProfileForm extends Component {
         this.context.editProfile(updatedUser);
       })
       .then(() => {
-        photo.value = '';
         name.value = '';
         user_name.value = '';
         email.value = '';
@@ -66,8 +103,18 @@ export default class EditProfileForm extends Component {
             >
               <h2> Edit Details </h2>
 
-              <img alt='placeholder' className='edit-form-photo' src={user.photo}></img>
-              <input name='photo' type='text' defaultValue={user.photo}></input>
+              {this.state.fileUrl ? (
+                <img src={`${this.state.fileUrl}`} alt='uploaded-file'></img>
+              ) : (
+                ''
+              )}
+
+              <input
+                onChange={this.handleFile}
+                name='photo'
+                type='file'
+                accept='image/jpg,image/jpeg'
+              ></input>
               <input name='name' type='text' defaultValue={user.name}></input>
               <input
                 name='user_name'

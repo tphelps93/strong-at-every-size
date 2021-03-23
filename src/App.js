@@ -12,6 +12,7 @@ import {
   fetchArticles,
   fetchTestimonies,
   fetchIsAdminCheck,
+  fetchUploads,
 } from '../src/services/api-service';
 // CSS Imports
 import '../src/Components/FontAwesomeIcons/store';
@@ -48,6 +49,7 @@ class App extends Component {
     promos: [],
     articles: [],
     testimonies: [],
+    photos: [],
     authToken: null,
     isadmin: false,
     error: null,
@@ -165,6 +167,7 @@ class App extends Component {
       fetchPurchases(),
       fetchArticles(),
       fetchTestimonies(),
+      fetchUploads(),
     ];
 
     let loggedIn = TokenService.hasAuthToken();
@@ -181,6 +184,7 @@ class App extends Component {
           articles: values[6],
           testimonies: values[7],
           isadmin: loggedIn ? values[8] : false,
+          photos: values[8],
         })
       )
       .catch(error => {
@@ -200,6 +204,7 @@ class App extends Component {
       promos: this.state.promos,
       articles: this.state.articles,
       testimonies: this.state.testimonies,
+      photos: this.state.photos,
       authToken: this.state.authToken,
       isadmin: this.state.isadmin,
       addUser: this.addUser,

@@ -9,6 +9,7 @@ const DataContext = React.createContext({
   promos: [],
   articles: [],
   testimonies: [],
+  photos: [],
   authToken: null,
   isadmin: null,
   error: null,
