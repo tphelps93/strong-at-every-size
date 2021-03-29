@@ -96,7 +96,7 @@ export default class Contact extends Component {
           <h2 className='form-title'>Contact Me</h2>
           <p className='form-desc'>
             {' '}
-            Want to collaborate? Have a job for me? Reach out!{' '}
+            Have questions? Reach out!
           </p>
           <div className='form-item'>
             <label className='form-label' htmlFor='name'>

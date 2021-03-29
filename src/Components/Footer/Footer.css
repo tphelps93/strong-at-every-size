@@ -1,4 +1,14 @@
 .footer {
     background-color: white;
-    height: 100px;
+    height: 120px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.social-icons {
+    display: flex;
+}
+
+.social-icons span {
+    margin: 10px;
 }

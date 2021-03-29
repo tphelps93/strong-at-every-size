@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import DataContext from '../../../DataContext';
-import { postTestimony } from '../../../services/api-service';
+import { postTestimony, uploadPhoto } from '../../../services/api-service';
 // CSS Imports
 import './TestimonyForm.css';
 
 const initialState = {
-  photo: '',
+  photo: null,
+  fileUrl: '',
   content: '',
   photoError: '',
   contentError: '',
@@ -21,6 +22,18 @@ export default class PromoForm extends Component {
       [event.target.name]: isCheckbox
         ? event.target.checked
         : event.target.value,
+    });
+  };
+
+  handleFile = e => {
+    const photo = e.target.files[0];
+    const formData = new FormData();
+    formData.append('photo', photo);
+    uploadPhoto(formData).then(res => {
+      this.setState({
+        photo: res.Key,
+        fileUrl: URL.createObjectURL(photo),
+      });
     });
   };
 
@@ -48,16 +61,15 @@ export default class PromoForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const { photo } = event.target;
+    const photo = this.state.photo;
     const { content } = event.target;
     const isValid = this.validate();
     if (isValid) {
-      postTestimony(photo.value, content.value)
+      postTestimony(photo, content.value)
         .then(testimony => {
           this.context.addTestimony(testimony);
         })
         .then(() => {
-          photo.value = '';
           content.value = '';
         })
         .then(() => {
@@ -74,12 +86,17 @@ export default class PromoForm extends Component {
         <form className='testimony-form' onSubmit={this.handleSubmit}>
           <h2> Add A New Testimony </h2>
 
+          {this.state.fileUrl ? (
+            <img src={`${this.state.fileUrl}`} alt='uploaded-file'></img>
+          ) : (
+            ''
+          )}
+
           <input
-            onChange={this.handleChange}
-            value={this.state.photo}
+            onChange={this.handleFile}
             name='photo'
-            className='testimony-photo'
-            placeholder='Photo URL'
+            type='file'
+            accept='image/jpg,image/jpeg'
           ></input>
           <div style={{ color: 'red', fontSize: 20 }}>
             {this.state.photoError}

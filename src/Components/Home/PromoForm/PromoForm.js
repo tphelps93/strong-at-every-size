@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import DataContext from '../../../DataContext';
-import { postPromo } from '../../../services/api-service';
+import { postPromo, uploadPhoto } from '../../../services/api-service';
 // CSS Imports
 import './PromoForm.css';
 
 const initialState = {
   photo: null,
-  imgAlt: null,
+  fileUrl: '',
   title: '',
   content: '',
   titleError: '',
@@ -23,6 +23,18 @@ export default class PromoForm extends Component {
       [event.target.name]: isCheckbox
         ? event.target.checked
         : event.target.value,
+    });
+  };
+
+  handleFile = e => {
+    const photo = e.target.files[0];
+    const formData = new FormData();
+    formData.append('photo', photo);
+    uploadPhoto(formData).then(res => {
+      this.setState({
+        photo: res.Key,
+        fileUrl: URL.createObjectURL(photo),
+      });
     });
   };
 
@@ -50,11 +62,12 @@ export default class PromoForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    const photo = this.state.photo;
     const { title } = event.target;
     const { content } = event.target;
     const isValid = this.validate();
     if (isValid) {
-      postPromo(title.value, content.value)
+      postPromo(photo, title.value, content.value)
         .then(promo => {
           this.context.addPromo(promo);
         })
@@ -75,11 +88,18 @@ export default class PromoForm extends Component {
       <div className='promo-page'>
         <form className='promo-form' onSubmit={this.handleSubmit}>
           <h2> Add A New Promo </h2>
-          {/* <UploadPhoto
-            onChange={this.handleChange}
-            photo={this.state.photo}
-            imgAlt={this.state.imgAlt}
-          /> */}
+          {this.state.fileUrl ? (
+            <img src={`${this.state.fileUrl}`} alt='uploaded-file'></img>
+          ) : (
+            ''
+          )}
+
+          <input
+            onChange={this.handleFile}
+            name='photo'
+            type='file'
+            accept='image/jpg,image/jpeg'
+          ></input>
           <input
             onChange={this.handleChange}
             value={this.state.title}

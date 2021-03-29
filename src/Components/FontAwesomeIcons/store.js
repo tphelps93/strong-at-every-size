@@ -36,5 +36,5 @@ library.add(
   faUserPlus,
   faEnvelope,
   faBookReader,
-  faHardHat
+  faHardHat,
 );
