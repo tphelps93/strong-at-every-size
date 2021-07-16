@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import DataContext from '../../../DataContext';
-import {
-  postItem,
-  uploadPhoto,
-} from '../../../services/api-service';
+import { postItem } from '../../../services/api-service';
 
 // CSS Imports
 import './ItemForm.css';
@@ -35,17 +32,17 @@ export default class PromoForm extends Component {
     });
   };
 
-  handleFile = e => {
-    const photo = e.target.files[0];
-    const formData = new FormData();
-    formData.append('photo', photo);
-    uploadPhoto(formData).then(res => {
-      this.setState({
-        photo: res.Key,
-        fileUrl: URL.createObjectURL(photo),
-      });
-    });
-  };
+  // handleFile = e => {
+  //   const photo = e.target.files[0];
+  //   const formData = new FormData();
+  //   formData.append('photo', photo);
+  //   uploadPhoto(formData).then(res => {
+  //     this.setState({
+  //       photo: res.Key,
+  //       fileUrl: URL.createObjectURL(photo),
+  //     });
+  //   });
+  // };
 
   validate = () => {
     // let photoError = '';

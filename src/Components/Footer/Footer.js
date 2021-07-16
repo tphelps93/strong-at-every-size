@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { SocialIcon } from 'react-social-icons';
 import './Footer.css';
+
 export default class Footer extends Component {
   render() {
     return (
@@ -12,11 +13,11 @@ export default class Footer extends Component {
           <div className='social-icons'>
             <span>
               {' '}
-              <SocialIcon url='https://www.facebook.com/strongateverysize' />{' '}
+              <SocialIcon style={{ height: 35, width: 35 }} url='https://www.facebook.com/strongateverysize' />{' '}
             </span>
             <span>
               {' '}
-              <SocialIcon url='https://www.instagram.com/strongateverysize/' />{' '}
+              <SocialIcon style={{ height: 35, width: 35 }} url='https://www.instagram.com/strongateverysize/' />{' '}
             </span>
           </div>
         </div>

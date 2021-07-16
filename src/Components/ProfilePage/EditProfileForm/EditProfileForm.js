@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import DataContext from '../../../DataContext';
 import TokenService from '../../../services/token-service';
-import { editUserDetails, uploadPhoto } from '../../../services/api-service';
+// import { editUserDetails, uploadPhoto } from '../../../services/api-service';
 // CSS Imports
 import './EditProfileForm.css';
 
@@ -33,56 +33,56 @@ export default class EditProfileForm extends Component {
     });
   };
 
-  handleFile = e => {
-    const photo = e.target.files[0];
-    const formData = new FormData();
-    formData.append('photo', photo);
-    uploadPhoto(formData).then(res => {
-      this.setState({
-        photo: res.Key,
-        fileUrl: URL.createObjectURL(photo),
-      });
-    });
-  };
+  // handleFile = e => {
+  //   const photo = e.target.files[0];
+  //   const formData = new FormData();
+  //   formData.append('photo', photo);
+  //   uploadPhoto(formData).then(res => {
+  //     this.setState({
+  //       photo: res.Key,
+  //       fileUrl: URL.createObjectURL(photo),
+  //     });
+  //   });
+  // };
 
-  handleSubmit = event => {
-    const user_id = TokenService.jwtDecode(TokenService.getAuthToken()).payload
-      .user_id;
-    event.preventDefault();
-    const photo = this.state.photo;
-    const { name } = event.target;
-    const { user_name } = event.target;
-    const { email } = event.target;
-    const { address } = event.target;
-    const { state } = event.target;
-    const { zip } = event.target;
+  // handleSubmit = event => {
+  //   const user_id = TokenService.jwtDecode(TokenService.getAuthToken()).payload
+  //     .user_id;
+  //   event.preventDefault();
+  //   const photo = this.state.photo;
+  //   const { name } = event.target;
+  //   const { user_name } = event.target;
+  //   const { email } = event.target;
+  //   const { address } = event.target;
+  //   const { state } = event.target;
+  //   const { zip } = event.target;
 
-    editUserDetails(
-      user_id,
-      photo,
-      name.value,
-      user_name.value,
-      email.value,
-      address.value,
-      state.value,
-      zip.value
-    )
-      .then(updatedUser => {
-        this.context.editProfile(updatedUser);
-      })
-      .then(() => {
-        name.value = '';
-        user_name.value = '';
-        email.value = '';
-        address.value = '';
-        state.value = '';
-        zip.value = 0;
-      })
-      .then(() => {
-        this.props.history.push('/profile-page');
-      })
-      .catch(this.context.setError);
-  };
+  //   editUserDetails(
+  //     user_id,
+  //     photo,
+  //     name.value,
+  //     user_name.value,
+  //     email.value,
+  //     address.value,
+  //     state.value,
+  //     zip.value
+  //   )
+  //     .then(updatedUser => {
+  //       this.context.editProfile(updatedUser);
+  //     })
+  //     .then(() => {
+  //       name.value = '';
+  //       user_name.value = '';
+  //       email.value = '';
+  //       address.value = '';
+  //       state.value = '';
+  //       zip.value = 0;
+  //     })
+  //     .then(() => {
+  //       this.props.history.push('/profile-page');
+  //     })
+  //     .catch(this.context.setError);
+  // };
 
   render() {
     const { users } = this.context;

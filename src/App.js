@@ -239,15 +239,15 @@ class App extends Component {
             <Route path='/signup' component={SignUp} />
             <Route path='/login' component={Login} />
             <Route exact path='/store' component={Store} />
-            <Route path='/store/:item_id' component={StoreDetails} />
+            {/* <Route path='/store/:item_id' component={StoreDetails} /> */}
 
-            <Route path='/profile-page' component={ProfilePage} />
-            <Route path='/edit-profile' component={EditProfileForm} />
+            {/* <Route path='/profile-page' component={ProfilePage} />
+            <Route path='/edit-profile' component={EditProfileForm} /> */}
 
             <Route path='/add-promo' component={PromoForm} />
             <Route path='/add-article' component={ArticleForm} />
             <Route path='/add-testimony' component={TestimonyForm} />
-            <Route path='/add-item' component={ItemForm} />
+            {/* <Route path='/add-item' component={ItemForm} /> */}
             <Footer />
           </UsersContext.Provider>
         </div>

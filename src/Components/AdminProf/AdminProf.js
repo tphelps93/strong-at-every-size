@@ -11,17 +11,24 @@ import './AdminProf.css';
 export default class AdminProf extends Component {
   static contextType = DataContext;
 
+  renderUserPhoto = userPhoto => {
+    const photos = this.context.photos;
+    let element = <img src="" alt='user'></img>;
+    photos.filter(p => {
+      return p.Key === userPhoto;
+    })
+    .map(p => {
+      console.log(p);
+      return (element = <img src={`${p.Key}`} alt='user'></img>)
+    });
+    return element;
+  }
+
   render() {
     const { users, photos } = this.context;
 
-    const insertPhotos = photos.map(photo => {
-      return (
-        <div key={`${photo.Key}`} className='photo'>
-          {/* <img alt='admin' className='profile-image' src={`${URL.createObjectURL(photo)}`}></img> */}
-        </div>
-      );
-    });
-
+    console.log(photos);
+    console.log(users);
     const adminProfile = users
       .filter(user => {
         return user.isadmin === true;
@@ -31,7 +38,7 @@ export default class AdminProf extends Component {
           <div key={user.user_id} className='admin-container'>
             <div className='admin-info'>
               <div className='admin-main-info-box'>
-                {insertPhotos}
+                {this.renderUserPhoto(user.photo)}
                 <h4> {user.name} </h4>
                 <h4> {user.email} </h4>
                 <Link to='/edit-profile'>

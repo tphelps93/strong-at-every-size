@@ -50,7 +50,7 @@ export default class Header extends Component {
   renderLogoutLink() {
     return (
       <div className='logout'>
-        <Link to='/profile-page'>
+        {/* <Link to='/profile-page'>
           <button className='profile-btn'>
               <FontAwesomeIcon
                 style={{ fontSize: '15px' }}
@@ -58,7 +58,7 @@ export default class Header extends Component {
               />
             Profile
           </button>
-        </Link>
+        </Link> */}
         <Link onClick={this.handleLogoutClick} to='/'>
           <button className='logout-btn'>
               <FontAwesomeIcon

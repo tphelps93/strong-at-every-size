@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DataContext from '../../../DataContext';
-import { postTestimony, uploadPhoto } from '../../../services/api-service';
+import { postTestimony } from '../../../services/api-service';
 // CSS Imports
 import './TestimonyForm.css';
 
@@ -25,17 +25,17 @@ export default class PromoForm extends Component {
     });
   };
 
-  handleFile = e => {
-    const photo = e.target.files[0];
-    const formData = new FormData();
-    formData.append('photo', photo);
-    uploadPhoto(formData).then(res => {
-      this.setState({
-        photo: res.Key,
-        fileUrl: URL.createObjectURL(photo),
-      });
-    });
-  };
+  // handleFile = e => {
+  //   const photo = e.target.files[0];
+  //   const formData = new FormData();
+  //   formData.append('photo', photo);
+  //   uploadPhoto(formData).then(res => {
+  //     this.setState({
+  //       photo: res.Key,
+  //       fileUrl: URL.createObjectURL(photo),
+  //     });
+  //   });
+  // };
 
   validate = () => {
     let photoError = '';
@@ -86,11 +86,11 @@ export default class PromoForm extends Component {
         <form className='testimony-form' onSubmit={this.handleSubmit}>
           <h2> Add A New Testimony </h2>
 
-          {this.state.fileUrl ? (
+          {/* {this.state.fileUrl ? (
             <img src={`${this.state.fileUrl}`} alt='uploaded-file'></img>
           ) : (
             ''
-          )}
+          )} */}
 
           <input
             onChange={this.handleFile}

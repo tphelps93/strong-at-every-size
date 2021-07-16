@@ -1,14 +1,18 @@
 .footer {
-    background-color: white;
-    height: 120px;
-    display: flex;
-    justify-content: flex-end;
+  background-color: white;
+  height: 120px;
+  display: flex;
+  justify-content: center;
 }
 
-.social-icons {
-    display: flex;
+.social-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.social-icons span {
-    margin: 10px;
+.social-container h4 {
+    font-size: 15px;
+    color: #17252a;
+    font-family: 'Montserrat';
 }

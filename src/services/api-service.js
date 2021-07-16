@@ -103,20 +103,20 @@ export const fetchIsAdminCheck = () => {
 
 /* POST */
 
-export const uploadPhoto = formData => {
-  return fetch(`${config.API_BASE_URL}/api/uploads`, {
-    method: 'POST',
-    headers: {
-      authorization: `bearer ${TokenService.getAuthToken()}`,
-    },
-    body: formData,
-  }).then(res => {
-    if (!res.ok) {
-      return Promise.reject(res.statusText);
-    }
-    return res.json();
-  });
-};
+// export const uploadPhoto = formData => {
+//   return fetch(`${config.API_BASE_URL}/api/uploads`, {
+//     method: 'POST',
+//     headers: {
+//       authorization: `bearer ${TokenService.getAuthToken()}`,
+//     },
+//     body: formData,
+//   }).then(res => {
+//     if (!res.ok) {
+//       return Promise.reject(res.statusText);
+//     }
+//     return res.json();
+//   });
+// };
 
 export const postReview = (content, rating, itemid) => {
   return fetch(`${config.API_BASE_URL}/api/reviews`, {
@@ -314,37 +314,37 @@ export const deleteArticle = article_id => {
 
 /* PATCH */
 
-export const editUserDetails = (
-  user_id,
-  photo,
-  name,
-  user_name,
-  email,
-  address,
-  state,
-  zip
-) => {
-  return fetch(`${config.API_BASE_URL}/api/users/${user_id}`, {
-    method: 'PATCH',
-    headers: {
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify({
-      user_id,
-      photo,
-      name,
-      user_name,
-      email,
-      address,
-      state,
-      zip,
-    }),
-  }).then(res => {
-    if (!res.ok) {
-      throw new Error(
-        `Something went wrong updating ${user_name}, please try again later.`
-      );
-    }
-    return res.json();
-  });
-};
+// export const editUserDetails = (
+//   user_id,
+//   photo,
+//   name,
+//   user_name,
+//   email,
+//   address,
+//   state,
+//   zip
+// ) => {
+//   return fetch(`${config.API_BASE_URL}/api/users/${user_id}`, {
+//     method: 'PATCH',
+//     headers: {
+//       'content-type': 'application/json',
+//     },
+//     body: JSON.stringify({
+//       user_id,
+//       photo,
+//       name,
+//       user_name,
+//       email,
+//       address,
+//       state,
+//       zip,
+//     }),
+//   }).then(res => {
+//     if (!res.ok) {
+//       throw new Error(
+//         `Something went wrong updating ${user_name}, please try again later.`
+//       );
+//     }
+//     return res.json();
+//   });
+// };

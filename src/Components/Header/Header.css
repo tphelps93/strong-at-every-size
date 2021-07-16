@@ -31,6 +31,7 @@
 
 .logout {
   display: flex;
+  margin-right: 10px;
 }
 
 .logout button {

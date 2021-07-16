@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DataContext from '../../../DataContext';
-import { postArticle, uploadPhoto } from '../../../services/api-service';
+import { postArticle } from '../../../services/api-service';
 // CSS Imports
 import './ArticleForm.css';
 
@@ -26,17 +26,17 @@ export default class ArticleForm extends Component {
     });
   };
 
-  handleFile = e => {
-    const photo = e.target.files[0];
-    const formData = new FormData();
-    formData.append('photo', photo);
-    uploadPhoto(formData).then(res => {
-      this.setState({
-        photo: res.Key,
-        fileUrl: URL.createObjectURL(photo),
-      });
-    });
-  };
+  // handleFile = e => {
+  //   const photo = e.target.files[0];
+  //   const formData = new FormData();
+  //   formData.append('photo', photo);
+  //   uploadPhoto(formData).then(res => {
+  //     this.setState({
+  //       photo: res.Key,
+  //       fileUrl: URL.createObjectURL(photo),
+  //     });
+  //   });
+  // };
 
   validate = () => {
     let titleError = '';
@@ -62,12 +62,11 @@ export default class ArticleForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const photo = this.state.photo;
     const { content } = event.target;
     const { title } = event.target;
     const isValid = this.validate();
     if (isValid) {
-      postArticle(photo, title.value, content.value)
+      postArticle(title.value, content.value)
         .then(article => {
           this.context.addArticle(article);
         })
@@ -90,7 +89,7 @@ export default class ArticleForm extends Component {
         <form className='article-form' onSubmit={this.handleSubmit}>
           <h2> Add A New Article </h2>
 
-          {this.state.fileUrl ? (
+          {/* {this.state.fileUrl ? (
             <img src={`${this.state.fileUrl}`} alt='uploaded-file'></img>
           ) : (
             ''
@@ -101,7 +100,7 @@ export default class ArticleForm extends Component {
             name='photo'
             type='file'
             accept='image/jpg,image/jpeg'
-          ></input>
+          ></input> */}
           <input
             onChange={this.handleChange}
             value={this.state.title}
